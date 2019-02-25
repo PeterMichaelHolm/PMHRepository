@@ -1,0 +1,74 @@
+\section{src/stm32f3xx\+\_\+it.c File Reference}
+\label{stm32f3xx__it_8c}\index{src/stm32f3xx\+\_\+it.\+c@{src/stm32f3xx\+\_\+it.\+c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f3xx\+\_\+it.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ uart\+\_\+rx\+\_\+tx\+\_\+irq} (void)
+\item 
+void \textbf{ T\+I\+M4\+\_\+\+Handler} (void)
+\item 
+void \textbf{ T\+I\+M5\+\_\+\+Handler} (void)
+\item 
+void \textbf{ timer3\+\_\+int} (void)
+\item 
+void \textbf{ H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback} (C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$\textbf{ Can\+Handle})
+\begin{DoxyCompactList}\small\item\em Transmission complete callback in non blocking mode. \end{DoxyCompactList}\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle} (\textbf{ Led\+\_\+\+Type\+Def} Led)
+\item 
+void \textbf{ N\+M\+I\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles N\+MI exception. \end{DoxyCompactList}\item 
+void \textbf{ Hard\+Fault\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Hard Fault exception. \end{DoxyCompactList}\item 
+void \textbf{ Mem\+Manage\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Memory Manage exception. \end{DoxyCompactList}\item 
+void \textbf{ Bus\+Fault\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Bus Fault exception. \end{DoxyCompactList}\item 
+void \textbf{ Usage\+Fault\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Usage Fault exception. \end{DoxyCompactList}\item 
+void \textbf{ S\+V\+C\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles S\+V\+Call exception. \end{DoxyCompactList}\item 
+void \textbf{ Debug\+Mon\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Debug Monitor exception. \end{DoxyCompactList}\item 
+void \textbf{ Pend\+S\+V\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Pend\+S\+VC exception. \end{DoxyCompactList}\item 
+void \textbf{ Sys\+Tick\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Sys\+Tick Handler. \end{DoxyCompactList}\item 
+void \textbf{ C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH} (void)
+\begin{DoxyCompactList}\small\item\em This function handles C\+A\+N1 R\+X0 interrupt request. \end{DoxyCompactList}\item 
+void \textbf{ T\+I\+M3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+IM interrupt request. \end{DoxyCompactList}\item 
+void \textbf{ T\+I\+M4\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ T\+I\+M5\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles D\+MA Tx interrupt request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+C\+A\+N\+\_\+\+Handle\+Type\+Def \textbf{ Can\+Handle}
+\item 
+U\+A\+R\+T\+\_\+\+Handle\+Type\+Def \textbf{ Uart\+Handle}
+\item 
+S\+P\+I\+\_\+\+Handle\+Type\+Def \textbf{ Spi\+Handle}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \textbf{ Tim\+Handle}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \textbf{ Tim4\+Handle}
+\item 
+int \textbf{ timer3}
+\item 
+int \textbf{ motor\+\_\+soll\+\_\+tackt}
+\item 
+int \textbf{ motor\+\_\+ist\+\_\+tackt}
+\item 
+int \textbf{ motor\+\_\+freigabe}
+\item 
+int \textbf{ motor\+\_\+position2}
+\end{DoxyCompactItemize}

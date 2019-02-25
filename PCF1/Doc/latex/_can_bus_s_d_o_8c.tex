@@ -1,0 +1,468 @@
+\section{src/\+Can\+Bus\+S\+DO.c File Reference}
+\label{_can_bus_s_d_o_8c}\index{src/\+Can\+Bus\+S\+D\+O.\+c@{src/\+Can\+Bus\+S\+D\+O.\+c}}
+{\ttfamily \#include \char`\"{}Can\+Bus\+Data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR}~0x580
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR}~0x600
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Wait}~0
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Start}~1
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Transimtt\+\_\+process}~2
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Reseive\+\_\+process}~3
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Send\+A\+CK}~4
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Get\+A\+CK}~5
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Get\+Block\+\_\+len}~6
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Get\+First\+Block}~7
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Get\+Next\+Block}~8
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Set\+Block\+A\+CK}~9
+\item 
+\#define \textbf{ S\+D\+O\+\_\+\+Error}~10
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+write\+\_\+1b}~0x2f
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+write\+\_\+2b}~0x2b
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+write\+\_\+4b}~0x23
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+write\+\_\+g4b1}~0x20
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+write\+\_\+g4b2}~0x21
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+confirm}~0x60
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+toggle1}~0x20
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+toggle2}~0x30
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+read\+\_\+1}~0x40
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+read\+\_\+2}~0x41
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+read\+\_\+4b}~0x42
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+read\+\_\+1b}~0x4f
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+read\+\_\+2b}~0x4b
+\item 
+\#define \textbf{ sdo\+\_\+state\+\_\+read\+\_\+e4b}~0x43
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ C\+A\+N\+\_\+\+Config} (void)
+\begin{DoxyCompactList}\small\item\em Configures the C\+AN. \end{DoxyCompactList}\item 
+void \textbf{ init\+\_\+sdo} (void)
+\item 
+int \textbf{ sdo\+\_\+reseive} (int node, int object, char sub\+\_\+object)
+\item 
+int \textbf{ sdo\+\_\+send} (int node, int object, char sub\+\_\+object, int data, int len)
+\item 
+int \textbf{ reset\+\_\+can} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ can\+\_\+rx\+\_\+flag}
+\item 
+int \textbf{ can\+\_\+status}
+\item 
+int \textbf{ timer3}
+\item 
+int \textbf{ main\+\_\+error}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{_can_bus_s_d_o_8c_aaa5cbd4cb42279e50960ff0e88578fee}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Error@{S\+D\+O\+\_\+\+Error}}
+\index{S\+D\+O\+\_\+\+Error@{S\+D\+O\+\_\+\+Error}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Error}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Error~10}
+
+
+
+Definition at line 24 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a29677f22ae4a7f987e51714b3c9e273a}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Get\+A\+CK@{S\+D\+O\+\_\+\+Get\+A\+CK}}
+\index{S\+D\+O\+\_\+\+Get\+A\+CK@{S\+D\+O\+\_\+\+Get\+A\+CK}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Get\+A\+CK}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Get\+A\+CK~5}
+
+
+
+Definition at line 19 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a40077138cc19c717194c594c2bd679db}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Get\+Block\+\_\+len@{S\+D\+O\+\_\+\+Get\+Block\+\_\+len}}
+\index{S\+D\+O\+\_\+\+Get\+Block\+\_\+len@{S\+D\+O\+\_\+\+Get\+Block\+\_\+len}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Get\+Block\+\_\+len}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Get\+Block\+\_\+len~6}
+
+
+
+Definition at line 20 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_ae80cb5ff87a0594828050f799601b54d}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Get\+First\+Block@{S\+D\+O\+\_\+\+Get\+First\+Block}}
+\index{S\+D\+O\+\_\+\+Get\+First\+Block@{S\+D\+O\+\_\+\+Get\+First\+Block}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Get\+First\+Block}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Get\+First\+Block~7}
+
+
+
+Definition at line 21 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_ad36aa48fe29a3f8625853d430d1ef318}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Get\+Next\+Block@{S\+D\+O\+\_\+\+Get\+Next\+Block}}
+\index{S\+D\+O\+\_\+\+Get\+Next\+Block@{S\+D\+O\+\_\+\+Get\+Next\+Block}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Get\+Next\+Block}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Get\+Next\+Block~8}
+
+
+
+Definition at line 22 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a0a668c7378b3848d2822f6414f806d1d}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Reseive\+\_\+process@{S\+D\+O\+\_\+\+Reseive\+\_\+process}}
+\index{S\+D\+O\+\_\+\+Reseive\+\_\+process@{S\+D\+O\+\_\+\+Reseive\+\_\+process}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Reseive\+\_\+process}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Reseive\+\_\+process~3}
+
+
+
+Definition at line 17 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a14c527fd53c06d118fccfd223b345836}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR@{S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR}}
+\index{S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR@{S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+R\+X\+\_\+\+A\+DR~0x580}
+
+
+
+Definition at line 11 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_adf8cd482018624609ad7307508e4636f}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Send\+A\+CK@{S\+D\+O\+\_\+\+Send\+A\+CK}}
+\index{S\+D\+O\+\_\+\+Send\+A\+CK@{S\+D\+O\+\_\+\+Send\+A\+CK}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Send\+A\+CK}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Send\+A\+CK~4}
+
+
+
+Definition at line 18 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a4968ad34a92894077eb58ef06efc4b82}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Set\+Block\+A\+CK@{S\+D\+O\+\_\+\+Set\+Block\+A\+CK}}
+\index{S\+D\+O\+\_\+\+Set\+Block\+A\+CK@{S\+D\+O\+\_\+\+Set\+Block\+A\+CK}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Set\+Block\+A\+CK}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Set\+Block\+A\+CK~9}
+
+
+
+Definition at line 23 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_aac300174e5159fb8af3dc11519b24783}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Start@{S\+D\+O\+\_\+\+Start}}
+\index{S\+D\+O\+\_\+\+Start@{S\+D\+O\+\_\+\+Start}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Start}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Start~1}
+
+
+
+Definition at line 15 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_acd2ca6787b8f4a2b2e3bb0dea05a7677}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+confirm@{sdo\+\_\+state\+\_\+confirm}}
+\index{sdo\+\_\+state\+\_\+confirm@{sdo\+\_\+state\+\_\+confirm}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+confirm}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+confirm~0x60}
+
+
+
+Definition at line 31 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a6a6143a9f452c99f85824d5b3d3e2b67}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+read\+\_\+1@{sdo\+\_\+state\+\_\+read\+\_\+1}}
+\index{sdo\+\_\+state\+\_\+read\+\_\+1@{sdo\+\_\+state\+\_\+read\+\_\+1}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+read\+\_\+1}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+read\+\_\+1~0x40}
+
+
+
+Definition at line 34 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a4567d0bbbe614bae35d48e9da3b355d1}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+read\+\_\+1b@{sdo\+\_\+state\+\_\+read\+\_\+1b}}
+\index{sdo\+\_\+state\+\_\+read\+\_\+1b@{sdo\+\_\+state\+\_\+read\+\_\+1b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+read\+\_\+1b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+read\+\_\+1b~0x4f}
+
+
+
+Definition at line 37 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a56b823b0c4156891a84b573fc84847b3}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+read\+\_\+2@{sdo\+\_\+state\+\_\+read\+\_\+2}}
+\index{sdo\+\_\+state\+\_\+read\+\_\+2@{sdo\+\_\+state\+\_\+read\+\_\+2}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+read\+\_\+2}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+read\+\_\+2~0x41}
+
+
+
+Definition at line 35 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_ade118b05e26fe7abe44a15b0bc2bb0e0}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+read\+\_\+2b@{sdo\+\_\+state\+\_\+read\+\_\+2b}}
+\index{sdo\+\_\+state\+\_\+read\+\_\+2b@{sdo\+\_\+state\+\_\+read\+\_\+2b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+read\+\_\+2b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+read\+\_\+2b~0x4b}
+
+
+
+Definition at line 38 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a9a9834180a4c1990ba5f5a14ae4cc3d9}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+read\+\_\+4b@{sdo\+\_\+state\+\_\+read\+\_\+4b}}
+\index{sdo\+\_\+state\+\_\+read\+\_\+4b@{sdo\+\_\+state\+\_\+read\+\_\+4b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+read\+\_\+4b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+read\+\_\+4b~0x42}
+
+
+
+Definition at line 36 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_aecb82ae43f91d0c792850f189d301f1d}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+read\+\_\+e4b@{sdo\+\_\+state\+\_\+read\+\_\+e4b}}
+\index{sdo\+\_\+state\+\_\+read\+\_\+e4b@{sdo\+\_\+state\+\_\+read\+\_\+e4b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+read\+\_\+e4b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+read\+\_\+e4b~0x43}
+
+
+
+Definition at line 39 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a48c48be62b491f93debf4084c9f061e2}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+toggle1@{sdo\+\_\+state\+\_\+toggle1}}
+\index{sdo\+\_\+state\+\_\+toggle1@{sdo\+\_\+state\+\_\+toggle1}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+toggle1}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+toggle1~0x20}
+
+
+
+Definition at line 32 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_aaf72692fd695310c25f24eb06a5ed6d8}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+toggle2@{sdo\+\_\+state\+\_\+toggle2}}
+\index{sdo\+\_\+state\+\_\+toggle2@{sdo\+\_\+state\+\_\+toggle2}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+toggle2}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+toggle2~0x30}
+
+
+
+Definition at line 33 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a4c5b236d6fdae48228eed9869d6c9fda}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+write\+\_\+1b@{sdo\+\_\+state\+\_\+write\+\_\+1b}}
+\index{sdo\+\_\+state\+\_\+write\+\_\+1b@{sdo\+\_\+state\+\_\+write\+\_\+1b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+write\+\_\+1b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+write\+\_\+1b~0x2f}
+
+
+
+Definition at line 26 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_aff30e62a514d39e6102fcb1a1f9956b3}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+write\+\_\+2b@{sdo\+\_\+state\+\_\+write\+\_\+2b}}
+\index{sdo\+\_\+state\+\_\+write\+\_\+2b@{sdo\+\_\+state\+\_\+write\+\_\+2b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+write\+\_\+2b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+write\+\_\+2b~0x2b}
+
+
+
+Definition at line 27 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a352618bc01b086fcbe95bec389d57bb3}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+write\+\_\+4b@{sdo\+\_\+state\+\_\+write\+\_\+4b}}
+\index{sdo\+\_\+state\+\_\+write\+\_\+4b@{sdo\+\_\+state\+\_\+write\+\_\+4b}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+write\+\_\+4b}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+write\+\_\+4b~0x23}
+
+
+
+Definition at line 28 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_af89642d8fbda8a05094162777bc89944}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+write\+\_\+g4b1@{sdo\+\_\+state\+\_\+write\+\_\+g4b1}}
+\index{sdo\+\_\+state\+\_\+write\+\_\+g4b1@{sdo\+\_\+state\+\_\+write\+\_\+g4b1}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+write\+\_\+g4b1}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+write\+\_\+g4b1~0x20}
+
+
+
+Definition at line 29 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_ad7acca4c411df1e75096aff226088f2b}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+state\+\_\+write\+\_\+g4b2@{sdo\+\_\+state\+\_\+write\+\_\+g4b2}}
+\index{sdo\+\_\+state\+\_\+write\+\_\+g4b2@{sdo\+\_\+state\+\_\+write\+\_\+g4b2}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+state\+\_\+write\+\_\+g4b2}
+{\footnotesize\ttfamily \#define sdo\+\_\+state\+\_\+write\+\_\+g4b2~0x21}
+
+
+
+Definition at line 30 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a4871fe3421b74fd62b3ddd9b5a02e046}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Transimtt\+\_\+process@{S\+D\+O\+\_\+\+Transimtt\+\_\+process}}
+\index{S\+D\+O\+\_\+\+Transimtt\+\_\+process@{S\+D\+O\+\_\+\+Transimtt\+\_\+process}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Transimtt\+\_\+process}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Transimtt\+\_\+process~2}
+
+
+
+Definition at line 16 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a8f0b977a873244a6e117f501e79a197f}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR@{S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR}}
+\index{S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR@{S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+T\+X\+\_\+\+A\+DR~0x600}
+
+
+
+Definition at line 12 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a740feaa540f452fd4c778a937dd408cf}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!S\+D\+O\+\_\+\+Wait@{S\+D\+O\+\_\+\+Wait}}
+\index{S\+D\+O\+\_\+\+Wait@{S\+D\+O\+\_\+\+Wait}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{S\+D\+O\+\_\+\+Wait}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+Wait~0}
+
+
+
+Definition at line 14 of file Can\+Bus\+S\+D\+O.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{_can_bus_s_d_o_8c_a7def53b8e16a77dcb26b67c43edb3644}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!C\+A\+N\+\_\+\+Config@{C\+A\+N\+\_\+\+Config}}
+\index{C\+A\+N\+\_\+\+Config@{C\+A\+N\+\_\+\+Config}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{C\+A\+N\+\_\+\+Config()}
+{\footnotesize\ttfamily void C\+A\+N\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configures the C\+AN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1492 of file main.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a87fc19cbb8a9e65a095afdc9f03db6c6}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!init\+\_\+sdo@{init\+\_\+sdo}}
+\index{init\+\_\+sdo@{init\+\_\+sdo}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{init\+\_\+sdo()}
+{\footnotesize\ttfamily void init\+\_\+sdo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a5a392245f62ad9b5c3a378af626249b1}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!reset\+\_\+can@{reset\+\_\+can}}
+\index{reset\+\_\+can@{reset\+\_\+can}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{reset\+\_\+can()}
+{\footnotesize\ttfamily int reset\+\_\+can (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 208 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a6b768675f6e34d26d3ee6628c86e1c65}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+reseive@{sdo\+\_\+reseive}}
+\index{sdo\+\_\+reseive@{sdo\+\_\+reseive}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+reseive()}
+{\footnotesize\ttfamily int sdo\+\_\+reseive (\begin{DoxyParamCaption}\item[{int}]{node,  }\item[{int}]{object,  }\item[{char}]{sub\+\_\+object }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_aacd31538a9d41269e68e6cec5b1ba3de}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!sdo\+\_\+send@{sdo\+\_\+send}}
+\index{sdo\+\_\+send@{sdo\+\_\+send}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{sdo\+\_\+send()}
+{\footnotesize\ttfamily int sdo\+\_\+send (\begin{DoxyParamCaption}\item[{int}]{node,  }\item[{int}]{object,  }\item[{char}]{sub\+\_\+object,  }\item[{int}]{data,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+!!!!!!!!!!!!!!! Timeout 
+
+Definition at line 132 of file Can\+Bus\+S\+D\+O.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{_can_bus_s_d_o_8c_a82989d280251163bcee5ffcfbf050969}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!can\+\_\+rx\+\_\+flag@{can\+\_\+rx\+\_\+flag}}
+\index{can\+\_\+rx\+\_\+flag@{can\+\_\+rx\+\_\+flag}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{can\+\_\+rx\+\_\+flag}
+{\footnotesize\ttfamily int can\+\_\+rx\+\_\+flag}
+
+
+
+Definition at line 150 of file main.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a6bffbfe209feb02d13b8eb72cdb3cf4b}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!can\+\_\+status@{can\+\_\+status}}
+\index{can\+\_\+status@{can\+\_\+status}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{can\+\_\+status}
+{\footnotesize\ttfamily int can\+\_\+status}
+
+
+
+Definition at line 205 of file main.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a7ffc28e9156b38574a5031086c1cbf0f}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!main\+\_\+error@{main\+\_\+error}}
+\index{main\+\_\+error@{main\+\_\+error}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{main\+\_\+error}
+{\footnotesize\ttfamily int main\+\_\+error}
+
+
+
+Definition at line 195 of file main.\+c.
+
+\mbox{\label{_can_bus_s_d_o_8c_a0976503fef01ed7144670e9ffde047b4}} 
+\index{Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}!timer3@{timer3}}
+\index{timer3@{timer3}!Can\+Bus\+S\+D\+O.\+c@{Can\+Bus\+S\+D\+O.\+c}}
+\subsubsection{timer3}
+{\footnotesize\ttfamily int timer3}
+
+
+
+Definition at line 36 of file globdata.\+c.
+

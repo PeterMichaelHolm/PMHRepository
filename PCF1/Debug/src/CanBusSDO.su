@@ -1,0 +1,4 @@
+CanBusSDO.c:42:6:init_sdo	0	static
+CanBusSDO.c:63:5:sdo_reseive	8	static
+CanBusSDO.c:132:5:sdo_send	16	static
+CanBusSDO.c:210:5:reset_can	8	static

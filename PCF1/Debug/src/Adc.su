@@ -1,0 +1,5 @@
+Adc.c:4:6:AdcInit	8	static
+Adc.c:9:6:wait_low	0	static
+Adc.c:14:6:wait_high	0	static
+Adc.c:18:5:get_adc	16	static
+Adc.c:49:7:get_adc_val	8	static

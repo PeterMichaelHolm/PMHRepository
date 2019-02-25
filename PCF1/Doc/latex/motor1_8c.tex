@@ -1,0 +1,351 @@
+\section{src/motor1.c File Reference}
+\label{motor1_8c}\index{src/motor1.\+c@{src/motor1.\+c}}
+{\ttfamily \#include \char`\"{}Can\+Bus\+S\+D\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ teiler}~6
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ wait\+\_\+ms} (int msec)
+\item 
+void \textbf{ debug\+\_\+inf} (char $\ast$text)
+\item 
+int \textbf{ probefahrt} (int zeit)
+\item 
+int \textbf{ auto\+\_\+setup} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+power\+\_\+on} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+power\+\_\+off} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+entlage\+\_\+links} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+entlage\+\_\+rechts} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+stop} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+gesch} (int val)
+\item 
+int \textbf{ set\+\_\+rampe\+\_\+rauf} (void)
+\item 
+int \textbf{ set\+\_\+rampe\+\_\+runter} (void)
+\item 
+int \textbf{ set\+\_\+rampe\+\_\+rauf\+\_\+r} (void)
+\item 
+int \textbf{ set\+\_\+rampe\+\_\+runter\+\_\+r} (void)
+\item 
+int \textbf{ set\+\_\+position\+\_\+r} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+startpos} (void)
+\item 
+int \textbf{ set\+\_\+mode} (unsigned char val)
+\item 
+int \textbf{ set\+\_\+position} (void)
+\item 
+int \textbf{ set\+\_\+strom\+\_\+ru} (void)
+\item 
+int \textbf{ set\+\_\+strom} (void)
+\item 
+void \textbf{ wait\+\_\+ms1} (int msec)
+\item 
+int \textbf{ setup\+\_\+motorrueckfahrt} (void)
+\item 
+int \textbf{ set\+\_\+not\+\_\+stop} (void)
+\item 
+int \textbf{ setup\+\_\+motorhinfahrt} (void)
+\item 
+int \textbf{ setup\+\_\+moto\+\_\+offset} (void)
+\item 
+int \textbf{ set\+\_\+strom\+\_\+vor} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ timer3}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{motor1_8c_a8ee1c24f8ad0420c26e3dd186db99e27}} 
+\index{motor1.\+c@{motor1.\+c}!teiler@{teiler}}
+\index{teiler@{teiler}!motor1.\+c@{motor1.\+c}}
+\subsubsection{teiler}
+{\footnotesize\ttfamily \#define teiler~6}
+
+
+
+Definition at line 6 of file motor1.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{motor1_8c_a74908ae0608550a6106b2d9348f1cb86}} 
+\index{motor1.\+c@{motor1.\+c}!auto\+\_\+setup@{auto\+\_\+setup}}
+\index{auto\+\_\+setup@{auto\+\_\+setup}!motor1.\+c@{motor1.\+c}}
+\subsubsection{auto\+\_\+setup()}
+{\footnotesize\ttfamily int auto\+\_\+setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{motor1_8c_afb3a2ffa2014ea9d37ba91c6072d18aa}} 
+\index{motor1.\+c@{motor1.\+c}!debug\+\_\+inf@{debug\+\_\+inf}}
+\index{debug\+\_\+inf@{debug\+\_\+inf}!motor1.\+c@{motor1.\+c}}
+\subsubsection{debug\+\_\+inf()}
+{\footnotesize\ttfamily void debug\+\_\+inf (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1239 of file main.\+c.
+
+\mbox{\label{motor1_8c_aa3482fd571b315d112e8514a1b765b75}} 
+\index{motor1.\+c@{motor1.\+c}!probefahrt@{probefahrt}}
+\index{probefahrt@{probefahrt}!motor1.\+c@{motor1.\+c}}
+\subsubsection{probefahrt()}
+{\footnotesize\ttfamily int probefahrt (\begin{DoxyParamCaption}\item[{int}]{zeit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a159542ecde643af0cd48a7576fd974c1}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+mode@{set\+\_\+mode}}
+\index{set\+\_\+mode@{set\+\_\+mode}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+mode()}
+{\footnotesize\ttfamily int set\+\_\+mode (\begin{DoxyParamCaption}\item[{unsigned char}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 479 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a8168802a949dff7a8df33ff38eaf0d20}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+entlage\+\_\+links@{set\+\_\+motor\+\_\+entlage\+\_\+links}}
+\index{set\+\_\+motor\+\_\+entlage\+\_\+links@{set\+\_\+motor\+\_\+entlage\+\_\+links}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+entlage\+\_\+links()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+entlage\+\_\+links (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 163 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_ae7371f4fed363ba54f2f894ac3720c06}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+entlage\+\_\+rechts@{set\+\_\+motor\+\_\+entlage\+\_\+rechts}}
+\index{set\+\_\+motor\+\_\+entlage\+\_\+rechts@{set\+\_\+motor\+\_\+entlage\+\_\+rechts}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+entlage\+\_\+rechts()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+entlage\+\_\+rechts (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 248 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a3e09d5cea7b692aceb221749999cb52b}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+gesch@{set\+\_\+motor\+\_\+gesch}}
+\index{set\+\_\+motor\+\_\+gesch@{set\+\_\+motor\+\_\+gesch}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+gesch()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+gesch (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 465 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_aca930076cffa70b62efe0f7f4281f80d}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+power\+\_\+off@{set\+\_\+motor\+\_\+power\+\_\+off}}
+\index{set\+\_\+motor\+\_\+power\+\_\+off@{set\+\_\+motor\+\_\+power\+\_\+off}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+power\+\_\+off()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+power\+\_\+off (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 153 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a880850784362150376faf21b3ce817ca}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+power\+\_\+on@{set\+\_\+motor\+\_\+power\+\_\+on}}
+\index{set\+\_\+motor\+\_\+power\+\_\+on@{set\+\_\+motor\+\_\+power\+\_\+on}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+power\+\_\+on()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+power\+\_\+on (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 115 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a01a9f2f0272b5b4f53e9b5d8487328a5}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+startpos@{set\+\_\+motor\+\_\+startpos}}
+\index{set\+\_\+motor\+\_\+startpos@{set\+\_\+motor\+\_\+startpos}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+startpos()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+startpos (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 599 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_afd8be57a5ca0755c4b210876e2dcc671}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+motor\+\_\+stop@{set\+\_\+motor\+\_\+stop}}
+\index{set\+\_\+motor\+\_\+stop@{set\+\_\+motor\+\_\+stop}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+stop()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 391 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a1f1537adeeb42279cc3045e28ee51b21}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+not\+\_\+stop@{set\+\_\+not\+\_\+stop}}
+\index{set\+\_\+not\+\_\+stop@{set\+\_\+not\+\_\+stop}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+not\+\_\+stop()}
+{\footnotesize\ttfamily int set\+\_\+not\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 412 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a843057b82662549bcf7103b65041af8a}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+position@{set\+\_\+position}}
+\index{set\+\_\+position@{set\+\_\+position}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+position()}
+{\footnotesize\ttfamily int set\+\_\+position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 564 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a233b311a59e81e28d3715ee8747ccc16}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+position\+\_\+r@{set\+\_\+position\+\_\+r}}
+\index{set\+\_\+position\+\_\+r@{set\+\_\+position\+\_\+r}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+position\+\_\+r()}
+{\footnotesize\ttfamily int set\+\_\+position\+\_\+r (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 584 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a6eb5854d93e82cf44070cf68ac925d54}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+rampe\+\_\+rauf@{set\+\_\+rampe\+\_\+rauf}}
+\index{set\+\_\+rampe\+\_\+rauf@{set\+\_\+rampe\+\_\+rauf}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+rampe\+\_\+rauf()}
+{\footnotesize\ttfamily int set\+\_\+rampe\+\_\+rauf (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 519 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a288a1d04e8500a9330b66dd38faf2fef}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+rampe\+\_\+rauf\+\_\+r@{set\+\_\+rampe\+\_\+rauf\+\_\+r}}
+\index{set\+\_\+rampe\+\_\+rauf\+\_\+r@{set\+\_\+rampe\+\_\+rauf\+\_\+r}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+rampe\+\_\+rauf\+\_\+r()}
+{\footnotesize\ttfamily int set\+\_\+rampe\+\_\+rauf\+\_\+r (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 541 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a895f3882832612535da3e8d8bdfe9b1d}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+rampe\+\_\+runter@{set\+\_\+rampe\+\_\+runter}}
+\index{set\+\_\+rampe\+\_\+runter@{set\+\_\+rampe\+\_\+runter}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+rampe\+\_\+runter()}
+{\footnotesize\ttfamily int set\+\_\+rampe\+\_\+runter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 530 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a91a056e313c040cb3205fa0cf07608af}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+rampe\+\_\+runter\+\_\+r@{set\+\_\+rampe\+\_\+runter\+\_\+r}}
+\index{set\+\_\+rampe\+\_\+runter\+\_\+r@{set\+\_\+rampe\+\_\+runter\+\_\+r}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+rampe\+\_\+runter\+\_\+r()}
+{\footnotesize\ttfamily int set\+\_\+rampe\+\_\+runter\+\_\+r (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 552 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a9e91f83fd7c44aa91e3eabd5b4ef536a}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+strom@{set\+\_\+strom}}
+\index{set\+\_\+strom@{set\+\_\+strom}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+strom()}
+{\footnotesize\ttfamily int set\+\_\+strom (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{motor1_8c_a751fa601f0d930e5262d7d4a391d327b}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+strom\+\_\+ru@{set\+\_\+strom\+\_\+ru}}
+\index{set\+\_\+strom\+\_\+ru@{set\+\_\+strom\+\_\+ru}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+strom\+\_\+ru()}
+{\footnotesize\ttfamily int set\+\_\+strom\+\_\+ru (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 505 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a225453e045caff0cf502084e3e8d74d8}} 
+\index{motor1.\+c@{motor1.\+c}!set\+\_\+strom\+\_\+vor@{set\+\_\+strom\+\_\+vor}}
+\index{set\+\_\+strom\+\_\+vor@{set\+\_\+strom\+\_\+vor}!motor1.\+c@{motor1.\+c}}
+\subsubsection{set\+\_\+strom\+\_\+vor()}
+{\footnotesize\ttfamily int set\+\_\+strom\+\_\+vor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 492 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a40a1174a35264698604aa308398fc86c}} 
+\index{motor1.\+c@{motor1.\+c}!setup\+\_\+moto\+\_\+offset@{setup\+\_\+moto\+\_\+offset}}
+\index{setup\+\_\+moto\+\_\+offset@{setup\+\_\+moto\+\_\+offset}!motor1.\+c@{motor1.\+c}}
+\subsubsection{setup\+\_\+moto\+\_\+offset()}
+{\footnotesize\ttfamily int setup\+\_\+moto\+\_\+offset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 447 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_ada4960474e4d8468890ef4bf8bb124d1}} 
+\index{motor1.\+c@{motor1.\+c}!setup\+\_\+motorhinfahrt@{setup\+\_\+motorhinfahrt}}
+\index{setup\+\_\+motorhinfahrt@{setup\+\_\+motorhinfahrt}!motor1.\+c@{motor1.\+c}}
+\subsubsection{setup\+\_\+motorhinfahrt()}
+{\footnotesize\ttfamily int setup\+\_\+motorhinfahrt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 427 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_a6fcdd3a1db9fc997a3d2130d6ceaef8c}} 
+\index{motor1.\+c@{motor1.\+c}!setup\+\_\+motorrueckfahrt@{setup\+\_\+motorrueckfahrt}}
+\index{setup\+\_\+motorrueckfahrt@{setup\+\_\+motorrueckfahrt}!motor1.\+c@{motor1.\+c}}
+\subsubsection{setup\+\_\+motorrueckfahrt()}
+{\footnotesize\ttfamily int setup\+\_\+motorrueckfahrt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 396 of file motor1.\+c.
+
+\mbox{\label{motor1_8c_afad8aa90d3f050d853049cb8cd30a2db}} 
+\index{motor1.\+c@{motor1.\+c}!wait\+\_\+ms@{wait\+\_\+ms}}
+\index{wait\+\_\+ms@{wait\+\_\+ms}!motor1.\+c@{motor1.\+c}}
+\subsubsection{wait\+\_\+ms()}
+{\footnotesize\ttfamily void wait\+\_\+ms (\begin{DoxyParamCaption}\item[{int}]{msec }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1315 of file main.\+c.
+
+\mbox{\label{motor1_8c_af4a649474b436de91730681e8174160e}} 
+\index{motor1.\+c@{motor1.\+c}!wait\+\_\+ms1@{wait\+\_\+ms1}}
+\index{wait\+\_\+ms1@{wait\+\_\+ms1}!motor1.\+c@{motor1.\+c}}
+\subsubsection{wait\+\_\+ms1()}
+{\footnotesize\ttfamily void wait\+\_\+ms1 (\begin{DoxyParamCaption}\item[{int}]{msec }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file motor1.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{motor1_8c_a0976503fef01ed7144670e9ffde047b4}} 
+\index{motor1.\+c@{motor1.\+c}!timer3@{timer3}}
+\index{timer3@{timer3}!motor1.\+c@{motor1.\+c}}
+\subsubsection{timer3}
+{\footnotesize\ttfamily int timer3}
+
+
+
+Definition at line 36 of file globdata.\+c.
+

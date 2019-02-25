@@ -1,0 +1,870 @@
+\section{src/befehl.c File Reference}
+\label{befehl_8c}\index{src/befehl.\+c@{src/befehl.\+c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32373c\+\_\+eval.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}at45db161.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ eep\+\_\+adr\+\_\+start\+\_\+prozess1}~8
+\item 
+\#define \textbf{ E\+SC}~\textquotesingle{}A\textquotesingle{}
+\item 
+\#define \textbf{ E\+ND}~\textquotesingle{}Z\textquotesingle{}
+\item 
+\#define \textbf{ ping}~\textquotesingle{}p\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+zeit}~\textquotesingle{}z\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+end\+\_\+druck}~\textquotesingle{}d\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+rueck\+\_\+geschw}~\textquotesingle{}r\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+max\+\_\+step}~\textquotesingle{}\textbf{ b}\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+prg\+\_\+nr}~\textquotesingle{}n\textquotesingle{}
+\item 
+\#define \textbf{ start}~\textquotesingle{}s\textquotesingle{}
+\item 
+\#define \textbf{ stop}~\textquotesingle{}S\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+beschl\+\_\+rauf}~\textquotesingle{}\textbf{ c}\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+beschl\+\_\+runter}~\textquotesingle{}e\textquotesingle{}
+\item 
+\#define \textbf{ get\+\_\+druck}~\textquotesingle{}\textbf{ f}\textquotesingle{}
+\item 
+\#define \textbf{ passwort}~\textquotesingle{}a\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+max\+\_\+druck\+\_\+geber}~\textquotesingle{}M\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+max\+\_\+druck}~\textquotesingle{}\textbf{ m}\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+offset}~\textquotesingle{}o\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+beschl\+\_\+rauf\+\_\+r}~\textquotesingle{}D\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+beschl\+\_\+runter\+\_\+r}~\textquotesingle{}E\textquotesingle{}
+\item 
+\#define \textbf{ print\+\_\+druck}~\textquotesingle{}P\textquotesingle{}
+\item 
+\#define \textbf{ print\+\_\+rampe\+\_\+vor}~\textquotesingle{}B\textquotesingle{}
+\item 
+\#define \textbf{ print\+\_\+rampe\+\_\+zurueck}~\textquotesingle{}C\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+strom}~\textquotesingle{}g\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+strom\+\_\+r}~\textquotesingle{}j\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+max\+\_\+fuell}~\textquotesingle{}I\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+delay}~\textquotesingle{}k\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+steigung}~\textquotesingle{}t\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+entlage1}~\textquotesingle{}v\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+fuell\+\_\+min}~\textquotesingle{}w\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+fuell\+\_\+max}~\textquotesingle{}x\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+netzwerk}~\textquotesingle{}y\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+start\+\_\+strom}~\textquotesingle{}h\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+rampe\+\_\+offset}~\textquotesingle{}\textbf{ i}\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+conn}~\textquotesingle{}n\textquotesingle{}
+\item 
+\#define \textbf{ get\+\_\+block\+\_\+zahl}~\textquotesingle{}F\textquotesingle{}
+\item 
+\#define \textbf{ set\+\_\+block}~\textquotesingle{}G\textquotesingle{}
+\item 
+\#define \textbf{ get\+\_\+end\+\_\+druck}~\textquotesingle{}H\textquotesingle{}
+\item 
+\#define \textbf{ del\+\_\+speicher}~\textquotesingle{}K\textquotesingle{}
+\item 
+\#define \textbf{ max\+\_\+druck\+\_\+eingabe}~\textquotesingle{}l\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ setup\+\_\+m\+\_\+gesch} (void)
+\item 
+void \textbf{ print\+\_\+f0} (char $\ast$text)
+\item 
+void \textbf{ print\+\_\+f\+\_\+lf0} (char $\ast$text)
+\item 
+void \textbf{ reset\+\_\+in\+\_\+0\+\_\+buff} ()
+\item 
+float \textbf{ get\+\_\+adc\+\_\+val} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+entlage\+\_\+rechts} (void)
+\item 
+float \textbf{ get\+\_\+oel\+\_\+stand} (void)
+\item 
+int \textbf{ set\+\_\+motor\+\_\+power\+\_\+off} (void)
+\item 
+int \textbf{ sdo\+\_\+send} (int node, int object, char sub\+\_\+object, int data, int len)
+\item 
+int \textbf{ sdo\+\_\+reseive} (int node, int object, char sub\+\_\+object)
+\item 
+int \textbf{ find\+\_\+offset} (void)
+\item 
+void \textbf{ send\+\_\+\+A\+CK} (char \textbf{ c}, char art)
+\item 
+int \textbf{ get\+\_\+ser\+\_\+int} (char $\ast$buff, int $\ast$address)
+\item 
+float \textbf{ get\+\_\+ser\+\_\+float} (char $\ast$buff, int $\ast$adress)
+\item 
+void \textbf{ send\+\_\+float\+\_\+val} (char \textbf{ befehl}, float val)
+\item 
+void \textbf{ send\+\_\+int\+\_\+val} (char \textbf{ befehl}, int val)
+\item 
+void \textbf{ anzeige\+\_\+send\+\_\+int} (int val)
+\item 
+unsigned char \textbf{ get\+\_\+char} (void)
+\item 
+int \textbf{ get\+\_\+in\+\_\+buff\+\_\+len} (void)
+\item 
+void \textbf{ send\+\_\+slip0} (char $\ast$text, int len)
+\item 
+int \textbf{ auto\+\_\+setup} (void)
+\item 
+int \textbf{ get\+\_\+eep\+\_\+int16} (int block, int adr)
+\item 
+void \textbf{ wait\+\_\+ms} (int msec)
+\item 
+void \textbf{ befehl} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ password} =1
+\item 
+int \textbf{ main\+\_\+error}
+\item 
+float \textbf{ max\+\_\+druck}
+\item 
+float \textbf{ oel\+\_\+stand}
+\item 
+int \textbf{ soll\+\_\+zeit}
+\item 
+int \textbf{ motor\+\_\+timer}
+\item 
+int \textbf{ tasten}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{befehl_8c_ab12398cac598c9ba3d84931a780ce987}} 
+\index{befehl.\+c@{befehl.\+c}!del\+\_\+speicher@{del\+\_\+speicher}}
+\index{del\+\_\+speicher@{del\+\_\+speicher}!befehl.\+c@{befehl.\+c}}
+\subsubsection{del\+\_\+speicher}
+{\footnotesize\ttfamily \#define del\+\_\+speicher~\textquotesingle{}K\textquotesingle{}}
+
+
+
+Definition at line 54 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a01a0a6737faa8c3e0cc1f0a4442abbb8}} 
+\index{befehl.\+c@{befehl.\+c}!eep\+\_\+adr\+\_\+start\+\_\+prozess1@{eep\+\_\+adr\+\_\+start\+\_\+prozess1}}
+\index{eep\+\_\+adr\+\_\+start\+\_\+prozess1@{eep\+\_\+adr\+\_\+start\+\_\+prozess1}!befehl.\+c@{befehl.\+c}}
+\subsubsection{eep\+\_\+adr\+\_\+start\+\_\+prozess1}
+{\footnotesize\ttfamily \#define eep\+\_\+adr\+\_\+start\+\_\+prozess1~8}
+
+\mbox{\label{befehl_8c_a29fd18bed01c4d836c7ebfe73a125c3f}} 
+\index{befehl.\+c@{befehl.\+c}!E\+ND@{E\+ND}}
+\index{E\+ND@{E\+ND}!befehl.\+c@{befehl.\+c}}
+\subsubsection{E\+ND}
+{\footnotesize\ttfamily \#define E\+ND~\textquotesingle{}Z\textquotesingle{}}
+
+
+
+Definition at line 10 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a4af1b6159e447ba72652bb7fcdfa726e}} 
+\index{befehl.\+c@{befehl.\+c}!E\+SC@{E\+SC}}
+\index{E\+SC@{E\+SC}!befehl.\+c@{befehl.\+c}}
+\subsubsection{E\+SC}
+{\footnotesize\ttfamily \#define E\+SC~\textquotesingle{}A\textquotesingle{}}
+
+
+
+Definition at line 9 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a093109e50cb3890c5f0854e2d1277729}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+block\+\_\+zahl@{get\+\_\+block\+\_\+zahl}}
+\index{get\+\_\+block\+\_\+zahl@{get\+\_\+block\+\_\+zahl}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+block\+\_\+zahl}
+{\footnotesize\ttfamily \#define get\+\_\+block\+\_\+zahl~\textquotesingle{}F\textquotesingle{}}
+
+
+
+Definition at line 51 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a350cf9b6bd1d61cbbb51bf59599885d8}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+druck@{get\+\_\+druck}}
+\index{get\+\_\+druck@{get\+\_\+druck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+druck}
+{\footnotesize\ttfamily \#define get\+\_\+druck~\textquotesingle{}\textbf{ f}\textquotesingle{}}
+
+
+
+Definition at line 22 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a39639decb978153b837db4b20d8b71b7}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+end\+\_\+druck@{get\+\_\+end\+\_\+druck}}
+\index{get\+\_\+end\+\_\+druck@{get\+\_\+end\+\_\+druck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+end\+\_\+druck}
+{\footnotesize\ttfamily \#define get\+\_\+end\+\_\+druck~\textquotesingle{}H\textquotesingle{}}
+
+
+
+Definition at line 53 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a9a68a03fd6447131e184b0801b7b6729}} 
+\index{befehl.\+c@{befehl.\+c}!max\+\_\+druck\+\_\+eingabe@{max\+\_\+druck\+\_\+eingabe}}
+\index{max\+\_\+druck\+\_\+eingabe@{max\+\_\+druck\+\_\+eingabe}!befehl.\+c@{befehl.\+c}}
+\subsubsection{max\+\_\+druck\+\_\+eingabe}
+{\footnotesize\ttfamily \#define max\+\_\+druck\+\_\+eingabe~\textquotesingle{}l\textquotesingle{}}
+
+
+
+Definition at line 55 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ada6a609998ecfca47bef369cd05b97c1}} 
+\index{befehl.\+c@{befehl.\+c}!passwort@{passwort}}
+\index{passwort@{passwort}!befehl.\+c@{befehl.\+c}}
+\subsubsection{passwort}
+{\footnotesize\ttfamily \#define passwort~\textquotesingle{}a\textquotesingle{}}
+
+
+
+Definition at line 23 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a893e969cd2c2a2e1c87e7aec415f867c}} 
+\index{befehl.\+c@{befehl.\+c}!ping@{ping}}
+\index{ping@{ping}!befehl.\+c@{befehl.\+c}}
+\subsubsection{ping}
+{\footnotesize\ttfamily \#define ping~\textquotesingle{}p\textquotesingle{}}
+
+
+
+Definition at line 12 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a614f6e5ed300b08d23c885cab1573169}} 
+\index{befehl.\+c@{befehl.\+c}!print\+\_\+druck@{print\+\_\+druck}}
+\index{print\+\_\+druck@{print\+\_\+druck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{print\+\_\+druck}
+{\footnotesize\ttfamily \#define print\+\_\+druck~\textquotesingle{}P\textquotesingle{}}
+
+
+
+Definition at line 29 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a8979eb5fd052227a502f34eb8919be17}} 
+\index{befehl.\+c@{befehl.\+c}!print\+\_\+rampe\+\_\+vor@{print\+\_\+rampe\+\_\+vor}}
+\index{print\+\_\+rampe\+\_\+vor@{print\+\_\+rampe\+\_\+vor}!befehl.\+c@{befehl.\+c}}
+\subsubsection{print\+\_\+rampe\+\_\+vor}
+{\footnotesize\ttfamily \#define print\+\_\+rampe\+\_\+vor~\textquotesingle{}B\textquotesingle{}}
+
+
+
+Definition at line 30 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a008b4ed0f4c044060367d5358d7be234}} 
+\index{befehl.\+c@{befehl.\+c}!print\+\_\+rampe\+\_\+zurueck@{print\+\_\+rampe\+\_\+zurueck}}
+\index{print\+\_\+rampe\+\_\+zurueck@{print\+\_\+rampe\+\_\+zurueck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{print\+\_\+rampe\+\_\+zurueck}
+{\footnotesize\ttfamily \#define print\+\_\+rampe\+\_\+zurueck~\textquotesingle{}C\textquotesingle{}}
+
+
+
+Definition at line 31 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ae44d99f25ff3d4de3278625871a5b2a8}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+beschl\+\_\+rauf@{set\+\_\+beschl\+\_\+rauf}}
+\index{set\+\_\+beschl\+\_\+rauf@{set\+\_\+beschl\+\_\+rauf}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+beschl\+\_\+rauf}
+{\footnotesize\ttfamily \#define set\+\_\+beschl\+\_\+rauf~\textquotesingle{}\textbf{ c}\textquotesingle{}}
+
+
+
+Definition at line 20 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a4c4289f6b5b77dcca1337f9f35d2d2a2}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+beschl\+\_\+rauf\+\_\+r@{set\+\_\+beschl\+\_\+rauf\+\_\+r}}
+\index{set\+\_\+beschl\+\_\+rauf\+\_\+r@{set\+\_\+beschl\+\_\+rauf\+\_\+r}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+beschl\+\_\+rauf\+\_\+r}
+{\footnotesize\ttfamily \#define set\+\_\+beschl\+\_\+rauf\+\_\+r~\textquotesingle{}D\textquotesingle{}}
+
+
+
+Definition at line 27 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a57c82908b742bccb3ce8871e820b67e3}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+beschl\+\_\+runter@{set\+\_\+beschl\+\_\+runter}}
+\index{set\+\_\+beschl\+\_\+runter@{set\+\_\+beschl\+\_\+runter}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+beschl\+\_\+runter}
+{\footnotesize\ttfamily \#define set\+\_\+beschl\+\_\+runter~\textquotesingle{}e\textquotesingle{}}
+
+
+
+Definition at line 21 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_aaa34aebf1fe58a7bc0401c6fc03e9de8}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+beschl\+\_\+runter\+\_\+r@{set\+\_\+beschl\+\_\+runter\+\_\+r}}
+\index{set\+\_\+beschl\+\_\+runter\+\_\+r@{set\+\_\+beschl\+\_\+runter\+\_\+r}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+beschl\+\_\+runter\+\_\+r}
+{\footnotesize\ttfamily \#define set\+\_\+beschl\+\_\+runter\+\_\+r~\textquotesingle{}E\textquotesingle{}}
+
+
+
+Definition at line 28 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a5a4020721fae9298c493422eb6b3a9e0}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+block@{set\+\_\+block}}
+\index{set\+\_\+block@{set\+\_\+block}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+block}
+{\footnotesize\ttfamily \#define set\+\_\+block~\textquotesingle{}G\textquotesingle{}}
+
+
+
+Definition at line 52 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a8b32735bd12440adf1f36b1570b6c70a}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+conn@{set\+\_\+conn}}
+\index{set\+\_\+conn@{set\+\_\+conn}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+conn}
+{\footnotesize\ttfamily \#define set\+\_\+conn~\textquotesingle{}n\textquotesingle{}}
+
+
+
+Definition at line 49 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a9b7750f5d2fd4cbe50fa61d99e411adc}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+delay@{set\+\_\+delay}}
+\index{set\+\_\+delay@{set\+\_\+delay}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+delay}
+{\footnotesize\ttfamily \#define set\+\_\+delay~\textquotesingle{}k\textquotesingle{}}
+
+
+
+Definition at line 37 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_afa2a732461f554faf375a79ed895fb9c}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+end\+\_\+druck@{set\+\_\+end\+\_\+druck}}
+\index{set\+\_\+end\+\_\+druck@{set\+\_\+end\+\_\+druck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+end\+\_\+druck}
+{\footnotesize\ttfamily \#define set\+\_\+end\+\_\+druck~\textquotesingle{}d\textquotesingle{}}
+
+
+
+Definition at line 14 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a6c124ba9b5db361c8b816c6446d1ae95}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+entlage1@{set\+\_\+entlage1}}
+\index{set\+\_\+entlage1@{set\+\_\+entlage1}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+entlage1}
+{\footnotesize\ttfamily \#define set\+\_\+entlage1~\textquotesingle{}v\textquotesingle{}}
+
+
+
+Definition at line 42 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_af307f82ebedae4f4b1de683efce43bb8}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+fuell\+\_\+max@{set\+\_\+fuell\+\_\+max}}
+\index{set\+\_\+fuell\+\_\+max@{set\+\_\+fuell\+\_\+max}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+fuell\+\_\+max}
+{\footnotesize\ttfamily \#define set\+\_\+fuell\+\_\+max~\textquotesingle{}x\textquotesingle{}}
+
+
+
+Definition at line 44 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a56b66cd9d7b972fca353926e37a8ddf3}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+fuell\+\_\+min@{set\+\_\+fuell\+\_\+min}}
+\index{set\+\_\+fuell\+\_\+min@{set\+\_\+fuell\+\_\+min}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+fuell\+\_\+min}
+{\footnotesize\ttfamily \#define set\+\_\+fuell\+\_\+min~\textquotesingle{}w\textquotesingle{}}
+
+
+
+Definition at line 43 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ad71f17ec18a9219a90d1e0cd06ddc990}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+max\+\_\+druck@{set\+\_\+max\+\_\+druck}}
+\index{set\+\_\+max\+\_\+druck@{set\+\_\+max\+\_\+druck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+max\+\_\+druck}
+{\footnotesize\ttfamily \#define set\+\_\+max\+\_\+druck~\textquotesingle{}\textbf{ m}\textquotesingle{}}
+
+
+
+Definition at line 25 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a2cf7aa7ffa9c63d80afb8814ed3408ca}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+max\+\_\+druck\+\_\+geber@{set\+\_\+max\+\_\+druck\+\_\+geber}}
+\index{set\+\_\+max\+\_\+druck\+\_\+geber@{set\+\_\+max\+\_\+druck\+\_\+geber}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+max\+\_\+druck\+\_\+geber}
+{\footnotesize\ttfamily \#define set\+\_\+max\+\_\+druck\+\_\+geber~\textquotesingle{}M\textquotesingle{}}
+
+
+
+Definition at line 24 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ae88829b49f9c574ac121843dfd19b1d0}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+max\+\_\+fuell@{set\+\_\+max\+\_\+fuell}}
+\index{set\+\_\+max\+\_\+fuell@{set\+\_\+max\+\_\+fuell}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+max\+\_\+fuell}
+{\footnotesize\ttfamily \#define set\+\_\+max\+\_\+fuell~\textquotesingle{}I\textquotesingle{}}
+
+
+
+Definition at line 34 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a7b22cb957fac0eae440a57edffdd699a}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+max\+\_\+step@{set\+\_\+max\+\_\+step}}
+\index{set\+\_\+max\+\_\+step@{set\+\_\+max\+\_\+step}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+max\+\_\+step}
+{\footnotesize\ttfamily \#define set\+\_\+max\+\_\+step~\textquotesingle{}\textbf{ b}\textquotesingle{}}
+
+
+
+Definition at line 16 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a549e81c28a458d018a8662a87b9185e6}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+netzwerk@{set\+\_\+netzwerk}}
+\index{set\+\_\+netzwerk@{set\+\_\+netzwerk}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+netzwerk}
+{\footnotesize\ttfamily \#define set\+\_\+netzwerk~\textquotesingle{}y\textquotesingle{}}
+
+
+
+Definition at line 45 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a553f8b6e24074d13df0d3e4290d0414f}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+offset@{set\+\_\+offset}}
+\index{set\+\_\+offset@{set\+\_\+offset}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+offset}
+{\footnotesize\ttfamily \#define set\+\_\+offset~\textquotesingle{}o\textquotesingle{}}
+
+
+
+Definition at line 26 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a63e52791e6c19ef26bbfbba0401a2833}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+prg\+\_\+nr@{set\+\_\+prg\+\_\+nr}}
+\index{set\+\_\+prg\+\_\+nr@{set\+\_\+prg\+\_\+nr}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+prg\+\_\+nr}
+{\footnotesize\ttfamily \#define set\+\_\+prg\+\_\+nr~\textquotesingle{}n\textquotesingle{}}
+
+
+
+Definition at line 17 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a0f939a5a037b515c2771da907b85d4a9}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+rampe\+\_\+offset@{set\+\_\+rampe\+\_\+offset}}
+\index{set\+\_\+rampe\+\_\+offset@{set\+\_\+rampe\+\_\+offset}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+rampe\+\_\+offset}
+{\footnotesize\ttfamily \#define set\+\_\+rampe\+\_\+offset~\textquotesingle{}\textbf{ i}\textquotesingle{}}
+
+
+
+Definition at line 47 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_abf3c1f147e321dab5f1dabb0b5c341ed}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+rueck\+\_\+geschw@{set\+\_\+rueck\+\_\+geschw}}
+\index{set\+\_\+rueck\+\_\+geschw@{set\+\_\+rueck\+\_\+geschw}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+rueck\+\_\+geschw}
+{\footnotesize\ttfamily \#define set\+\_\+rueck\+\_\+geschw~\textquotesingle{}r\textquotesingle{}}
+
+
+
+Definition at line 15 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a5e17c3c1ed25703b5dbd603f2de9ed2c}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+start\+\_\+strom@{set\+\_\+start\+\_\+strom}}
+\index{set\+\_\+start\+\_\+strom@{set\+\_\+start\+\_\+strom}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+start\+\_\+strom}
+{\footnotesize\ttfamily \#define set\+\_\+start\+\_\+strom~\textquotesingle{}h\textquotesingle{}}
+
+
+
+Definition at line 46 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a3f78b661b34f203131278027ba14ef20}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+steigung@{set\+\_\+steigung}}
+\index{set\+\_\+steigung@{set\+\_\+steigung}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+steigung}
+{\footnotesize\ttfamily \#define set\+\_\+steigung~\textquotesingle{}t\textquotesingle{}}
+
+
+
+Definition at line 40 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a818b26ddeedf1d2f0b3ce33f23811449}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+strom@{set\+\_\+strom}}
+\index{set\+\_\+strom@{set\+\_\+strom}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+strom}
+{\footnotesize\ttfamily \#define set\+\_\+strom~\textquotesingle{}g\textquotesingle{}}
+
+
+
+Definition at line 32 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a28456fbb93ecd69742e02d75761fe29d}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+strom\+\_\+r@{set\+\_\+strom\+\_\+r}}
+\index{set\+\_\+strom\+\_\+r@{set\+\_\+strom\+\_\+r}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+strom\+\_\+r}
+{\footnotesize\ttfamily \#define set\+\_\+strom\+\_\+r~\textquotesingle{}j\textquotesingle{}}
+
+
+
+Definition at line 33 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_af0af544c7b6c97a94c6a8eef76687a49}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+zeit@{set\+\_\+zeit}}
+\index{set\+\_\+zeit@{set\+\_\+zeit}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+zeit}
+{\footnotesize\ttfamily \#define set\+\_\+zeit~\textquotesingle{}z\textquotesingle{}}
+
+
+
+Definition at line 13 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a317b24157e7f590740c6e329bfe668dc}} 
+\index{befehl.\+c@{befehl.\+c}!start@{start}}
+\index{start@{start}!befehl.\+c@{befehl.\+c}}
+\subsubsection{start}
+{\footnotesize\ttfamily \#define start~\textquotesingle{}s\textquotesingle{}}
+
+
+
+Definition at line 18 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ae48a1c0f252dd523b1ce191708de6f45}} 
+\index{befehl.\+c@{befehl.\+c}!stop@{stop}}
+\index{stop@{stop}!befehl.\+c@{befehl.\+c}}
+\subsubsection{stop}
+{\footnotesize\ttfamily \#define stop~\textquotesingle{}S\textquotesingle{}}
+
+
+
+Definition at line 19 of file befehl.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{befehl_8c_abd5892eb2cdbb10eb3cdb450a3753adc}} 
+\index{befehl.\+c@{befehl.\+c}!anzeige\+\_\+send\+\_\+int@{anzeige\+\_\+send\+\_\+int}}
+\index{anzeige\+\_\+send\+\_\+int@{anzeige\+\_\+send\+\_\+int}!befehl.\+c@{befehl.\+c}}
+\subsubsection{anzeige\+\_\+send\+\_\+int()}
+{\footnotesize\ttfamily void anzeige\+\_\+send\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file Anzeige.\+c.
+
+\mbox{\label{befehl_8c_a74908ae0608550a6106b2d9348f1cb86}} 
+\index{befehl.\+c@{befehl.\+c}!auto\+\_\+setup@{auto\+\_\+setup}}
+\index{auto\+\_\+setup@{auto\+\_\+setup}!befehl.\+c@{befehl.\+c}}
+\subsubsection{auto\+\_\+setup()}
+{\footnotesize\ttfamily int auto\+\_\+setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{befehl_8c_abea6cead6dcc33be4b61c0a03864d0de}} 
+\index{befehl.\+c@{befehl.\+c}!befehl@{befehl}}
+\index{befehl@{befehl}!befehl.\+c@{befehl.\+c}}
+\subsubsection{befehl()}
+{\footnotesize\ttfamily void befehl (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+!!!!!!!!!! 
+
+Definition at line 168 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ae31a6837673e8e8ee1012f92c4c77a58}} 
+\index{befehl.\+c@{befehl.\+c}!find\+\_\+offset@{find\+\_\+offset}}
+\index{find\+\_\+offset@{find\+\_\+offset}!befehl.\+c@{befehl.\+c}}
+\subsubsection{find\+\_\+offset()}
+{\footnotesize\ttfamily int find\+\_\+offset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 504 of file at45db161.\+c.
+
+\mbox{\label{befehl_8c_ad7adec982039e6bbf58fd9ac980cbce1}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+adc\+\_\+val@{get\+\_\+adc\+\_\+val}}
+\index{get\+\_\+adc\+\_\+val@{get\+\_\+adc\+\_\+val}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+adc\+\_\+val()}
+{\footnotesize\ttfamily float get\+\_\+adc\+\_\+val (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file Adc.\+c.
+
+\mbox{\label{befehl_8c_a70497f17f225906dcf46bd79898a615d}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+char@{get\+\_\+char}}
+\index{get\+\_\+char@{get\+\_\+char}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+char()}
+{\footnotesize\ttfamily unsigned char get\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 163 of file Uart2.\+c.
+
+\mbox{\label{befehl_8c_a10cc2d4ac3dbac1d56a6c84c5dc007b6}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+eep\+\_\+int16@{get\+\_\+eep\+\_\+int16}}
+\index{get\+\_\+eep\+\_\+int16@{get\+\_\+eep\+\_\+int16}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+eep\+\_\+int16()}
+{\footnotesize\ttfamily int get\+\_\+eep\+\_\+int16 (\begin{DoxyParamCaption}\item[{int}]{block,  }\item[{int}]{adr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 457 of file at45db161.\+c.
+
+\mbox{\label{befehl_8c_a4c3e6263e6d1bb276097e6d204ca10d6}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+in\+\_\+buff\+\_\+len@{get\+\_\+in\+\_\+buff\+\_\+len}}
+\index{get\+\_\+in\+\_\+buff\+\_\+len@{get\+\_\+in\+\_\+buff\+\_\+len}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+in\+\_\+buff\+\_\+len()}
+{\footnotesize\ttfamily int get\+\_\+in\+\_\+buff\+\_\+len (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file Uart2.\+c.
+
+\mbox{\label{befehl_8c_a0ed37e617173ebc136c88d1301a9ecbd}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+oel\+\_\+stand@{get\+\_\+oel\+\_\+stand}}
+\index{get\+\_\+oel\+\_\+stand@{get\+\_\+oel\+\_\+stand}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+oel\+\_\+stand()}
+{\footnotesize\ttfamily float get\+\_\+oel\+\_\+stand (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 851 of file main.\+c.
+
+\mbox{\label{befehl_8c_a2a01319ebcf38fe7cd43bddc34348e10}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+ser\+\_\+float@{get\+\_\+ser\+\_\+float}}
+\index{get\+\_\+ser\+\_\+float@{get\+\_\+ser\+\_\+float}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+ser\+\_\+float()}
+{\footnotesize\ttfamily float get\+\_\+ser\+\_\+float (\begin{DoxyParamCaption}\item[{char $\ast$}]{buff,  }\item[{int $\ast$}]{adress }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1113 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a5ea99ad5e78f3337b9530483bda12ef8}} 
+\index{befehl.\+c@{befehl.\+c}!get\+\_\+ser\+\_\+int@{get\+\_\+ser\+\_\+int}}
+\index{get\+\_\+ser\+\_\+int@{get\+\_\+ser\+\_\+int}!befehl.\+c@{befehl.\+c}}
+\subsubsection{get\+\_\+ser\+\_\+int()}
+{\footnotesize\ttfamily int get\+\_\+ser\+\_\+int (\begin{DoxyParamCaption}\item[{char $\ast$}]{buff,  }\item[{int $\ast$}]{address }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1088 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_ab90488b2ab1ff8ae876e5da008de523b}} 
+\index{befehl.\+c@{befehl.\+c}!print\+\_\+f0@{print\+\_\+f0}}
+\index{print\+\_\+f0@{print\+\_\+f0}!befehl.\+c@{befehl.\+c}}
+\subsubsection{print\+\_\+f0()}
+{\footnotesize\ttfamily void print\+\_\+f0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 101 of file Uart2.\+c.
+
+\mbox{\label{befehl_8c_a4f2540c2811f6e4c4c136f964b5b8545}} 
+\index{befehl.\+c@{befehl.\+c}!print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}}
+\index{print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}!befehl.\+c@{befehl.\+c}}
+\subsubsection{print\+\_\+f\+\_\+lf0()}
+{\footnotesize\ttfamily void print\+\_\+f\+\_\+lf0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file Uart2.\+c.
+
+\mbox{\label{befehl_8c_a11017698f1db31d98f1115d4b4463d02}} 
+\index{befehl.\+c@{befehl.\+c}!reset\+\_\+in\+\_\+0\+\_\+buff@{reset\+\_\+in\+\_\+0\+\_\+buff}}
+\index{reset\+\_\+in\+\_\+0\+\_\+buff@{reset\+\_\+in\+\_\+0\+\_\+buff}!befehl.\+c@{befehl.\+c}}
+\subsubsection{reset\+\_\+in\+\_\+0\+\_\+buff()}
+{\footnotesize\ttfamily void reset\+\_\+in\+\_\+0\+\_\+buff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Uart2.\+c.
+
+\mbox{\label{befehl_8c_a6b768675f6e34d26d3ee6628c86e1c65}} 
+\index{befehl.\+c@{befehl.\+c}!sdo\+\_\+reseive@{sdo\+\_\+reseive}}
+\index{sdo\+\_\+reseive@{sdo\+\_\+reseive}!befehl.\+c@{befehl.\+c}}
+\subsubsection{sdo\+\_\+reseive()}
+{\footnotesize\ttfamily int sdo\+\_\+reseive (\begin{DoxyParamCaption}\item[{int}]{node,  }\item[{int}]{object,  }\item[{char}]{sub\+\_\+object }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{befehl_8c_aacd31538a9d41269e68e6cec5b1ba3de}} 
+\index{befehl.\+c@{befehl.\+c}!sdo\+\_\+send@{sdo\+\_\+send}}
+\index{sdo\+\_\+send@{sdo\+\_\+send}!befehl.\+c@{befehl.\+c}}
+\subsubsection{sdo\+\_\+send()}
+{\footnotesize\ttfamily int sdo\+\_\+send (\begin{DoxyParamCaption}\item[{int}]{node,  }\item[{int}]{object,  }\item[{char}]{sub\+\_\+object,  }\item[{int}]{data,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+!!!!!!!!!!!!!!! Timeout 
+
+Definition at line 132 of file Can\+Bus\+S\+D\+O.\+c.
+
+\mbox{\label{befehl_8c_a60e3238b3d5b4cb327b5f6b9fd5690d1}} 
+\index{befehl.\+c@{befehl.\+c}!send\+\_\+\+A\+CK@{send\+\_\+\+A\+CK}}
+\index{send\+\_\+\+A\+CK@{send\+\_\+\+A\+CK}!befehl.\+c@{befehl.\+c}}
+\subsubsection{send\+\_\+\+A\+C\+K()}
+{\footnotesize\ttfamily void send\+\_\+\+A\+CK (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{char}]{art }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1076 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a088603b084cb8318b4d339c6eef33452}} 
+\index{befehl.\+c@{befehl.\+c}!send\+\_\+float\+\_\+val@{send\+\_\+float\+\_\+val}}
+\index{send\+\_\+float\+\_\+val@{send\+\_\+float\+\_\+val}!befehl.\+c@{befehl.\+c}}
+\subsubsection{send\+\_\+float\+\_\+val()}
+{\footnotesize\ttfamily void send\+\_\+float\+\_\+val (\begin{DoxyParamCaption}\item[{char}]{befehl,  }\item[{float}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1171 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a599c5b28f6622db9832f5a0cd4826d60}} 
+\index{befehl.\+c@{befehl.\+c}!send\+\_\+int\+\_\+val@{send\+\_\+int\+\_\+val}}
+\index{send\+\_\+int\+\_\+val@{send\+\_\+int\+\_\+val}!befehl.\+c@{befehl.\+c}}
+\subsubsection{send\+\_\+int\+\_\+val()}
+{\footnotesize\ttfamily void send\+\_\+int\+\_\+val (\begin{DoxyParamCaption}\item[{char}]{befehl,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1152 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a369624c8eb4925edacf7bd8773dceaa0}} 
+\index{befehl.\+c@{befehl.\+c}!send\+\_\+slip0@{send\+\_\+slip0}}
+\index{send\+\_\+slip0@{send\+\_\+slip0}!befehl.\+c@{befehl.\+c}}
+\subsubsection{send\+\_\+slip0()}
+{\footnotesize\ttfamily void send\+\_\+slip0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file Uart2.\+c.
+
+\mbox{\label{befehl_8c_ae7371f4fed363ba54f2f894ac3720c06}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+motor\+\_\+entlage\+\_\+rechts@{set\+\_\+motor\+\_\+entlage\+\_\+rechts}}
+\index{set\+\_\+motor\+\_\+entlage\+\_\+rechts@{set\+\_\+motor\+\_\+entlage\+\_\+rechts}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+entlage\+\_\+rechts()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+entlage\+\_\+rechts (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 248 of file motor1.\+c.
+
+\mbox{\label{befehl_8c_aca930076cffa70b62efe0f7f4281f80d}} 
+\index{befehl.\+c@{befehl.\+c}!set\+\_\+motor\+\_\+power\+\_\+off@{set\+\_\+motor\+\_\+power\+\_\+off}}
+\index{set\+\_\+motor\+\_\+power\+\_\+off@{set\+\_\+motor\+\_\+power\+\_\+off}!befehl.\+c@{befehl.\+c}}
+\subsubsection{set\+\_\+motor\+\_\+power\+\_\+off()}
+{\footnotesize\ttfamily int set\+\_\+motor\+\_\+power\+\_\+off (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 153 of file motor1.\+c.
+
+\mbox{\label{befehl_8c_ac7688574b7282d8b949150e2aedf40cc}} 
+\index{befehl.\+c@{befehl.\+c}!setup\+\_\+m\+\_\+gesch@{setup\+\_\+m\+\_\+gesch}}
+\index{setup\+\_\+m\+\_\+gesch@{setup\+\_\+m\+\_\+gesch}!befehl.\+c@{befehl.\+c}}
+\subsubsection{setup\+\_\+m\+\_\+gesch()}
+{\footnotesize\ttfamily void setup\+\_\+m\+\_\+gesch (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1196 of file main.\+c.
+
+\mbox{\label{befehl_8c_afad8aa90d3f050d853049cb8cd30a2db}} 
+\index{befehl.\+c@{befehl.\+c}!wait\+\_\+ms@{wait\+\_\+ms}}
+\index{wait\+\_\+ms@{wait\+\_\+ms}!befehl.\+c@{befehl.\+c}}
+\subsubsection{wait\+\_\+ms()}
+{\footnotesize\ttfamily void wait\+\_\+ms (\begin{DoxyParamCaption}\item[{int}]{msec }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1315 of file main.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{befehl_8c_a7ffc28e9156b38574a5031086c1cbf0f}} 
+\index{befehl.\+c@{befehl.\+c}!main\+\_\+error@{main\+\_\+error}}
+\index{main\+\_\+error@{main\+\_\+error}!befehl.\+c@{befehl.\+c}}
+\subsubsection{main\+\_\+error}
+{\footnotesize\ttfamily int main\+\_\+error}
+
+
+
+Definition at line 195 of file main.\+c.
+
+\mbox{\label{befehl_8c_a4403857d84098dcee3088f476a2a2b34}} 
+\index{befehl.\+c@{befehl.\+c}!max\+\_\+druck@{max\+\_\+druck}}
+\index{max\+\_\+druck@{max\+\_\+druck}!befehl.\+c@{befehl.\+c}}
+\subsubsection{max\+\_\+druck}
+{\footnotesize\ttfamily float max\+\_\+druck}
+
+
+
+Definition at line 213 of file main.\+c.
+
+\mbox{\label{befehl_8c_ae835483f889f5b6b2f9fd7b4550b366c}} 
+\index{befehl.\+c@{befehl.\+c}!motor\+\_\+timer@{motor\+\_\+timer}}
+\index{motor\+\_\+timer@{motor\+\_\+timer}!befehl.\+c@{befehl.\+c}}
+\subsubsection{motor\+\_\+timer}
+{\footnotesize\ttfamily int motor\+\_\+timer}
+
+
+
+Definition at line 152 of file main.\+c.
+
+\mbox{\label{befehl_8c_a5c5872dd96f0fa71559e07608865fa8a}} 
+\index{befehl.\+c@{befehl.\+c}!oel\+\_\+stand@{oel\+\_\+stand}}
+\index{oel\+\_\+stand@{oel\+\_\+stand}!befehl.\+c@{befehl.\+c}}
+\subsubsection{oel\+\_\+stand}
+{\footnotesize\ttfamily float oel\+\_\+stand}
+
+
+
+Definition at line 217 of file main.\+c.
+
+\mbox{\label{befehl_8c_a04d82f0979002e66f5d4928a11ec04a9}} 
+\index{befehl.\+c@{befehl.\+c}!password@{password}}
+\index{password@{password}!befehl.\+c@{befehl.\+c}}
+\subsubsection{password}
+{\footnotesize\ttfamily int password =1}
+
+
+
+Definition at line 161 of file befehl.\+c.
+
+\mbox{\label{befehl_8c_a55e38ae00c77b3a41087dfbf0eddacd6}} 
+\index{befehl.\+c@{befehl.\+c}!soll\+\_\+zeit@{soll\+\_\+zeit}}
+\index{soll\+\_\+zeit@{soll\+\_\+zeit}!befehl.\+c@{befehl.\+c}}
+\subsubsection{soll\+\_\+zeit}
+{\footnotesize\ttfamily int soll\+\_\+zeit}
+
+
+
+Definition at line 151 of file main.\+c.
+
+\mbox{\label{befehl_8c_a00bbc97133a4f3f4b6a66694962828e4}} 
+\index{befehl.\+c@{befehl.\+c}!tasten@{tasten}}
+\index{tasten@{tasten}!befehl.\+c@{befehl.\+c}}
+\subsubsection{tasten}
+{\footnotesize\ttfamily int tasten}
+
+
+
+Definition at line 208 of file main.\+c.
+

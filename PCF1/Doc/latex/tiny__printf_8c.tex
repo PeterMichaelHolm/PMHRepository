@@ -1,0 +1,131 @@
+\section{src/tiny\+\_\+printf.c File Reference}
+\label{tiny__printf_8c}\index{src/tiny\+\_\+printf.\+c@{src/tiny\+\_\+printf.\+c}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((alias(\char`\"{}iprintf\char`\"{})))
+\item 
+int \textbf{ ts\+\_\+formatstring} (char $\ast$buf, const char $\ast$fmt, va\+\_\+list va)
+\item 
+int \textbf{ ts\+\_\+formatlength} (const char $\ast$fmt, va\+\_\+list va)
+\item 
+int \textbf{ siprintf} (char $\ast$buf, const char $\ast$fmt,...)
+\item 
+int \textbf{ fiprintf} (F\+I\+LE $\ast$stream, const char $\ast$fmt,...)
+\item 
+int \textbf{ iprintf} (const char $\ast$fmt,...)
+\item 
+int \textbf{ fputs} (const char $\ast$s, F\+I\+LE $\ast$fp)
+\item 
+int \textbf{ puts} (const char $\ast$s)
+\item 
+size\+\_\+t \textbf{ fwrite} (const void $\ast$buf, size\+\_\+t size, size\+\_\+t count, F\+I\+LE $\ast$fp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{tiny__printf_8c_aa50df932185fec4cb2bd19ce38ef7cd6}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{\+\_\+\+\_\+attribute\+\_\+\+\_\+()}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(alias(\char`\"{}iprintf\char`\"{}))}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a589431508eafb525a1bf8610e23868dd}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!fiprintf@{fiprintf}}
+\index{fiprintf@{fiprintf}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{fiprintf()}
+{\footnotesize\ttfamily int fiprintf (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{stream,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+=========================================================================== Abstract\+: Loads data from the given locations and writes them to the given file stream according to the format parameter. \subsection*{Returns\+: Number of bytes written }
+
+Definition at line 242 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a365b15135fac34c613879b173000ec42}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!fputs@{fputs}}
+\index{fputs@{fputs}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{fputs()}
+{\footnotesize\ttfamily int fputs (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+=========================================================================== Abstract\+: fputs writes the string at s (but without the trailing null) to the file or stream identified by fp. Returns\+: If successful, the result is 0; otherwise, the result is E\+OF. 
+
+ 
+
+Definition at line 292 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a0029a57f553c12eab57a20093d65901d}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!fwrite@{fwrite}}
+\index{fwrite@{fwrite}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{fwrite()}
+{\footnotesize\ttfamily size\+\_\+t fwrite (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{count,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+=========================================================================== Abstract\+: Copy, starting from the memory location buf, count elements (each of size size) into the file or stream identified by fp. Returns\+: Number of elements written 
+
+ 
+
+Definition at line 351 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a3d46cb8e4ff4993263b4deb4aa0b48d8}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!iprintf@{iprintf}}
+\index{iprintf@{iprintf}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{iprintf()}
+{\footnotesize\ttfamily int iprintf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+=========================================================================== Abstract\+: Loads data from the given locations and writes them to the standard output according to the format parameter. Returns\+: Number of bytes written 
+
+ 
+
+Definition at line 267 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_ad41876f99f190c7488e64ef39c50a23f}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!puts@{puts}}
+\index{puts@{puts}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{puts()}
+{\footnotesize\ttfamily int puts (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+=========================================================================== Abstract\+: puts writes the string at s (followed by a newline, instead of the trailing null) to the standard output stream. Returns\+: If successful, the result is a nonnegative integer; otherwise, the result is E\+OF. 
+
+ 
+
+Definition at line 322 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a3361dee588706116cc559feb3e8aa295}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!siprintf@{siprintf}}
+\index{siprintf@{siprintf}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{siprintf()}
+{\footnotesize\ttfamily int siprintf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+=========================================================================== Abstract\+: Loads data from the given locations and writes them to the given character string according to the format parameter. \subsection*{Returns\+: Number of bytes written }
+
+Definition at line 225 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a37c0a321987f1cacc976e3153110694a}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!ts\+\_\+formatlength@{ts\+\_\+formatlength}}
+\index{ts\+\_\+formatlength@{ts\+\_\+formatlength}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{ts\+\_\+formatlength()}
+{\footnotesize\ttfamily int ts\+\_\+formatlength (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+ Abstract\+: Calculate maximum length of the resulting string from the format string and va\+\_\+list va \subsubsection*{Returns\+: Maximum length }
+
+Definition at line 170 of file tiny\+\_\+printf.\+c.
+
+\mbox{\label{tiny__printf_8c_a2ad0dde0523459a3606aa5f7d7d8af6a}} 
+\index{tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}!ts\+\_\+formatstring@{ts\+\_\+formatstring}}
+\index{ts\+\_\+formatstring@{ts\+\_\+formatstring}!tiny\+\_\+printf.\+c@{tiny\+\_\+printf.\+c}}
+\subsubsection{ts\+\_\+formatstring()}
+{\footnotesize\ttfamily int ts\+\_\+formatstring (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{const char $\ast$}]{fmt,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+ Abstract\+: Writes arguments va to buffer buf according to format fmt \subsubsection*{Returns\+: Length of string }
+
+Definition at line 104 of file tiny\+\_\+printf.\+c.
+

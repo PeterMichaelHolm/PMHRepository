@@ -1,0 +1,517 @@
+\section{src/at45db161.c File Reference}
+\label{at45db161_8c}\index{src/at45db161.\+c@{src/at45db161.\+c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stm32373c\+\_\+eval.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f3xx\+\_\+hal\+\_\+spi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f373xc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ eep\+\_\+get\+\_\+id}~0x9f
+\item 
+\#define \textbf{ eep\+\_\+prog\+\_\+buffer1}~0x83
+\item 
+\#define \textbf{ eep\+\_\+prog\+\_\+buffer2}~0x86
+\item 
+\#define \textbf{ eep\+\_\+write\+\_\+buffer1}~0x84
+\item 
+\#define \textbf{ eep\+\_\+write\+\_\+buffer2}~0x87
+\item 
+\#define \textbf{ eep\+\_\+status\+\_\+read}~0xd7
+\item 
+\#define \textbf{ eep\+\_\+block\+\_\+erase}~0x50
+\item 
+\#define \textbf{ eep\+\_\+main\+\_\+page\+\_\+read}~0xd2
+\item 
+\#define \textbf{ eep\+\_\+prog\+\_\+del\+\_\+buff1}~0x88
+\item 
+\#define \textbf{ eep\+\_\+prog\+\_\+del\+\_\+buff2}~0x89
+\item 
+\#define \textbf{ eep\+\_\+sektor\+\_\+erase}~0x7c
+\item 
+\#define \textbf{ \+\_\+start\+\_\+page}~1024
+\item 
+\#define \textbf{ \+\_\+end\+\_\+page}~2047
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ S\+P\+I2\+\_\+\+Write} (char Value)
+\item 
+char \textbf{ S\+P\+I2\+\_\+\+Read} (char val)
+\item 
+char \textbf{ eep\+\_\+get\+\_\+status} (void)
+\item 
+void \textbf{ eep\+\_\+get\+\_\+block} (int adr, char $\ast$block)
+\item 
+void \textbf{ eep\+\_\+set\+\_\+block} (int adr, char $\ast$block)
+\item 
+void \textbf{ init\+\_\+eep} (void)
+\item 
+void \textbf{ eep\+\_\+set\+\_\+bef} (int anzahl, char $\ast$block)
+\item 
+void \textbf{ eep\+\_\+get\+\_\+val} (int anzahl, char $\ast$block)
+\item 
+int \textbf{ get\+\_\+eep\+\_\+int} (int block, int adr)
+\item 
+int \textbf{ setup\+\_\+eep} (void)
+\item 
+int \textbf{ del\+\_\+sektor} (int adress)
+\item 
+int \textbf{ del\+\_\+block} (int adress)
+\item 
+void \textbf{ E\+E\+P\+\_\+\+CS} (int art)
+\item 
+char \textbf{ eep\+\_\+write\+\_\+byte} (char val)
+\item 
+int \textbf{ get\+\_\+eep\+\_\+id} (void)
+\item 
+int \textbf{ del\+\_\+sektoren} (int ab, int anzahl)
+\item 
+int \textbf{ del\+\_\+bereich} (int ab, int anzahl)
+\item 
+int \textbf{ store\+\_\+struct} (char $\ast$struktur, int adress, int len)
+\item 
+int \textbf{ get\+\_\+struct} (char $\ast$struktur, int adresse, int len)
+\item 
+int \textbf{ Store\+\_\+del\+\_\+\+Block} (int adress, char $\ast$data)
+\item 
+int \textbf{ test\+\_\+eep} (void)
+\item 
+void \textbf{ eep\+\_\+get\+\_\+block2} (int adr, char $\ast$block)
+\item 
+int \textbf{ get\+\_\+eep\+\_\+int16} (int block, int adr)
+\item 
+int \textbf{ set\+\_\+eep\+\_\+int16} (int block, int adr, int val)
+\item 
+int \textbf{ get\+\_\+eep\+\_\+int32} (int block, int adr)
+\item 
+int \textbf{ set\+\_\+eep\+\_\+int32} (int block, int adr, int val)
+\item 
+int \textbf{ find\+\_\+offset} (void)
+\item 
+int \textbf{ store\+\_\+offset} (int val)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \textbf{ adr\+\_\+buffer} [10]
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{at45db161_8c_aa5f5305063d83d14d10e46d40f9d1b62}} 
+\index{at45db161.\+c@{at45db161.\+c}!\+\_\+end\+\_\+page@{\+\_\+end\+\_\+page}}
+\index{\+\_\+end\+\_\+page@{\+\_\+end\+\_\+page}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{\+\_\+end\+\_\+page}
+{\footnotesize\ttfamily \#define \+\_\+end\+\_\+page~2047}
+
+
+
+Definition at line 24 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_adf43f7050f8218a42a05413c76abe4d1}} 
+\index{at45db161.\+c@{at45db161.\+c}!\+\_\+start\+\_\+page@{\+\_\+start\+\_\+page}}
+\index{\+\_\+start\+\_\+page@{\+\_\+start\+\_\+page}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{\+\_\+start\+\_\+page}
+{\footnotesize\ttfamily \#define \+\_\+start\+\_\+page~1024}
+
+
+
+Definition at line 23 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a23f2fe088e4315b3f6ea82f87dd19b08}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+block\+\_\+erase@{eep\+\_\+block\+\_\+erase}}
+\index{eep\+\_\+block\+\_\+erase@{eep\+\_\+block\+\_\+erase}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+block\+\_\+erase}
+{\footnotesize\ttfamily \#define eep\+\_\+block\+\_\+erase~0x50}
+
+
+
+Definition at line 17 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_af807116397b3490dbdf39d91c7308be4}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+get\+\_\+id@{eep\+\_\+get\+\_\+id}}
+\index{eep\+\_\+get\+\_\+id@{eep\+\_\+get\+\_\+id}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+get\+\_\+id}
+{\footnotesize\ttfamily \#define eep\+\_\+get\+\_\+id~0x9f}
+
+
+
+Definition at line 11 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a0e9e7420d5d1124a3fcf988ff0ab172d}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+main\+\_\+page\+\_\+read@{eep\+\_\+main\+\_\+page\+\_\+read}}
+\index{eep\+\_\+main\+\_\+page\+\_\+read@{eep\+\_\+main\+\_\+page\+\_\+read}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+main\+\_\+page\+\_\+read}
+{\footnotesize\ttfamily \#define eep\+\_\+main\+\_\+page\+\_\+read~0xd2}
+
+
+
+Definition at line 18 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a2f7e0ab1a565a5d331bc39c3d598e6ee}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+prog\+\_\+buffer1@{eep\+\_\+prog\+\_\+buffer1}}
+\index{eep\+\_\+prog\+\_\+buffer1@{eep\+\_\+prog\+\_\+buffer1}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+prog\+\_\+buffer1}
+{\footnotesize\ttfamily \#define eep\+\_\+prog\+\_\+buffer1~0x83}
+
+
+
+Definition at line 12 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a12e056b0ffa0b59b09af5a34f8f9bd42}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+prog\+\_\+buffer2@{eep\+\_\+prog\+\_\+buffer2}}
+\index{eep\+\_\+prog\+\_\+buffer2@{eep\+\_\+prog\+\_\+buffer2}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+prog\+\_\+buffer2}
+{\footnotesize\ttfamily \#define eep\+\_\+prog\+\_\+buffer2~0x86}
+
+
+
+Definition at line 13 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a08b87f5dc312838cb8c038a63e8d1be7}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+prog\+\_\+del\+\_\+buff1@{eep\+\_\+prog\+\_\+del\+\_\+buff1}}
+\index{eep\+\_\+prog\+\_\+del\+\_\+buff1@{eep\+\_\+prog\+\_\+del\+\_\+buff1}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+prog\+\_\+del\+\_\+buff1}
+{\footnotesize\ttfamily \#define eep\+\_\+prog\+\_\+del\+\_\+buff1~0x88}
+
+
+
+Definition at line 19 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_acdf235fb89ddfadbd821bd3ac577017a}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+prog\+\_\+del\+\_\+buff2@{eep\+\_\+prog\+\_\+del\+\_\+buff2}}
+\index{eep\+\_\+prog\+\_\+del\+\_\+buff2@{eep\+\_\+prog\+\_\+del\+\_\+buff2}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+prog\+\_\+del\+\_\+buff2}
+{\footnotesize\ttfamily \#define eep\+\_\+prog\+\_\+del\+\_\+buff2~0x89}
+
+
+
+Definition at line 20 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_af161d8911ebadc847ad2ed9e4cc2f295}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+sektor\+\_\+erase@{eep\+\_\+sektor\+\_\+erase}}
+\index{eep\+\_\+sektor\+\_\+erase@{eep\+\_\+sektor\+\_\+erase}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+sektor\+\_\+erase}
+{\footnotesize\ttfamily \#define eep\+\_\+sektor\+\_\+erase~0x7c}
+
+
+
+Definition at line 21 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_ab939f3bc1e23d2804f0fdb78e38d42f2}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+status\+\_\+read@{eep\+\_\+status\+\_\+read}}
+\index{eep\+\_\+status\+\_\+read@{eep\+\_\+status\+\_\+read}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+status\+\_\+read}
+{\footnotesize\ttfamily \#define eep\+\_\+status\+\_\+read~0xd7}
+
+
+
+Definition at line 16 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_adf5de6ec9522578a655b6e0577b86fb5}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+write\+\_\+buffer1@{eep\+\_\+write\+\_\+buffer1}}
+\index{eep\+\_\+write\+\_\+buffer1@{eep\+\_\+write\+\_\+buffer1}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+write\+\_\+buffer1}
+{\footnotesize\ttfamily \#define eep\+\_\+write\+\_\+buffer1~0x84}
+
+
+
+Definition at line 14 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_ab7301a2aeca39851c9acfb4f4e821d5c}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+write\+\_\+buffer2@{eep\+\_\+write\+\_\+buffer2}}
+\index{eep\+\_\+write\+\_\+buffer2@{eep\+\_\+write\+\_\+buffer2}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+write\+\_\+buffer2}
+{\footnotesize\ttfamily \#define eep\+\_\+write\+\_\+buffer2~0x87}
+
+
+
+Definition at line 15 of file at45db161.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{at45db161_8c_addb71e38f4824f0f7b777d1f1460a24f}} 
+\index{at45db161.\+c@{at45db161.\+c}!del\+\_\+bereich@{del\+\_\+bereich}}
+\index{del\+\_\+bereich@{del\+\_\+bereich}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{del\+\_\+bereich()}
+{\footnotesize\ttfamily int del\+\_\+bereich (\begin{DoxyParamCaption}\item[{int}]{ab,  }\item[{int}]{anzahl }\end{DoxyParamCaption})}
+
+
+
+Definition at line 283 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a6448ad9fbbeb06c122e53581da8ab5ea}} 
+\index{at45db161.\+c@{at45db161.\+c}!del\+\_\+block@{del\+\_\+block}}
+\index{del\+\_\+block@{del\+\_\+block}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{del\+\_\+block()}
+{\footnotesize\ttfamily int del\+\_\+block (\begin{DoxyParamCaption}\item[{int}]{adress }\end{DoxyParamCaption})}
+
+
+
+Definition at line 293 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a7ad55293dd285a6c65358f5f4125f46c}} 
+\index{at45db161.\+c@{at45db161.\+c}!del\+\_\+sektor@{del\+\_\+sektor}}
+\index{del\+\_\+sektor@{del\+\_\+sektor}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{del\+\_\+sektor()}
+{\footnotesize\ttfamily int del\+\_\+sektor (\begin{DoxyParamCaption}\item[{int}]{adress }\end{DoxyParamCaption})}
+
+
+
+Definition at line 254 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a8508bb974df22f655c2aa4222ebf9c44}} 
+\index{at45db161.\+c@{at45db161.\+c}!del\+\_\+sektoren@{del\+\_\+sektoren}}
+\index{del\+\_\+sektoren@{del\+\_\+sektoren}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{del\+\_\+sektoren()}
+{\footnotesize\ttfamily int del\+\_\+sektoren (\begin{DoxyParamCaption}\item[{int}]{ab,  }\item[{int}]{anzahl }\end{DoxyParamCaption})}
+
+
+
+Definition at line 242 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a2a2e2047b56bb55adf72c443f6c77c2d}} 
+\index{at45db161.\+c@{at45db161.\+c}!E\+E\+P\+\_\+\+CS@{E\+E\+P\+\_\+\+CS}}
+\index{E\+E\+P\+\_\+\+CS@{E\+E\+P\+\_\+\+CS}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{E\+E\+P\+\_\+\+C\+S()}
+{\footnotesize\ttfamily void E\+E\+P\+\_\+\+CS (\begin{DoxyParamCaption}\item[{int}]{art }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a3697d03798d6b7730b11e0e0112fc1e8}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+get\+\_\+block@{eep\+\_\+get\+\_\+block}}
+\index{eep\+\_\+get\+\_\+block@{eep\+\_\+get\+\_\+block}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+get\+\_\+block()}
+{\footnotesize\ttfamily void eep\+\_\+get\+\_\+block (\begin{DoxyParamCaption}\item[{int}]{adr,  }\item[{char $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Definition at line 187 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_adbe54deedf31d53003c8d08da1561d11}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+get\+\_\+block2@{eep\+\_\+get\+\_\+block2}}
+\index{eep\+\_\+get\+\_\+block2@{eep\+\_\+get\+\_\+block2}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+get\+\_\+block2()}
+{\footnotesize\ttfamily void eep\+\_\+get\+\_\+block2 (\begin{DoxyParamCaption}\item[{int}]{adr,  }\item[{char $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Definition at line 433 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a2f99543647ff9740dfcb82ff6349fb49}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+get\+\_\+status@{eep\+\_\+get\+\_\+status}}
+\index{eep\+\_\+get\+\_\+status@{eep\+\_\+get\+\_\+status}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+get\+\_\+status()}
+{\footnotesize\ttfamily char eep\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a4d837cf90e56cc5f0e6bb139e597804f}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+get\+\_\+val@{eep\+\_\+get\+\_\+val}}
+\index{eep\+\_\+get\+\_\+val@{eep\+\_\+get\+\_\+val}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+get\+\_\+val()}
+{\footnotesize\ttfamily void eep\+\_\+get\+\_\+val (\begin{DoxyParamCaption}\item[{int}]{anzahl,  }\item[{char $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Definition at line 176 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_ac030895b6402cfcf0121cdc98ee7ef6d}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+set\+\_\+bef@{eep\+\_\+set\+\_\+bef}}
+\index{eep\+\_\+set\+\_\+bef@{eep\+\_\+set\+\_\+bef}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+set\+\_\+bef()}
+{\footnotesize\ttfamily void eep\+\_\+set\+\_\+bef (\begin{DoxyParamCaption}\item[{int}]{anzahl,  }\item[{char $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Definition at line 166 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_ad2bdb37e9ffea7236eeef049359d3214}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+set\+\_\+block@{eep\+\_\+set\+\_\+block}}
+\index{eep\+\_\+set\+\_\+block@{eep\+\_\+set\+\_\+block}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+set\+\_\+block()}
+{\footnotesize\ttfamily void eep\+\_\+set\+\_\+block (\begin{DoxyParamCaption}\item[{int}]{adr,  }\item[{char $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Definition at line 211 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_ab8a4b9d7cb87df4fe2a08f16425ba35c}} 
+\index{at45db161.\+c@{at45db161.\+c}!eep\+\_\+write\+\_\+byte@{eep\+\_\+write\+\_\+byte}}
+\index{eep\+\_\+write\+\_\+byte@{eep\+\_\+write\+\_\+byte}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{eep\+\_\+write\+\_\+byte()}
+{\footnotesize\ttfamily char eep\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{char}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_ae31a6837673e8e8ee1012f92c4c77a58}} 
+\index{at45db161.\+c@{at45db161.\+c}!find\+\_\+offset@{find\+\_\+offset}}
+\index{find\+\_\+offset@{find\+\_\+offset}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{find\+\_\+offset()}
+{\footnotesize\ttfamily int find\+\_\+offset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 504 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a37e2d1e5c9cee1f787749317d8921d74}} 
+\index{at45db161.\+c@{at45db161.\+c}!get\+\_\+eep\+\_\+id@{get\+\_\+eep\+\_\+id}}
+\index{get\+\_\+eep\+\_\+id@{get\+\_\+eep\+\_\+id}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{get\+\_\+eep\+\_\+id()}
+{\footnotesize\ttfamily int get\+\_\+eep\+\_\+id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 67 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_af326c2e66793e0caaecc96b8acbc67fd}} 
+\index{at45db161.\+c@{at45db161.\+c}!get\+\_\+eep\+\_\+int@{get\+\_\+eep\+\_\+int}}
+\index{get\+\_\+eep\+\_\+int@{get\+\_\+eep\+\_\+int}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{get\+\_\+eep\+\_\+int()}
+{\footnotesize\ttfamily int get\+\_\+eep\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{block,  }\item[{int}]{adr }\end{DoxyParamCaption})}
+
+\mbox{\label{at45db161_8c_a10cc2d4ac3dbac1d56a6c84c5dc007b6}} 
+\index{at45db161.\+c@{at45db161.\+c}!get\+\_\+eep\+\_\+int16@{get\+\_\+eep\+\_\+int16}}
+\index{get\+\_\+eep\+\_\+int16@{get\+\_\+eep\+\_\+int16}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{get\+\_\+eep\+\_\+int16()}
+{\footnotesize\ttfamily int get\+\_\+eep\+\_\+int16 (\begin{DoxyParamCaption}\item[{int}]{block,  }\item[{int}]{adr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 457 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_aa39c05cf130ca8fab56f5f35f766fb43}} 
+\index{at45db161.\+c@{at45db161.\+c}!get\+\_\+eep\+\_\+int32@{get\+\_\+eep\+\_\+int32}}
+\index{get\+\_\+eep\+\_\+int32@{get\+\_\+eep\+\_\+int32}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{get\+\_\+eep\+\_\+int32()}
+{\footnotesize\ttfamily int get\+\_\+eep\+\_\+int32 (\begin{DoxyParamCaption}\item[{int}]{block,  }\item[{int}]{adr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 477 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_af8f36297b3dfaa0c729c2d7627140a9e}} 
+\index{at45db161.\+c@{at45db161.\+c}!get\+\_\+struct@{get\+\_\+struct}}
+\index{get\+\_\+struct@{get\+\_\+struct}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{get\+\_\+struct()}
+{\footnotesize\ttfamily int get\+\_\+struct (\begin{DoxyParamCaption}\item[{char $\ast$}]{struktur,  }\item[{int}]{adresse,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 346 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a478a6580f60a54fc5facbaf561d73f8b}} 
+\index{at45db161.\+c@{at45db161.\+c}!init\+\_\+eep@{init\+\_\+eep}}
+\index{init\+\_\+eep@{init\+\_\+eep}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{init\+\_\+eep()}
+{\footnotesize\ttfamily void init\+\_\+eep (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a7e5b29d34660df457749c45ff7835587}} 
+\index{at45db161.\+c@{at45db161.\+c}!set\+\_\+eep\+\_\+int16@{set\+\_\+eep\+\_\+int16}}
+\index{set\+\_\+eep\+\_\+int16@{set\+\_\+eep\+\_\+int16}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{set\+\_\+eep\+\_\+int16()}
+{\footnotesize\ttfamily int set\+\_\+eep\+\_\+int16 (\begin{DoxyParamCaption}\item[{int}]{block,  }\item[{int}]{adr,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 467 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_abedbeb274ffcf0687eef47099b77815d}} 
+\index{at45db161.\+c@{at45db161.\+c}!set\+\_\+eep\+\_\+int32@{set\+\_\+eep\+\_\+int32}}
+\index{set\+\_\+eep\+\_\+int32@{set\+\_\+eep\+\_\+int32}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{set\+\_\+eep\+\_\+int32()}
+{\footnotesize\ttfamily int set\+\_\+eep\+\_\+int32 (\begin{DoxyParamCaption}\item[{int}]{block,  }\item[{int}]{adr,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 493 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a67abee2196250891a8788506aa631db5}} 
+\index{at45db161.\+c@{at45db161.\+c}!setup\+\_\+eep@{setup\+\_\+eep}}
+\index{setup\+\_\+eep@{setup\+\_\+eep}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{setup\+\_\+eep()}
+{\footnotesize\ttfamily int setup\+\_\+eep (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 538 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a2990f27b6697a9465954c15b59b931e4}} 
+\index{at45db161.\+c@{at45db161.\+c}!S\+P\+I2\+\_\+\+Read@{S\+P\+I2\+\_\+\+Read}}
+\index{S\+P\+I2\+\_\+\+Read@{S\+P\+I2\+\_\+\+Read}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{S\+P\+I2\+\_\+\+Read()}
+{\footnotesize\ttfamily char S\+P\+I2\+\_\+\+Read (\begin{DoxyParamCaption}\item[{char}]{val }\end{DoxyParamCaption})}
+
+\mbox{\label{at45db161_8c_ab33cddad4fe5efd8d464ed3a35da7d7e}} 
+\index{at45db161.\+c@{at45db161.\+c}!S\+P\+I2\+\_\+\+Write@{S\+P\+I2\+\_\+\+Write}}
+\index{S\+P\+I2\+\_\+\+Write@{S\+P\+I2\+\_\+\+Write}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{S\+P\+I2\+\_\+\+Write()}
+{\footnotesize\ttfamily void S\+P\+I2\+\_\+\+Write (\begin{DoxyParamCaption}\item[{char}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\label{at45db161_8c_aae298893ab10764fb9339cadc82422b8}} 
+\index{at45db161.\+c@{at45db161.\+c}!Store\+\_\+del\+\_\+\+Block@{Store\+\_\+del\+\_\+\+Block}}
+\index{Store\+\_\+del\+\_\+\+Block@{Store\+\_\+del\+\_\+\+Block}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{Store\+\_\+del\+\_\+\+Block()}
+{\footnotesize\ttfamily int Store\+\_\+del\+\_\+\+Block (\begin{DoxyParamCaption}\item[{int}]{adress,  }\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 364 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a0d1acbab3520ceb76b879ed1b0186230}} 
+\index{at45db161.\+c@{at45db161.\+c}!store\+\_\+offset@{store\+\_\+offset}}
+\index{store\+\_\+offset@{store\+\_\+offset}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{store\+\_\+offset()}
+{\footnotesize\ttfamily int store\+\_\+offset (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 527 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a5d0a823ec7969bcb21f892a927718fcc}} 
+\index{at45db161.\+c@{at45db161.\+c}!store\+\_\+struct@{store\+\_\+struct}}
+\index{store\+\_\+struct@{store\+\_\+struct}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{store\+\_\+struct()}
+{\footnotesize\ttfamily int store\+\_\+struct (\begin{DoxyParamCaption}\item[{char $\ast$}]{struktur,  }\item[{int}]{adress,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 326 of file at45db161.\+c.
+
+\mbox{\label{at45db161_8c_a98cbe81d410e10f092759a1c7ee962e5}} 
+\index{at45db161.\+c@{at45db161.\+c}!test\+\_\+eep@{test\+\_\+eep}}
+\index{test\+\_\+eep@{test\+\_\+eep}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{test\+\_\+eep()}
+{\footnotesize\ttfamily int test\+\_\+eep (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 411 of file at45db161.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{at45db161_8c_a6d3fc2ecf4168d09406459b6acaca46f}} 
+\index{at45db161.\+c@{at45db161.\+c}!adr\+\_\+buffer@{adr\+\_\+buffer}}
+\index{adr\+\_\+buffer@{adr\+\_\+buffer}!at45db161.\+c@{at45db161.\+c}}
+\subsubsection{adr\+\_\+buffer}
+{\footnotesize\ttfamily char adr\+\_\+buffer[10]}
+
+
+
+Definition at line 27 of file at45db161.\+c.
+

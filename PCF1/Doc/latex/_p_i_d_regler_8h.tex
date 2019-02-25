@@ -1,0 +1,55 @@
+\section{src/\+P\+I\+D\+Regler.h File Reference}
+\label{_p_i_d_regler_8h}\index{src/\+P\+I\+D\+Regler.\+h@{src/\+P\+I\+D\+Regler.\+h}}
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ max\+\_\+\+I\+\_\+\+Term}~2.\+0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ pid\+\_\+\+Init} (float kp, float ki, float kd, float abtast)
+\item 
+float \textbf{ pid\+\_\+\+Controller} (float \textbf{ processvalue}, float setpoint)
+\item 
+void \textbf{ pid\+\_\+\+Reset\+\_\+\+Integr} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{_p_i_d_regler_8h_ae79139c1125154b05886caa05c9d5ba0}} 
+\index{P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}!max\+\_\+\+I\+\_\+\+Term@{max\+\_\+\+I\+\_\+\+Term}}
+\index{max\+\_\+\+I\+\_\+\+Term@{max\+\_\+\+I\+\_\+\+Term}!P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}}
+\subsubsection{max\+\_\+\+I\+\_\+\+Term}
+{\footnotesize\ttfamily \#define max\+\_\+\+I\+\_\+\+Term~2.\+0}
+
+
+
+Definition at line 7 of file P\+I\+D\+Regler.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{_p_i_d_regler_8h_a571e5f6885c48c0fd37fdb2d41b2d2fb}} 
+\index{P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}!pid\+\_\+\+Controller@{pid\+\_\+\+Controller}}
+\index{pid\+\_\+\+Controller@{pid\+\_\+\+Controller}!P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}}
+\subsubsection{pid\+\_\+\+Controller()}
+{\footnotesize\ttfamily float pid\+\_\+\+Controller (\begin{DoxyParamCaption}\item[{float}]{processvalue,  }\item[{float}]{setpoint }\end{DoxyParamCaption})}
+
+\mbox{\label{_p_i_d_regler_8h_a6eb065a52b581d2104b4c7cefb169469}} 
+\index{P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}!pid\+\_\+\+Init@{pid\+\_\+\+Init}}
+\index{pid\+\_\+\+Init@{pid\+\_\+\+Init}!P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}}
+\subsubsection{pid\+\_\+\+Init()}
+{\footnotesize\ttfamily void pid\+\_\+\+Init (\begin{DoxyParamCaption}\item[{float}]{kp,  }\item[{float}]{ki,  }\item[{float}]{kd,  }\item[{float}]{abtast }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{_p_i_d_regler_8h_a357ebf44d57805c223cefeaba4889c3a}} 
+\index{P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}!pid\+\_\+\+Reset\+\_\+\+Integr@{pid\+\_\+\+Reset\+\_\+\+Integr}}
+\index{pid\+\_\+\+Reset\+\_\+\+Integr@{pid\+\_\+\+Reset\+\_\+\+Integr}!P\+I\+D\+Regler.\+h@{P\+I\+D\+Regler.\+h}}
+\subsubsection{pid\+\_\+\+Reset\+\_\+\+Integr()}
+{\footnotesize\ttfamily void pid\+\_\+\+Reset\+\_\+\+Integr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

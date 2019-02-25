@@ -1,0 +1,253 @@
+\section{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}
+\label{group___h_a_l___m_s_p___private___functions}\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init} (C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$hcan)
+\begin{DoxyCompactList}\small\item\em C\+AN M\+SP Initialization This function configures the hardware resources used in this example\+: \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init} (C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$hcan)
+\begin{DoxyCompactList}\small\item\em C\+AN M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init} (U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$huart)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT M\+SP Initialization This function configures the hardware resources used in this example\+: \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init} (U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$huart)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback} (U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$huart)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT wakeup from Stop mode callback. \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init} (S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$hspi)
+\begin{DoxyCompactList}\small\item\em S\+PI M\+SP Initialization This function configures the hardware resources used in this example\+: \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init} (S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$hspi)
+\begin{DoxyCompactList}\small\item\em S\+PI M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: \end{DoxyCompactList}\item 
+void \textbf{ H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init} (T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$htim)
+\begin{DoxyCompactList}\small\item\em T\+IM M\+SP Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga7961550b05594a87512b20a4157713e8}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{hcan }\end{DoxyParamCaption})}
+
+
+
+C\+AN M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Disable the Peripheral\textquotesingle{}s clock
+\item Revert G\+P\+IO to their default state 
+\begin{DoxyParams}{Parameters}
+{\em hcan} & C\+AN handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 116 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga8ecddba6a06c36b74e0b754bde266414}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{hcan }\end{DoxyParamCaption})}
+
+
+
+C\+AN M\+SP Initialization This function configures the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Peripheral\textquotesingle{}s clock enable
+\item Peripheral\textquotesingle{}s G\+P\+IO Configuration
+\item N\+V\+IC configuration for D\+MA interrupt request enable 
+\begin{DoxyParams}{Parameters}
+{\em hcan} & C\+AN handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 71 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_gabadc4d4974af1afd943e8d13589068e1}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}}
+\index{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$}]{hspi }\end{DoxyParamCaption})}
+
+
+
+S\+PI M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Disable the Peripheral\textquotesingle{}s clock
+\item Revert G\+P\+IO, D\+MA and N\+V\+IC configuration to their default state 
+\begin{DoxyParams}{Parameters}
+{\em hspi} & S\+PI handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 311 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga17f583be14b22caffa6c4e56dcd035ef}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+P\+I\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{S\+P\+I\+\_\+\+Handle\+Type\+Def $\ast$}]{hspi }\end{DoxyParamCaption})}
+
+
+
+S\+PI M\+SP Initialization This function configures the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Peripheral\textquotesingle{}s clock enable
+\item Peripheral\textquotesingle{}s G\+P\+IO Configuration
+\item D\+MA configuration for transmission request by peripheral
+\item N\+V\+IC configuration for D\+MA interrupt request enable 
+\begin{DoxyParams}{Parameters}
+{\em hspi} & S\+PI handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 226 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga818f4d5d1e2f417438d281b4ac9efb9c}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+T\+I\+M\+\_\+\+Base\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Handle\+Type\+Def $\ast$}]{htim }\end{DoxyParamCaption})}
+
+
+
+T\+IM M\+SP Initialization. 
+
+This function configures the hardware resources used in this example\+:
+
+
+\begin{DoxyItemize}
+\item Peripheral\textquotesingle{}s clock enable
+\item Peripheral\textquotesingle{}s G\+P\+IO Configuration ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em htim} & T\+IM handle pointer\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 359 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga718f39804e3b910d738a0e1e46151188}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT M\+SP De-\/\+Initialization This function frees the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Disable the Peripheral\textquotesingle{}s clock
+\item Revert G\+P\+IO configuration to their default state 
+\begin{DoxyParams}{Parameters}
+{\em huart} & U\+A\+RT handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 192 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga0e553b32211877322f949b14801bbfa7}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init@{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT M\+SP Initialization This function configures the hardware resources used in this example\+: 
+
+
+\begin{DoxyItemize}
+\item Peripheral\textquotesingle{}s clock enable
+\item Peripheral\textquotesingle{}s G\+P\+IO Configuration 
+\begin{DoxyParams}{Parameters}
+{\em huart} & U\+A\+RT handle pointer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+\end{DoxyItemize}
+
+Definition at line 140 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+
+\mbox{\label{group___h_a_l___m_s_p___private___functions_ga44d09cdf66fec468d956c64a23f61856}} 
+\index{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}!H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback}}
+\index{H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback@{H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback}!H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions@{H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}}
+\subsubsection{H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+U\+A\+R\+T\+Ex\+\_\+\+Wakeup\+Callback (\begin{DoxyParamCaption}\item[{U\+A\+R\+T\+\_\+\+Handle\+Type\+Def $\ast$}]{huart }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT wakeup from Stop mode callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em huart} & uart handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 210 of file stm32f3xx\+\_\+hal\+\_\+msp.\+c.
+

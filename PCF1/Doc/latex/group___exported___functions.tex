@@ -1,0 +1,230 @@
+\section{Exported\+\_\+\+Functions}
+\label{group___exported___functions}\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ B\+S\+P\+\_\+\+Get\+Version} (void)
+\begin{DoxyCompactList}\small\item\em This method returns the S\+T\+M32373C E\+V\+AL B\+SP Driver revision. \end{DoxyCompactList}\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init} (\textbf{ Led\+\_\+\+Type\+Def} Led)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On} (\textbf{ Led\+\_\+\+Type\+Def} Led)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off} (\textbf{ Led\+\_\+\+Type\+Def} Led)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle} (\textbf{ Led\+\_\+\+Type\+Def} Led)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+P\+B\+\_\+\+Init} (\textbf{ Button\+\_\+\+Type\+Def} Button, \textbf{ Button\+Mode\+\_\+\+Type\+Def} Button\+\_\+\+Mode)
+\begin{DoxyCompactList}\small\item\em Configures L\+ED G\+P\+IO. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State} (\textbf{ Button\+\_\+\+Type\+Def} Button)
+\begin{DoxyCompactList}\small\item\em Returns the selected button state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init} (\textbf{ J\+O\+Y\+Mode\+\_\+\+Type\+Def} Joy\+\_\+\+Mode)
+\begin{DoxyCompactList}\small\item\em Configures all button of the joystick in G\+P\+IO or E\+X\+TI modes. \end{DoxyCompactList}\item 
+\textbf{ J\+O\+Y\+State\+\_\+\+Type\+Def} \textbf{ B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current joystick status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___exported___functions_ga65d13608f7010a8068614154cb142cd6}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+Get\+Version@{B\+S\+P\+\_\+\+Get\+Version}}
+\index{B\+S\+P\+\_\+\+Get\+Version@{B\+S\+P\+\_\+\+Get\+Version}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+Get\+Version()}
+{\footnotesize\ttfamily uint32\+\_\+t B\+S\+P\+\_\+\+Get\+Version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This method returns the S\+T\+M32373C E\+V\+AL B\+SP Driver revision. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em version} & \+: 0x\+X\+Y\+ZR (8bits for each decimal, R for RC) \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 299 of file stm32373c\+\_\+eval.\+c.
+
+\mbox{\label{group___exported___functions_gac978098a78085c416a176458d850c807}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State}}
+\index{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State()}
+{\footnotesize\ttfamily \textbf{ J\+O\+Y\+State\+\_\+\+Type\+Def} B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Get\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current joystick status. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Code} & of the joystick key pressed This code can be one of the following values\+: \begin{DoxyItemize}
+\item J\+O\+Y\+\_\+\+N\+O\+NE \item J\+O\+Y\+\_\+\+S\+EL \item J\+O\+Y\+\_\+\+D\+O\+WN \item J\+O\+Y\+\_\+\+L\+E\+FT \item J\+O\+Y\+\_\+\+R\+I\+G\+HT \item J\+O\+Y\+\_\+\+UP \item J\+O\+Y\+\_\+\+N\+O\+NE \end{DoxyItemize}
+\\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 499 of file stm32373c\+\_\+eval.\+c.
+
+\mbox{\label{group___exported___functions_ga1a5bc41baa164f7941e51ec747589c55}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init@{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init}}
+\index{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init@{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init()}
+{\footnotesize\ttfamily uint8\+\_\+t B\+S\+P\+\_\+\+J\+O\+Y\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\textbf{ J\+O\+Y\+Mode\+\_\+\+Type\+Def}}]{Joy\+\_\+\+Mode }\end{DoxyParamCaption})}
+
+
+
+Configures all button of the joystick in G\+P\+IO or E\+X\+TI modes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Joy\+\_\+\+Mode} & Joystick mode. This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item J\+O\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+G\+P\+IO\+: Joystick pins will be used as simple I\+Os \item J\+O\+Y\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+TI\+: Joystick pins will be connected to E\+X\+TI line with interrupt generation capability ~\newline
+\end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em H\+A\+L\+\_\+\+OK} & if all initializations are OK. Other value if error. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 450 of file stm32373c\+\_\+eval.\+c.
+
+\mbox{\label{group___exported___functions_gab58a4f16a476a53653c5c400e3bed158}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}}
+\index{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\textbf{ Led\+\_\+\+Type\+Def}}]{Led }\end{DoxyParamCaption})}
+
+\mbox{\label{group___exported___functions_gaef268680154ca15c45066d64d41f9467}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}}
+\index{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Off (\begin{DoxyParamCaption}\item[{\textbf{ Led\+\_\+\+Type\+Def}}]{Led }\end{DoxyParamCaption})}
+
+\mbox{\label{group___exported___functions_gaee9c16b16384834c69efabf58f423d6f}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}}
+\index{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+On (\begin{DoxyParamCaption}\item[{\textbf{ Led\+\_\+\+Type\+Def}}]{Led }\end{DoxyParamCaption})}
+
+\mbox{\label{group___exported___functions_ga1b9eabba7d498f41d6f16587ec0f9732}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}}
+\index{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle (\begin{DoxyParamCaption}\item[{\textbf{ Led\+\_\+\+Type\+Def}}]{Led }\end{DoxyParamCaption})}
+
+\mbox{\label{group___exported___functions_ga8f0978b6cffda9c67266ddfdb3a0abf7}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}}
+\index{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State()}
+{\footnotesize\ttfamily uint32\+\_\+t B\+S\+P\+\_\+\+P\+B\+\_\+\+Get\+State (\begin{DoxyParamCaption}\item[{\textbf{ Button\+\_\+\+Type\+Def}}]{Button }\end{DoxyParamCaption})}
+
+
+
+Returns the selected button state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Button} & Button to be checked. This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item B\+U\+T\+T\+O\+N\+\_\+\+T\+A\+M\+P\+ER\+: Tamper Push Button \item B\+U\+T\+T\+O\+N\+\_\+\+K\+EY\+: Key Push Button \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & Button G\+P\+IO pin value \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 436 of file stm32373c\+\_\+eval.\+c.
+
+\mbox{\label{group___exported___functions_gacfde520fe598ece32657c56408354d2e}} 
+\index{Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}!B\+S\+P\+\_\+\+P\+B\+\_\+\+Init@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}}
+\index{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init@{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init}!Exported\+\_\+\+Functions@{Exported\+\_\+\+Functions}}
+\subsubsection{B\+S\+P\+\_\+\+P\+B\+\_\+\+Init()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+P\+B\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\textbf{ Button\+\_\+\+Type\+Def}}]{Button,  }\item[{\textbf{ Button\+Mode\+\_\+\+Type\+Def}}]{Mode }\end{DoxyParamCaption})}
+
+
+
+Configures L\+ED G\+P\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Led} & Specifies the Led to be configured. This parameter can be one of following parameters\+: \begin{DoxyItemize}
+\item L\+E\+D1 \item L\+E\+D2 \item L\+E\+D3 \item L\+E\+D4 \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & Turns selected L\+ED On. \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parameters}
+{\em Led} & Specifies the Led to be set on. This parameter can be one of following parameters\+: \begin{DoxyItemize}
+\item L\+E\+D1 \item L\+E\+D2 \item L\+E\+D3 \item L\+E\+D4 ~\newline
+~\newline
+~\newline
+~\newline
+\end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & Turns selected L\+ED Off. \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parameters}
+{\em Led} & Specifies the Led to be set off. This parameter can be one of following parameters\+: \begin{DoxyItemize}
+\item L\+E\+D1 \item L\+E\+D2 \item L\+E\+D3 \item L\+E\+D4 \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & Toggles the selected L\+ED. \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parameters}
+{\em Led} & Specifies the Led to be toggled. This parameter can be one of following parameters\+: \begin{DoxyItemize}
+\item L\+E\+D1 \item L\+E\+D2 \item L\+E\+D3 \item L\+E\+D4 ~\newline
+~\newline
+\end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & Configures push button G\+P\+IO and E\+X\+TI Line. \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parameters}
+{\em Button} & Button to be configured This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item B\+U\+T\+T\+O\+N\+\_\+\+T\+A\+M\+P\+ER\+: Tamper Push Button \item B\+U\+T\+T\+O\+N\+\_\+\+K\+EY \+: Key Push Button \end{DoxyItemize}
+\\
+\hline
+{\em Mode} & Button mode This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item B\+U\+T\+T\+O\+N\+\_\+\+M\+O\+D\+E\+\_\+\+G\+P\+IO\+: Button will be used as simple IO \item B\+U\+T\+T\+O\+N\+\_\+\+M\+O\+D\+E\+\_\+\+E\+X\+TI\+: Button will be connected to E\+X\+TI line with interrupt generation capability \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 390 of file stm32373c\+\_\+eval.\+c.
+

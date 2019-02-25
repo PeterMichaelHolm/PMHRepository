@@ -1,0 +1,5 @@
+PIDRegler.c:32:6:set_pid_start	8	static
+PIDRegler.c:46:6:set_pid_timer	16	static
+PIDRegler.c:23:6:pid_Init	8	static
+PIDRegler.c:82:6:pid_state	8	static
+PIDRegler.c:73:6:TIM4_Handler	8	static

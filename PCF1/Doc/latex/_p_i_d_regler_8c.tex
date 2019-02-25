@@ -1,0 +1,151 @@
+\section{src/\+P\+I\+D\+Regler.c File Reference}
+\label{_p_i_d_regler_8c}\index{src/\+P\+I\+D\+Regler.\+c@{src/\+P\+I\+D\+Regler.\+c}}
+{\ttfamily \#include \char`\"{}P\+I\+D\+Regler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ S\+D\+A\+D\+C\+\_\+\+Get\+Val} (void)
+\item 
+float \textbf{ get\+\_\+adc\+\_\+val} (void)
+\item 
+void \textbf{ set\+\_\+up\+\_\+motor\+\_\+rampe} (int array\+\_\+nr)
+\item 
+void \textbf{ print\+\_\+f\+\_\+lf0} (char $\ast$text)
+\item 
+void \textbf{ pid\+\_\+state} (void)
+\item 
+void \textbf{ set\+\_\+pid\+\_\+timer} (void)
+\item 
+void \textbf{ T\+I\+M4\+\_\+\+Handler} (void)
+\item 
+void \textbf{ pid\+\_\+\+Init} (float kp, float ki, float kd, float abtast)
+\item 
+void \textbf{ set\+\_\+pid\+\_\+start} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ toggle}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \textbf{ Tim4\+Handle}
+\item 
+float \textbf{ error}
+\item 
+float \textbf{ max\+\_\+druck}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{_p_i_d_regler_8c_ad7adec982039e6bbf58fd9ac980cbce1}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!get\+\_\+adc\+\_\+val@{get\+\_\+adc\+\_\+val}}
+\index{get\+\_\+adc\+\_\+val@{get\+\_\+adc\+\_\+val}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{get\+\_\+adc\+\_\+val()}
+{\footnotesize\ttfamily float get\+\_\+adc\+\_\+val (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file Adc.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a6eb065a52b581d2104b4c7cefb169469}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!pid\+\_\+\+Init@{pid\+\_\+\+Init}}
+\index{pid\+\_\+\+Init@{pid\+\_\+\+Init}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{pid\+\_\+\+Init()}
+{\footnotesize\ttfamily void pid\+\_\+\+Init (\begin{DoxyParamCaption}\item[{float}]{kp,  }\item[{float}]{ki,  }\item[{float}]{kd,  }\item[{float}]{abtast }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a589cb58e447b2b9be6c46a0bb648ac66}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!pid\+\_\+state@{pid\+\_\+state}}
+\index{pid\+\_\+state@{pid\+\_\+state}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{pid\+\_\+state()}
+{\footnotesize\ttfamily void pid\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a4f2540c2811f6e4c4c136f964b5b8545}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}}
+\index{print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{print\+\_\+f\+\_\+lf0()}
+{\footnotesize\ttfamily void print\+\_\+f\+\_\+lf0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file Uart2.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_ae5bd1779e80bc9fa9b4221eb6df40ecd}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!S\+D\+A\+D\+C\+\_\+\+Get\+Val@{S\+D\+A\+D\+C\+\_\+\+Get\+Val}}
+\index{S\+D\+A\+D\+C\+\_\+\+Get\+Val@{S\+D\+A\+D\+C\+\_\+\+Get\+Val}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{S\+D\+A\+D\+C\+\_\+\+Get\+Val()}
+{\footnotesize\ttfamily int S\+D\+A\+D\+C\+\_\+\+Get\+Val (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{_p_i_d_regler_8c_a295254d87ad35bad08a608988bdb4fd3}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!set\+\_\+pid\+\_\+start@{set\+\_\+pid\+\_\+start}}
+\index{set\+\_\+pid\+\_\+start@{set\+\_\+pid\+\_\+start}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{set\+\_\+pid\+\_\+start()}
+{\footnotesize\ttfamily void set\+\_\+pid\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a2382b3ca034b5ad08977cfa64bcff513}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!set\+\_\+pid\+\_\+timer@{set\+\_\+pid\+\_\+timer}}
+\index{set\+\_\+pid\+\_\+timer@{set\+\_\+pid\+\_\+timer}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{set\+\_\+pid\+\_\+timer()}
+{\footnotesize\ttfamily void set\+\_\+pid\+\_\+timer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a9e44ea949ee3e5408d38f79758c8ea48}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!set\+\_\+up\+\_\+motor\+\_\+rampe@{set\+\_\+up\+\_\+motor\+\_\+rampe}}
+\index{set\+\_\+up\+\_\+motor\+\_\+rampe@{set\+\_\+up\+\_\+motor\+\_\+rampe}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{set\+\_\+up\+\_\+motor\+\_\+rampe()}
+{\footnotesize\ttfamily void set\+\_\+up\+\_\+motor\+\_\+rampe (\begin{DoxyParamCaption}\item[{int}]{array\+\_\+nr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1224 of file main.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{_p_i_d_regler_8c_a7cfd13d282af770aaa971755fa092fca}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!error@{error}}
+\index{error@{error}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{error}
+{\footnotesize\ttfamily float error}
+
+
+
+Definition at line 20 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a4403857d84098dcee3088f476a2a2b34}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!max\+\_\+druck@{max\+\_\+druck}}
+\index{max\+\_\+druck@{max\+\_\+druck}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{max\+\_\+druck}
+{\footnotesize\ttfamily float max\+\_\+druck}
+
+
+
+Definition at line 213 of file main.\+c.
+
+\mbox{\label{_p_i_d_regler_8c_a5fb7c572958b9d030934749cdd2f178e}} 
+\index{P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}!toggle@{toggle}}
+\index{toggle@{toggle}!P\+I\+D\+Regler.\+c@{P\+I\+D\+Regler.\+c}}
+\subsubsection{toggle}
+{\footnotesize\ttfamily int toggle}
+
+
+
+Definition at line 9 of file P\+I\+D\+Regler.\+c.
+

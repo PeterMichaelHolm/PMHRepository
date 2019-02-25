@@ -1,0 +1,6 @@
+Anzeige.c:18:6:anzeige_init	32	static
+Anzeige.c:32:6:anzeige_set_valu	24	static
+Anzeige.c:44:6:anzeige_send_int	8	static
+Anzeige.c:108:6:anzeige_send_fehler	8	static
+Anzeige.c:140:6:set_blink	24	static
+Anzeige.c:147:6:reset_blink	24	static

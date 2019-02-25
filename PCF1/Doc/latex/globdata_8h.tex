@@ -1,0 +1,773 @@
+\section{src/globdata.h File Reference}
+\label{globdata_8h}\index{src/globdata.\+h@{src/globdata.\+h}}
+{\ttfamily \#include \char`\"{}struktur.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ G\+L\+O\+B\+D\+A\+T\+A\+\_\+H}
+\item 
+\#define \textbf{ W\+L\+AN}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ wait\+\_\+ms} (int val)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \textbf{ adc\+\_\+array} [16]
+\item 
+int \textbf{ adc\+\_\+val}
+\item 
+int \textbf{ timer2}
+\item 
+int \textbf{ motor\+\_\+step\+\_\+anzahl}
+\item 
+int \textbf{ motor\+\_\+step\+\_\+zeit}
+\item 
+int \textbf{ drehzahl}
+\item 
+int \textbf{ micro\+\_\+step}
+\item 
+int \textbf{ adc\+\_\+val\+\_\+array} [16]
+\item 
+int \textbf{ adc\+\_\+state}
+\item 
+float \textbf{ ist\+\_\+druck}
+\item 
+int \textbf{ connect}
+\item 
+float \textbf{ last\+Process\+Value}
+\item 
+float \textbf{ summ\+Error}
+\item 
+float \textbf{ max\+Summ\+Error}
+\item 
+float \textbf{ max\+Error}
+\item 
+float \textbf{ KP}
+\item 
+float \textbf{ KI}
+\item 
+float \textbf{ KD}
+\item 
+float \textbf{ abtast\+Rate}
+\item 
+float \textbf{ regler\+\_\+erg}
+\item 
+float \textbf{ regel\+\_\+abweichung\+\_\+max}
+\item 
+float \textbf{ regel\+\_\+abweichung\+\_\+min}
+\item 
+float \textbf{ sollwert}
+\item 
+float \textbf{ regler\+\_\+val}
+\item 
+int \textbf{ regler\+\_\+flag}
+\item 
+float \textbf{ processvalue}
+\item 
+float \textbf{ betrag}
+\item 
+char \textbf{ dummy} [256]
+\item 
+char \textbf{ dummy2} [100]
+\item 
+int \textbf{ ausgabe\+\_\+timer}
+\item 
+int \textbf{ timer3}
+\item 
+int \textbf{ main\+\_\+state}
+\item 
+int \textbf{ tx\+\_\+restart0}
+\item 
+char \textbf{ ser\+\_\+in\+\_\+flag0}
+\item 
+\textbf{ ramp1} \textbf{ rampe1}
+\item 
+int \textbf{ pid\+\_\+freigabe}
+\item 
+int \textbf{ motor\+\_\+zeit}
+\item 
+int \textbf{ can\+\_\+time\+\_\+out}
+\item 
+int \textbf{ can\+\_\+time\+\_\+out\+\_\+freigabe}
+\item 
+int \textbf{ rs\+\_\+232\+\_\+time\+\_\+out}
+\item 
+int \textbf{ rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe}
+\item 
+int \textbf{ akt\+\_\+geschw}
+\item 
+char \textbf{ flash\+\_\+buffer} [256]
+\item 
+char \textbf{ life\+\_\+time\+\_\+buffer} [256]
+\item 
+int \textbf{ timer1\+\_\+counter}
+\item 
+int \textbf{ in\+\_\+anzeige\+\_\+block}
+\item 
+int \textbf{ life\+\_\+time\+\_\+block}
+\item 
+int \textbf{ in\+\_\+life\+\_\+time\+\_\+buffer}
+\item 
+int \textbf{ liter\+\_\+offset}
+\item 
+short \textbf{ adc\+\_\+oel}
+\item 
+int \textbf{ my\+\_\+position}
+\item 
+int \textbf{ entlage\+\_\+rechts}
+\item 
+int \textbf{ entlage\+\_\+links}
+\item 
+int \textbf{ anzeige\+\_\+state}
+\item 
+int \textbf{ blink\+\_\+timer}
+\item 
+int \textbf{ tasten\+\_\+ende}
+\item 
+int \textbf{ timer\+\_\+m}
+\item 
+int \textbf{ adc\+\_\+timer}
+\item 
+float \textbf{ max\+\_\+ad\+\_\+val}
+\item 
+float \textbf{ min\+\_\+ad\+\_\+val}
+\item 
+float \textbf{ rs232\+\_\+druck}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{globdata_8h_aeeef5de8dc8f785414a6c7a47d53c2d7}} 
+\index{globdata.\+h@{globdata.\+h}!G\+L\+O\+B\+D\+A\+T\+A\+\_\+H@{G\+L\+O\+B\+D\+A\+T\+A\+\_\+H}}
+\index{G\+L\+O\+B\+D\+A\+T\+A\+\_\+H@{G\+L\+O\+B\+D\+A\+T\+A\+\_\+H}!globdata.\+h@{globdata.\+h}}
+\subsubsection{G\+L\+O\+B\+D\+A\+T\+A\+\_\+H}
+{\footnotesize\ttfamily \#define G\+L\+O\+B\+D\+A\+T\+A\+\_\+H}
+
+
+
+Definition at line 2 of file globdata.\+h.
+
+\mbox{\label{globdata_8h_ad64e0a093cb3ac48bff71557197b1ee2}} 
+\index{globdata.\+h@{globdata.\+h}!W\+L\+AN@{W\+L\+AN}}
+\index{W\+L\+AN@{W\+L\+AN}!globdata.\+h@{globdata.\+h}}
+\subsubsection{W\+L\+AN}
+{\footnotesize\ttfamily \#define W\+L\+AN~1}
+
+
+
+Definition at line 4 of file globdata.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{globdata_8h_a673e7c8d7d59846090268d3eb6261697}} 
+\index{globdata.\+h@{globdata.\+h}!wait\+\_\+ms@{wait\+\_\+ms}}
+\index{wait\+\_\+ms@{wait\+\_\+ms}!globdata.\+h@{globdata.\+h}}
+\subsubsection{wait\+\_\+ms()}
+{\footnotesize\ttfamily void wait\+\_\+ms (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1315 of file main.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{globdata_8h_add5c5c9cbf8e60eecea9081015cd6a80}} 
+\index{globdata.\+h@{globdata.\+h}!abtast\+Rate@{abtast\+Rate}}
+\index{abtast\+Rate@{abtast\+Rate}!globdata.\+h@{globdata.\+h}}
+\subsubsection{abtast\+Rate}
+{\footnotesize\ttfamily float abtast\+Rate}
+
+
+
+Definition at line 28 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a3fe0576ac18faf17e1b5b05f1ea4a210}} 
+\index{globdata.\+h@{globdata.\+h}!adc\+\_\+array@{adc\+\_\+array}}
+\index{adc\+\_\+array@{adc\+\_\+array}!globdata.\+h@{globdata.\+h}}
+\subsubsection{adc\+\_\+array}
+{\footnotesize\ttfamily unsigned int adc\+\_\+array[16]}
+
+
+
+Definition at line 4 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ae3a819c589b7aa0f5ba6f78fa2776265}} 
+\index{globdata.\+h@{globdata.\+h}!adc\+\_\+oel@{adc\+\_\+oel}}
+\index{adc\+\_\+oel@{adc\+\_\+oel}!globdata.\+h@{globdata.\+h}}
+\subsubsection{adc\+\_\+oel}
+{\footnotesize\ttfamily short adc\+\_\+oel}
+
+
+
+Definition at line 43 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aafaf88f68ddff75e79b9993eb9613469}} 
+\index{globdata.\+h@{globdata.\+h}!adc\+\_\+state@{adc\+\_\+state}}
+\index{adc\+\_\+state@{adc\+\_\+state}!globdata.\+h@{globdata.\+h}}
+\subsubsection{adc\+\_\+state}
+{\footnotesize\ttfamily int adc\+\_\+state}
+
+
+
+Definition at line 14 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aa186a8fc885ad7481aebc685635bf12e}} 
+\index{globdata.\+h@{globdata.\+h}!adc\+\_\+timer@{adc\+\_\+timer}}
+\index{adc\+\_\+timer@{adc\+\_\+timer}!globdata.\+h@{globdata.\+h}}
+\subsubsection{adc\+\_\+timer}
+{\footnotesize\ttfamily int adc\+\_\+timer}
+
+
+
+Definition at line 65 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a6ba1c07c85c0ae4540e705263660ad15}} 
+\index{globdata.\+h@{globdata.\+h}!adc\+\_\+val@{adc\+\_\+val}}
+\index{adc\+\_\+val@{adc\+\_\+val}!globdata.\+h@{globdata.\+h}}
+\subsubsection{adc\+\_\+val}
+{\footnotesize\ttfamily int adc\+\_\+val}
+
+
+
+Definition at line 5 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_af262c6b36a43d81270912c79810a0ac0}} 
+\index{globdata.\+h@{globdata.\+h}!adc\+\_\+val\+\_\+array@{adc\+\_\+val\+\_\+array}}
+\index{adc\+\_\+val\+\_\+array@{adc\+\_\+val\+\_\+array}!globdata.\+h@{globdata.\+h}}
+\subsubsection{adc\+\_\+val\+\_\+array}
+{\footnotesize\ttfamily int adc\+\_\+val\+\_\+array[16]}
+
+
+
+Definition at line 13 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a602c60443c28b2a86f8c55ba2049e39c}} 
+\index{globdata.\+h@{globdata.\+h}!akt\+\_\+geschw@{akt\+\_\+geschw}}
+\index{akt\+\_\+geschw@{akt\+\_\+geschw}!globdata.\+h@{globdata.\+h}}
+\subsubsection{akt\+\_\+geschw}
+{\footnotesize\ttfamily int akt\+\_\+geschw}
+
+
+
+Definition at line 51 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a3f5a2d86d789bedb9ac8444e7d7a5dce}} 
+\index{globdata.\+h@{globdata.\+h}!anzeige\+\_\+state@{anzeige\+\_\+state}}
+\index{anzeige\+\_\+state@{anzeige\+\_\+state}!globdata.\+h@{globdata.\+h}}
+\subsubsection{anzeige\+\_\+state}
+{\footnotesize\ttfamily int anzeige\+\_\+state}
+
+
+
+Definition at line 62 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a163ea70feb573ebd563d1e4e7f9caef5}} 
+\index{globdata.\+h@{globdata.\+h}!ausgabe\+\_\+timer@{ausgabe\+\_\+timer}}
+\index{ausgabe\+\_\+timer@{ausgabe\+\_\+timer}!globdata.\+h@{globdata.\+h}}
+\subsubsection{ausgabe\+\_\+timer}
+{\footnotesize\ttfamily int ausgabe\+\_\+timer}
+
+
+
+Definition at line 17 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ad31566d70fbfc66ff793c1e57e0c5d16}} 
+\index{globdata.\+h@{globdata.\+h}!betrag@{betrag}}
+\index{betrag@{betrag}!globdata.\+h@{globdata.\+h}}
+\subsubsection{betrag}
+{\footnotesize\ttfamily float betrag}
+
+
+
+Definition at line 30 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a2742d4e5d56ebc0fc66ae7facbae0389}} 
+\index{globdata.\+h@{globdata.\+h}!blink\+\_\+timer@{blink\+\_\+timer}}
+\index{blink\+\_\+timer@{blink\+\_\+timer}!globdata.\+h@{globdata.\+h}}
+\subsubsection{blink\+\_\+timer}
+{\footnotesize\ttfamily int blink\+\_\+timer}
+
+
+
+Definition at line 63 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aa1904e43b1fd8d42d624b4be10661993}} 
+\index{globdata.\+h@{globdata.\+h}!can\+\_\+time\+\_\+out@{can\+\_\+time\+\_\+out}}
+\index{can\+\_\+time\+\_\+out@{can\+\_\+time\+\_\+out}!globdata.\+h@{globdata.\+h}}
+\subsubsection{can\+\_\+time\+\_\+out}
+{\footnotesize\ttfamily int can\+\_\+time\+\_\+out}
+
+
+
+Definition at line 47 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a268db3f67d10f87e9174fd110eedb77a}} 
+\index{globdata.\+h@{globdata.\+h}!can\+\_\+time\+\_\+out\+\_\+freigabe@{can\+\_\+time\+\_\+out\+\_\+freigabe}}
+\index{can\+\_\+time\+\_\+out\+\_\+freigabe@{can\+\_\+time\+\_\+out\+\_\+freigabe}!globdata.\+h@{globdata.\+h}}
+\subsubsection{can\+\_\+time\+\_\+out\+\_\+freigabe}
+{\footnotesize\ttfamily int can\+\_\+time\+\_\+out\+\_\+freigabe}
+
+
+
+Definition at line 48 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aa79ab26bef7962d86504a61edbc534a7}} 
+\index{globdata.\+h@{globdata.\+h}!connect@{connect}}
+\index{connect@{connect}!globdata.\+h@{globdata.\+h}}
+\subsubsection{connect}
+{\footnotesize\ttfamily int connect}
+
+
+
+Definition at line 44 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ae4f4358d6dfdc7c62030d3b829273e42}} 
+\index{globdata.\+h@{globdata.\+h}!drehzahl@{drehzahl}}
+\index{drehzahl@{drehzahl}!globdata.\+h@{globdata.\+h}}
+\subsubsection{drehzahl}
+{\footnotesize\ttfamily int drehzahl}
+
+\mbox{\label{globdata_8h_a4dc4bd65e1b61fabca89558c3d1109c7}} 
+\index{globdata.\+h@{globdata.\+h}!dummy@{dummy}}
+\index{dummy@{dummy}!globdata.\+h@{globdata.\+h}}
+\subsubsection{dummy}
+{\footnotesize\ttfamily char dummy[256]}
+
+
+
+Definition at line 15 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aa5c9fb090bba18f0a9e23bff98effff1}} 
+\index{globdata.\+h@{globdata.\+h}!dummy2@{dummy2}}
+\index{dummy2@{dummy2}!globdata.\+h@{globdata.\+h}}
+\subsubsection{dummy2}
+{\footnotesize\ttfamily char dummy2[100]}
+
+
+
+Definition at line 16 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a86bdb94fe65ca48f7262ddcd95570ff9}} 
+\index{globdata.\+h@{globdata.\+h}!entlage\+\_\+links@{entlage\+\_\+links}}
+\index{entlage\+\_\+links@{entlage\+\_\+links}!globdata.\+h@{globdata.\+h}}
+\subsubsection{entlage\+\_\+links}
+{\footnotesize\ttfamily int entlage\+\_\+links}
+
+
+
+Definition at line 61 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a4a4d52dd159450980a7bc7643d24c1c6}} 
+\index{globdata.\+h@{globdata.\+h}!entlage\+\_\+rechts@{entlage\+\_\+rechts}}
+\index{entlage\+\_\+rechts@{entlage\+\_\+rechts}!globdata.\+h@{globdata.\+h}}
+\subsubsection{entlage\+\_\+rechts}
+{\footnotesize\ttfamily int entlage\+\_\+rechts}
+
+
+
+Definition at line 61 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a911650f95e58c5a9114742ab6b4381cd}} 
+\index{globdata.\+h@{globdata.\+h}!flash\+\_\+buffer@{flash\+\_\+buffer}}
+\index{flash\+\_\+buffer@{flash\+\_\+buffer}!globdata.\+h@{globdata.\+h}}
+\subsubsection{flash\+\_\+buffer}
+{\footnotesize\ttfamily char flash\+\_\+buffer[256]}
+
+
+
+Definition at line 53 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a19cddd5a3fe775b296862881074a3619}} 
+\index{globdata.\+h@{globdata.\+h}!in\+\_\+anzeige\+\_\+block@{in\+\_\+anzeige\+\_\+block}}
+\index{in\+\_\+anzeige\+\_\+block@{in\+\_\+anzeige\+\_\+block}!globdata.\+h@{globdata.\+h}}
+\subsubsection{in\+\_\+anzeige\+\_\+block}
+{\footnotesize\ttfamily int in\+\_\+anzeige\+\_\+block}
+
+
+
+Definition at line 59 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ab0fe1eded73f4666b0e14607f594bfc5}} 
+\index{globdata.\+h@{globdata.\+h}!in\+\_\+life\+\_\+time\+\_\+buffer@{in\+\_\+life\+\_\+time\+\_\+buffer}}
+\index{in\+\_\+life\+\_\+time\+\_\+buffer@{in\+\_\+life\+\_\+time\+\_\+buffer}!globdata.\+h@{globdata.\+h}}
+\subsubsection{in\+\_\+life\+\_\+time\+\_\+buffer}
+{\footnotesize\ttfamily int in\+\_\+life\+\_\+time\+\_\+buffer}
+
+
+
+Definition at line 55 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a3e6af77067a051a638e36c1bb1c4400e}} 
+\index{globdata.\+h@{globdata.\+h}!ist\+\_\+druck@{ist\+\_\+druck}}
+\index{ist\+\_\+druck@{ist\+\_\+druck}!globdata.\+h@{globdata.\+h}}
+\subsubsection{ist\+\_\+druck}
+{\footnotesize\ttfamily float ist\+\_\+druck}
+
+
+
+Definition at line 11 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a16424cc4cde718119fedda0db72c792f}} 
+\index{globdata.\+h@{globdata.\+h}!KD@{KD}}
+\index{KD@{KD}!globdata.\+h@{globdata.\+h}}
+\subsubsection{KD}
+{\footnotesize\ttfamily float KD}
+
+
+
+Definition at line 26 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aa7d5dd64817c03d067d0e922cd35d75c}} 
+\index{globdata.\+h@{globdata.\+h}!KI@{KI}}
+\index{KI@{KI}!globdata.\+h@{globdata.\+h}}
+\subsubsection{KI}
+{\footnotesize\ttfamily float KI}
+
+
+
+Definition at line 25 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_abf14c0656fbb57a86c322a87af806030}} 
+\index{globdata.\+h@{globdata.\+h}!KP@{KP}}
+\index{KP@{KP}!globdata.\+h@{globdata.\+h}}
+\subsubsection{KP}
+{\footnotesize\ttfamily float KP}
+
+
+
+Definition at line 24 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aaec2b817d9d42d306ebdc33e863a1674}} 
+\index{globdata.\+h@{globdata.\+h}!last\+Process\+Value@{last\+Process\+Value}}
+\index{last\+Process\+Value@{last\+Process\+Value}!globdata.\+h@{globdata.\+h}}
+\subsubsection{last\+Process\+Value}
+{\footnotesize\ttfamily float last\+Process\+Value}
+
+
+
+Definition at line 20 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aa301d715ce1013286a2d0bf7adb6b8af}} 
+\index{globdata.\+h@{globdata.\+h}!life\+\_\+time\+\_\+block@{life\+\_\+time\+\_\+block}}
+\index{life\+\_\+time\+\_\+block@{life\+\_\+time\+\_\+block}!globdata.\+h@{globdata.\+h}}
+\subsubsection{life\+\_\+time\+\_\+block}
+{\footnotesize\ttfamily int life\+\_\+time\+\_\+block}
+
+
+
+Definition at line 67 of file globdata.\+h.
+
+\mbox{\label{globdata_8h_a88d2d73bff40e3b4a4853e2f4a420098}} 
+\index{globdata.\+h@{globdata.\+h}!life\+\_\+time\+\_\+buffer@{life\+\_\+time\+\_\+buffer}}
+\index{life\+\_\+time\+\_\+buffer@{life\+\_\+time\+\_\+buffer}!globdata.\+h@{globdata.\+h}}
+\subsubsection{life\+\_\+time\+\_\+buffer}
+{\footnotesize\ttfamily char life\+\_\+time\+\_\+buffer[256]}
+
+
+
+Definition at line 54 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a2d0b3bc49a15d13c30284763b458dd55}} 
+\index{globdata.\+h@{globdata.\+h}!liter\+\_\+offset@{liter\+\_\+offset}}
+\index{liter\+\_\+offset@{liter\+\_\+offset}!globdata.\+h@{globdata.\+h}}
+\subsubsection{liter\+\_\+offset}
+{\footnotesize\ttfamily int liter\+\_\+offset}
+
+
+
+Definition at line 60 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_af4056f02cdd1c220c82e2ff7d5b35caf}} 
+\index{globdata.\+h@{globdata.\+h}!main\+\_\+state@{main\+\_\+state}}
+\index{main\+\_\+state@{main\+\_\+state}!globdata.\+h@{globdata.\+h}}
+\subsubsection{main\+\_\+state}
+{\footnotesize\ttfamily int main\+\_\+state}
+
+
+
+Definition at line 37 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a8b5f8ea9b15b01dc0d7782b92786da50}} 
+\index{globdata.\+h@{globdata.\+h}!max\+\_\+ad\+\_\+val@{max\+\_\+ad\+\_\+val}}
+\index{max\+\_\+ad\+\_\+val@{max\+\_\+ad\+\_\+val}!globdata.\+h@{globdata.\+h}}
+\subsubsection{max\+\_\+ad\+\_\+val}
+{\footnotesize\ttfamily float max\+\_\+ad\+\_\+val}
+
+
+
+Definition at line 67 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a6dd8ac4cfeff950854d9c84c0cdd2c58}} 
+\index{globdata.\+h@{globdata.\+h}!max\+Error@{max\+Error}}
+\index{max\+Error@{max\+Error}!globdata.\+h@{globdata.\+h}}
+\subsubsection{max\+Error}
+{\footnotesize\ttfamily float max\+Error}
+
+
+
+Definition at line 23 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a9f0faaec1970b9bfb86d649bed46f22d}} 
+\index{globdata.\+h@{globdata.\+h}!max\+Summ\+Error@{max\+Summ\+Error}}
+\index{max\+Summ\+Error@{max\+Summ\+Error}!globdata.\+h@{globdata.\+h}}
+\subsubsection{max\+Summ\+Error}
+{\footnotesize\ttfamily float max\+Summ\+Error}
+
+
+
+Definition at line 22 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a03e635a6d22f0058fc894abfbc22528c}} 
+\index{globdata.\+h@{globdata.\+h}!micro\+\_\+step@{micro\+\_\+step}}
+\index{micro\+\_\+step@{micro\+\_\+step}!globdata.\+h@{globdata.\+h}}
+\subsubsection{micro\+\_\+step}
+{\footnotesize\ttfamily int micro\+\_\+step}
+
+\mbox{\label{globdata_8h_a93e0decd4e7324fd42153b8c7605d3c0}} 
+\index{globdata.\+h@{globdata.\+h}!min\+\_\+ad\+\_\+val@{min\+\_\+ad\+\_\+val}}
+\index{min\+\_\+ad\+\_\+val@{min\+\_\+ad\+\_\+val}!globdata.\+h@{globdata.\+h}}
+\subsubsection{min\+\_\+ad\+\_\+val}
+{\footnotesize\ttfamily float min\+\_\+ad\+\_\+val}
+
+
+
+Definition at line 68 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a41788bdf60e90520dd98ab94e4c9e880}} 
+\index{globdata.\+h@{globdata.\+h}!motor\+\_\+step\+\_\+anzahl@{motor\+\_\+step\+\_\+anzahl}}
+\index{motor\+\_\+step\+\_\+anzahl@{motor\+\_\+step\+\_\+anzahl}!globdata.\+h@{globdata.\+h}}
+\subsubsection{motor\+\_\+step\+\_\+anzahl}
+{\footnotesize\ttfamily int motor\+\_\+step\+\_\+anzahl}
+
+\mbox{\label{globdata_8h_a5e2d9ba248bc2cbded441fd39ec346ae}} 
+\index{globdata.\+h@{globdata.\+h}!motor\+\_\+step\+\_\+zeit@{motor\+\_\+step\+\_\+zeit}}
+\index{motor\+\_\+step\+\_\+zeit@{motor\+\_\+step\+\_\+zeit}!globdata.\+h@{globdata.\+h}}
+\subsubsection{motor\+\_\+step\+\_\+zeit}
+{\footnotesize\ttfamily int motor\+\_\+step\+\_\+zeit}
+
+\mbox{\label{globdata_8h_adecdfd2cb6bbc1ab620b718b13ecff78}} 
+\index{globdata.\+h@{globdata.\+h}!motor\+\_\+zeit@{motor\+\_\+zeit}}
+\index{motor\+\_\+zeit@{motor\+\_\+zeit}!globdata.\+h@{globdata.\+h}}
+\subsubsection{motor\+\_\+zeit}
+{\footnotesize\ttfamily int motor\+\_\+zeit}
+
+
+
+Definition at line 46 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ae986bf1cc8384f284082d88d4d207bd2}} 
+\index{globdata.\+h@{globdata.\+h}!my\+\_\+position@{my\+\_\+position}}
+\index{my\+\_\+position@{my\+\_\+position}!globdata.\+h@{globdata.\+h}}
+\subsubsection{my\+\_\+position}
+{\footnotesize\ttfamily int my\+\_\+position}
+
+
+
+Definition at line 42 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a0cabdc83b07713ce7646feafad85a4c3}} 
+\index{globdata.\+h@{globdata.\+h}!pid\+\_\+freigabe@{pid\+\_\+freigabe}}
+\index{pid\+\_\+freigabe@{pid\+\_\+freigabe}!globdata.\+h@{globdata.\+h}}
+\subsubsection{pid\+\_\+freigabe}
+{\footnotesize\ttfamily int pid\+\_\+freigabe}
+
+
+
+Definition at line 45 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a94a90c1796eac371dd8d0c891eab98f4}} 
+\index{globdata.\+h@{globdata.\+h}!processvalue@{processvalue}}
+\index{processvalue@{processvalue}!globdata.\+h@{globdata.\+h}}
+\subsubsection{processvalue}
+{\footnotesize\ttfamily float processvalue}
+
+
+
+Definition at line 10 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_adb61eaefb6edebc63458366696c69057}} 
+\index{globdata.\+h@{globdata.\+h}!rampe1@{rampe1}}
+\index{rampe1@{rampe1}!globdata.\+h@{globdata.\+h}}
+\subsubsection{rampe1}
+{\footnotesize\ttfamily \textbf{ ramp1} rampe1}
+
+
+
+Definition at line 41 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a6595b2c8f5c6c722273e82820d021a39}} 
+\index{globdata.\+h@{globdata.\+h}!regel\+\_\+abweichung\+\_\+max@{regel\+\_\+abweichung\+\_\+max}}
+\index{regel\+\_\+abweichung\+\_\+max@{regel\+\_\+abweichung\+\_\+max}!globdata.\+h@{globdata.\+h}}
+\subsubsection{regel\+\_\+abweichung\+\_\+max}
+{\footnotesize\ttfamily float regel\+\_\+abweichung\+\_\+max}
+
+
+
+Definition at line 31 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a83523ed56977e2d2ac0aeb57b58a5b80}} 
+\index{globdata.\+h@{globdata.\+h}!regel\+\_\+abweichung\+\_\+min@{regel\+\_\+abweichung\+\_\+min}}
+\index{regel\+\_\+abweichung\+\_\+min@{regel\+\_\+abweichung\+\_\+min}!globdata.\+h@{globdata.\+h}}
+\subsubsection{regel\+\_\+abweichung\+\_\+min}
+{\footnotesize\ttfamily float regel\+\_\+abweichung\+\_\+min}
+
+
+
+Definition at line 32 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_af303002e2042a7cd996291fbac733cb2}} 
+\index{globdata.\+h@{globdata.\+h}!regler\+\_\+erg@{regler\+\_\+erg}}
+\index{regler\+\_\+erg@{regler\+\_\+erg}!globdata.\+h@{globdata.\+h}}
+\subsubsection{regler\+\_\+erg}
+{\footnotesize\ttfamily float regler\+\_\+erg}
+
+
+
+Definition at line 29 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ad6dcaa50b11e478cb7706ed143b82837}} 
+\index{globdata.\+h@{globdata.\+h}!regler\+\_\+flag@{regler\+\_\+flag}}
+\index{regler\+\_\+flag@{regler\+\_\+flag}!globdata.\+h@{globdata.\+h}}
+\subsubsection{regler\+\_\+flag}
+{\footnotesize\ttfamily int regler\+\_\+flag}
+
+
+
+Definition at line 12 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a0eecadd795d0c4e1d51322cd4969148b}} 
+\index{globdata.\+h@{globdata.\+h}!regler\+\_\+val@{regler\+\_\+val}}
+\index{regler\+\_\+val@{regler\+\_\+val}!globdata.\+h@{globdata.\+h}}
+\subsubsection{regler\+\_\+val}
+{\footnotesize\ttfamily float regler\+\_\+val}
+
+
+
+Definition at line 9 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a6c4556f3dbc9d8b11f81ecbbe2c2a2e9}} 
+\index{globdata.\+h@{globdata.\+h}!rs232\+\_\+druck@{rs232\+\_\+druck}}
+\index{rs232\+\_\+druck@{rs232\+\_\+druck}!globdata.\+h@{globdata.\+h}}
+\subsubsection{rs232\+\_\+druck}
+{\footnotesize\ttfamily float rs232\+\_\+druck}
+
+
+
+Definition at line 18 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a0b947c7fa3c33a9aeeb2be98bf21310d}} 
+\index{globdata.\+h@{globdata.\+h}!rs\+\_\+232\+\_\+time\+\_\+out@{rs\+\_\+232\+\_\+time\+\_\+out}}
+\index{rs\+\_\+232\+\_\+time\+\_\+out@{rs\+\_\+232\+\_\+time\+\_\+out}!globdata.\+h@{globdata.\+h}}
+\subsubsection{rs\+\_\+232\+\_\+time\+\_\+out}
+{\footnotesize\ttfamily int rs\+\_\+232\+\_\+time\+\_\+out}
+
+
+
+Definition at line 49 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a387e6d04efd21a14a056c239bce344f5}} 
+\index{globdata.\+h@{globdata.\+h}!rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe@{rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe}}
+\index{rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe@{rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe}!globdata.\+h@{globdata.\+h}}
+\subsubsection{rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe}
+{\footnotesize\ttfamily int rs\+\_\+232\+\_\+time\+\_\+out\+\_\+freigabe}
+
+
+
+Definition at line 50 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_ae833a459aae87f49988d4eaf9e4b77fb}} 
+\index{globdata.\+h@{globdata.\+h}!ser\+\_\+in\+\_\+flag0@{ser\+\_\+in\+\_\+flag0}}
+\index{ser\+\_\+in\+\_\+flag0@{ser\+\_\+in\+\_\+flag0}!globdata.\+h@{globdata.\+h}}
+\subsubsection{ser\+\_\+in\+\_\+flag0}
+{\footnotesize\ttfamily char ser\+\_\+in\+\_\+flag0}
+
+
+
+Definition at line 39 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a2c136600ad35ca7175a7587f3c418e04}} 
+\index{globdata.\+h@{globdata.\+h}!sollwert@{sollwert}}
+\index{sollwert@{sollwert}!globdata.\+h@{globdata.\+h}}
+\subsubsection{sollwert}
+{\footnotesize\ttfamily float sollwert}
+
+
+
+Definition at line 8 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a8193a517f72582ab169c0b615c301d86}} 
+\index{globdata.\+h@{globdata.\+h}!summ\+Error@{summ\+Error}}
+\index{summ\+Error@{summ\+Error}!globdata.\+h@{globdata.\+h}}
+\subsubsection{summ\+Error}
+{\footnotesize\ttfamily float summ\+Error}
+
+
+
+Definition at line 21 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_aff6c80ed26dca833cec34c381bbce97d}} 
+\index{globdata.\+h@{globdata.\+h}!tasten\+\_\+ende@{tasten\+\_\+ende}}
+\index{tasten\+\_\+ende@{tasten\+\_\+ende}!globdata.\+h@{globdata.\+h}}
+\subsubsection{tasten\+\_\+ende}
+{\footnotesize\ttfamily int tasten\+\_\+ende}
+
+
+
+Definition at line 64 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a83000442396f36de5caccf11856a3548}} 
+\index{globdata.\+h@{globdata.\+h}!timer1\+\_\+counter@{timer1\+\_\+counter}}
+\index{timer1\+\_\+counter@{timer1\+\_\+counter}!globdata.\+h@{globdata.\+h}}
+\subsubsection{timer1\+\_\+counter}
+{\footnotesize\ttfamily int timer1\+\_\+counter}
+
+
+
+Definition at line 69 of file globdata.\+h.
+
+\mbox{\label{globdata_8h_a8d81fe249a7ca1b7b1c7c9378da8f006}} 
+\index{globdata.\+h@{globdata.\+h}!timer2@{timer2}}
+\index{timer2@{timer2}!globdata.\+h@{globdata.\+h}}
+\subsubsection{timer2}
+{\footnotesize\ttfamily int timer2}
+
+
+
+Definition at line 6 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a0976503fef01ed7144670e9ffde047b4}} 
+\index{globdata.\+h@{globdata.\+h}!timer3@{timer3}}
+\index{timer3@{timer3}!globdata.\+h@{globdata.\+h}}
+\subsubsection{timer3}
+{\footnotesize\ttfamily int timer3}
+
+
+
+Definition at line 36 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_af0a20ab26c2b3b439005217214274f46}} 
+\index{globdata.\+h@{globdata.\+h}!timer\+\_\+m@{timer\+\_\+m}}
+\index{timer\+\_\+m@{timer\+\_\+m}!globdata.\+h@{globdata.\+h}}
+\subsubsection{timer\+\_\+m}
+{\footnotesize\ttfamily int timer\+\_\+m}
+
+
+
+Definition at line 66 of file globdata.\+c.
+
+\mbox{\label{globdata_8h_a4e4a764ef1e2e444d44c2c733f23f28d}} 
+\index{globdata.\+h@{globdata.\+h}!tx\+\_\+restart0@{tx\+\_\+restart0}}
+\index{tx\+\_\+restart0@{tx\+\_\+restart0}!globdata.\+h@{globdata.\+h}}
+\subsubsection{tx\+\_\+restart0}
+{\footnotesize\ttfamily int tx\+\_\+restart0}
+
+
+
+Definition at line 38 of file globdata.\+c.
+

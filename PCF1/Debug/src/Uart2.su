@@ -1,0 +1,10 @@
+Uart2.c:33:6:uart2Init	0	static
+Uart2.c:46:6:rest_buffer	0	static
+Uart2.c:51:6:reset_in_0_buff	0	static
+Uart2.c:60:5:com_putchar0	0	static
+Uart2.c:101:6:print_f0	16	static
+Uart2.c:121:6:print_f_lf0	16	static
+Uart2.c:142:6:send_slip0	16	static
+Uart2.c:157:5:get_in_buff_len	0	static
+Uart2.c:163:15:get_char	0	static
+Uart2.c:173:6:uart_rx_tx_irq	16	static

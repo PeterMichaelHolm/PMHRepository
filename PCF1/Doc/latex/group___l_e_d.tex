@@ -1,0 +1,767 @@
+\section{L\+ED}
+\label{group___l_e_d}\index{L\+ED@{L\+ED}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET()
+\item 
+\#define \textbf{ E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET()
+\item 
+\#define \textbf{ E\+V\+A\+L1\+\_\+\+S\+P\+Ix}~S\+P\+I2
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+port}~G\+P\+I\+OA
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+\+L\+OW}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Sclk\+\_\+port},\textbf{ Spi1\+\_\+\+Sclk\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Sclk\+\_\+port},\textbf{ Spi1\+\_\+\+Sclk\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);
+\item 
+\#define \textbf{ Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Toggle\+Pin(\textbf{ Spi1\+\_\+\+Sclk\+\_\+port},\textbf{ Spi1\+\_\+\+Sclk\+\_\+pin});
+\item 
+\#define \textbf{ Spi1\+\_\+\+Miso\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+10
+\item 
+\#define \textbf{ Spi1\+\_\+\+Miso\+\_\+port}~G\+P\+I\+OA
+\item 
+\#define \textbf{ Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Mosi\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+9
+\item 
+\#define \textbf{ Spi1\+\_\+\+Mosi\+\_\+port}~G\+P\+I\+OA
+\item 
+\#define \textbf{ Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Mosi\+\_\+port},\textbf{ Spi1\+\_\+\+Mosi\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);
+\item 
+\#define \textbf{ Spi1\+\_\+\+Mosi\+\_\+\+L\+OW}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Mosi\+\_\+port},\textbf{ Spi1\+\_\+\+Mosi\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+12
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+port}~G\+P\+I\+OA
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+\+L\+OW}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Cs\+\_\+port},\textbf{ Spi1\+\_\+\+Cs\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Cs\+\_\+port},\textbf{ Spi1\+\_\+\+Cs\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);
+\item 
+\#define \textbf{ Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Toggle\+Pin(\textbf{ Spi1\+\_\+\+Cs\+\_\+port},\textbf{ Spi1\+\_\+\+Cs\+\_\+pin});
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix}~S\+P\+I1
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+5                  /$\ast$ P\+A.\+5 $\ast$/
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+6                  /$\ast$ P\+A.\+6 $\ast$/
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+7                  /$\ast$ P\+A.\+7 $\ast$/
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+11
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}~G\+P\+I\+OA                        /$\ast$ G\+P\+I\+OC $\ast$/
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()
+\item 
+\#define \textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF}~G\+P\+I\+O\+\_\+\+A\+F5\+\_\+\+S\+P\+I1
+\item 
+\#define \textbf{ Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);
+\item 
+\#define \textbf{ Spi0\+\_\+\+Cs\+\_\+\+L\+OW}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);
+\item 
+\#define \textbf{ Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);
+\item 
+\#define \textbf{ Spi0\+\_\+\+Clk\+\_\+\+L\+OW}()~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);
+\item 
+\#define \textbf{ taste\+\_\+runter\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+9
+\item 
+\#define \textbf{ taste\+\_\+runter\+\_\+port}~G\+P\+I\+OE
+\item 
+\#define \textbf{ taste\+\_\+rauf\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+4
+\item 
+\#define \textbf{ taste\+\_\+rauf\+\_\+port}~G\+P\+I\+OA
+\item 
+\#define \textbf{ taste\+\_\+enter\+\_\+pin}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8
+\item 
+\#define \textbf{ taste\+\_\+enter\+\_\+port}~G\+P\+I\+OE
+\item 
+\#define \textbf{ Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+E\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ A\+D\+Cx}~A\+D\+C1
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+A\+D\+C1\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+A\+D\+C1\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET()
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}()~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+A\+D\+C1\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET()
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+0
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}~G\+P\+I\+OA
+\item 
+\#define \textbf{ A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL}~A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{group___l_e_d_gab44c1065d38c298955fc028346984340}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx@{A\+D\+Cx}}
+\index{A\+D\+Cx@{A\+D\+Cx}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx}
+{\footnotesize\ttfamily \#define A\+D\+Cx~A\+D\+C1}
+
+
+
+Definition at line 221 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga452131e3c08a561bf22e6610a30dd9ed}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL}}
+\index{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+EL~A\+D\+C\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+0}
+
+
+
+Definition at line 231 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga9ba2510068846e510e223794a7504a95}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 224 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gae7a09f08d1a1def3d00a823c24fb6aca}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}}
+\index{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT~G\+P\+I\+OA}
+
+
+
+Definition at line 229 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga470f97f28088f56921d7548943ba9186}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN}}
+\index{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN@{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+0}
+
+
+
+Definition at line 228 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga5cc445b43172dd29efa93895fed356fd}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+A\+D\+C1\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 223 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gadcdaa5a44383c8fee54f3e58106d4c6a}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET@{A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}}
+\index{A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET@{A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+A\+D\+C1\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET()}
+
+
+
+Definition at line 225 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga40a78f93c1d862a13ca1e3aca09498c7}} 
+\index{L\+ED@{L\+ED}!A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET@{A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}}
+\index{A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET@{A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}!L\+ED@{L\+ED}}
+\subsubsection{A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}
+{\footnotesize\ttfamily \#define A\+D\+Cx\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+A\+D\+C1\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET()}
+
+
+
+Definition at line 226 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gae6263d89e0c74c5226b46091bb7b7b14}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L1\+\_\+\+S\+P\+Ix@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix}}
+\index{E\+V\+A\+L1\+\_\+\+S\+P\+Ix@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L1\+\_\+\+S\+P\+Ix}
+{\footnotesize\ttfamily \#define E\+V\+A\+L1\+\_\+\+S\+P\+Ix~S\+P\+I2}
+
+
+
+Definition at line 161 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga1b08a18b4484aec2a03322fece8c86d8}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 158 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gad13d51345f227c65b7f15837047d19b0}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 157 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gae55c5ecd8e47e4fccd30f0b464bdfacc}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}}
+\index{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}
+{\footnotesize\ttfamily \#define E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET()}
+
+
+
+Definition at line 159 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gac5fa7eaba06b4c992bd9d5f4316741e8}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}}
+\index{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}
+{\footnotesize\ttfamily \#define E\+V\+A\+L1\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I2\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET()}
+
+
+
+Definition at line 160 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gab5ff0ce8eab900baca44c217df199e39}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix@{E\+V\+A\+L\+\_\+\+S\+P\+Ix}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix@{E\+V\+A\+L\+\_\+\+S\+P\+Ix}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix~S\+P\+I1}
+
+
+
+Definition at line 191 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gadcf817eef6d8381a4336b06bdabf21c9}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+AF~G\+P\+I\+O\+\_\+\+A\+F5\+\_\+\+S\+P\+I1}
+
+
+
+Definition at line 204 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga2e0306e9b02a73eec558f609fddd4394}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 193 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga1eafa95760f6e17bab4572cb122976c7}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 192 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga81df4551a2443398c563cd5c01554209}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+11}
+
+
+
+Definition at line 200 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga9e211e921daa83fc42388a45340e9098}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+F\+O\+R\+C\+E\+\_\+\+R\+E\+S\+ET()}
+
+
+
+Definition at line 194 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga9cf9a27494713494219e395eb48def60}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 203 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaac0ebd9025e9eb02730303fdb76f0317}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 211 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaac0ebd9025e9eb02730303fdb76f0317}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 211 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gab4e3e48786c9480eb52ef351f5d4561c}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT~G\+P\+I\+OA                        /$\ast$ G\+P\+I\+OC $\ast$/}
+
+
+
+Definition at line 201 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga4b8a55e442955967a1dff69d4af17c43}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+I\+S\+O\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+6                  /$\ast$ P\+A.\+6 $\ast$/}
+
+
+
+Definition at line 198 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gab61ceacae28a310c0e20dda6a235cf14}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+M\+O\+S\+I\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+7                  /$\ast$ P\+A.\+7 $\ast$/}
+
+
+
+Definition at line 199 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaee975b1b1345cffb16e80b917c250537}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+S\+P\+I1\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+E\+S\+ET()}
+
+
+
+Definition at line 195 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga120fa6a253be44eb3c21226f27a9c52f}} 
+\index{L\+ED@{L\+ED}!E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}}
+\index{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN@{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}!L\+ED@{L\+ED}}
+\subsubsection{E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}
+{\footnotesize\ttfamily \#define E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+5                  /$\ast$ P\+A.\+5 $\ast$/}
+
+
+
+Definition at line 197 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gab8a8031547a1080d01e1fb7f3dccd53f}} 
+\index{L\+ED@{L\+ED}!Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH@{Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH}}
+\index{Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH@{Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH}!L\+ED@{L\+ED}}
+\subsubsection{Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH}
+{\footnotesize\ttfamily \#define Spi0\+\_\+\+Clk\+\_\+\+H\+I\+GH(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);}
+
+
+
+Definition at line 207 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gad432385059d20a023ee2ece12e32c92d}} 
+\index{L\+ED@{L\+ED}!Spi0\+\_\+\+Clk\+\_\+\+L\+OW@{Spi0\+\_\+\+Clk\+\_\+\+L\+OW}}
+\index{Spi0\+\_\+\+Clk\+\_\+\+L\+OW@{Spi0\+\_\+\+Clk\+\_\+\+L\+OW}!L\+ED@{L\+ED}}
+\subsubsection{Spi0\+\_\+\+Clk\+\_\+\+L\+OW}
+{\footnotesize\ttfamily \#define Spi0\+\_\+\+Clk\+\_\+\+L\+OW(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+S\+C\+K\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);}
+
+
+
+Definition at line 208 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga43c85b0d7d638c8bd5e2dcf182e3da3b}} 
+\index{L\+ED@{L\+ED}!Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH@{Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH}}
+\index{Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH@{Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH}!L\+ED@{L\+ED}}
+\subsubsection{Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH}
+{\footnotesize\ttfamily \#define Spi0\+\_\+\+Cs\+\_\+\+H\+I\+GH(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);}
+
+
+
+Definition at line 205 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga5d1d44c99f4b418d0a8dd93f465e95f5}} 
+\index{L\+ED@{L\+ED}!Spi0\+\_\+\+Cs\+\_\+\+L\+OW@{Spi0\+\_\+\+Cs\+\_\+\+L\+OW}}
+\index{Spi0\+\_\+\+Cs\+\_\+\+L\+OW@{Spi0\+\_\+\+Cs\+\_\+\+L\+OW}!L\+ED@{L\+ED}}
+\subsubsection{Spi0\+\_\+\+Cs\+\_\+\+L\+OW}
+{\footnotesize\ttfamily \#define Spi0\+\_\+\+Cs\+\_\+\+L\+OW(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT},\textbf{ E\+V\+A\+L\+\_\+\+S\+P\+Ix\+\_\+\+C\+S\+\_\+\+P\+IN}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);}
+
+
+
+Definition at line 206 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga86770add87126fc6100c2e0325b5429c}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 186 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gad6f10b4295fb733369c126c0ed5feaf3}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 185 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga643579805b2a73124e17b9a3196a99f0}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH@{Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH}}
+\index{Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH@{Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+\+H\+I\+GH(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Cs\+\_\+port},\textbf{ Spi1\+\_\+\+Cs\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);}
+
+
+
+Definition at line 188 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga7a99dcefe3cfc765860ba2271fb12f52}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+\+L\+OW@{Spi1\+\_\+\+Cs\+\_\+\+L\+OW}}
+\index{Spi1\+\_\+\+Cs\+\_\+\+L\+OW@{Spi1\+\_\+\+Cs\+\_\+\+L\+OW}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+\+L\+OW}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+\+L\+OW(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Cs\+\_\+port},\textbf{ Spi1\+\_\+\+Cs\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);}
+
+
+
+Definition at line 187 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga6b2a647fb654d9b2faa1c0fa35791762}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+pin@{Spi1\+\_\+\+Cs\+\_\+pin}}
+\index{Spi1\+\_\+\+Cs\+\_\+pin@{Spi1\+\_\+\+Cs\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+pin}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+12}
+
+
+
+Definition at line 183 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaae301ffb8d9f2bd672c2ecbf0b84b339}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+port@{Spi1\+\_\+\+Cs\+\_\+port}}
+\index{Spi1\+\_\+\+Cs\+\_\+port@{Spi1\+\_\+\+Cs\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+port}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+port~G\+P\+I\+OA}
+
+
+
+Definition at line 184 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga5f342813b7d9ebd05220c355698e48e1}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE@{Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE}}
+\index{Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE@{Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Cs\+\_\+\+T\+O\+G\+G\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Toggle\+Pin(\textbf{ Spi1\+\_\+\+Cs\+\_\+port},\textbf{ Spi1\+\_\+\+Cs\+\_\+pin});}
+
+
+
+Definition at line 189 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gae95c72ff3e3e3cc5bab4d5e467bab05f}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 174 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gafe880f4121c7981446af7b94482fc554}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Miso\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 173 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaf2618952cb00f314b53c914d29a6af09}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Miso\+\_\+pin@{Spi1\+\_\+\+Miso\+\_\+pin}}
+\index{Spi1\+\_\+\+Miso\+\_\+pin@{Spi1\+\_\+\+Miso\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Miso\+\_\+pin}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Miso\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+10}
+
+
+
+Definition at line 171 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga6029aa340c4d347a01797c5a85bb7867}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Miso\+\_\+port@{Spi1\+\_\+\+Miso\+\_\+port}}
+\index{Spi1\+\_\+\+Miso\+\_\+port@{Spi1\+\_\+\+Miso\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Miso\+\_\+port}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Miso\+\_\+port~G\+P\+I\+OA}
+
+
+
+Definition at line 172 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gafdaadd82e56f28b35fe12d89d1bacc45}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 179 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaf8c0394528e46c40f718c07c51bfab61}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Mosi\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 178 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga852797cf10e7e68de177c728fc6b8e99}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH@{Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH}}
+\index{Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH@{Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Mosi\+\_\+\+H\+I\+GH(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Mosi\+\_\+port},\textbf{ Spi1\+\_\+\+Mosi\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);}
+
+
+
+Definition at line 180 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga3224bc32b453273c131fe80db161822c}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Mosi\+\_\+\+L\+OW@{Spi1\+\_\+\+Mosi\+\_\+\+L\+OW}}
+\index{Spi1\+\_\+\+Mosi\+\_\+\+L\+OW@{Spi1\+\_\+\+Mosi\+\_\+\+L\+OW}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Mosi\+\_\+\+L\+OW}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Mosi\+\_\+\+L\+OW(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Mosi\+\_\+port},\textbf{ Spi1\+\_\+\+Mosi\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);}
+
+
+
+Definition at line 181 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaf3d4af1e075f99201b13149075a81e51}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Mosi\+\_\+pin@{Spi1\+\_\+\+Mosi\+\_\+pin}}
+\index{Spi1\+\_\+\+Mosi\+\_\+pin@{Spi1\+\_\+\+Mosi\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Mosi\+\_\+pin}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Mosi\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+9}
+
+
+
+Definition at line 176 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaf98f2dc2c9a694a1b3193fc8217759c0}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Mosi\+\_\+port@{Spi1\+\_\+\+Mosi\+\_\+port}}
+\index{Spi1\+\_\+\+Mosi\+\_\+port@{Spi1\+\_\+\+Mosi\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Mosi\+\_\+port}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Mosi\+\_\+port~G\+P\+I\+OA}
+
+
+
+Definition at line 177 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gabdc4c3034163aef30b0fb74c15d1f77c}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE@{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+D\+I\+S\+A\+B\+LE()}
+
+
+
+Definition at line 165 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gab651322d6b7d404df13d1c90e9523a72}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 164 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga8d86f4ba384d4916ad3d807e58f80258}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH@{Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH}}
+\index{Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH@{Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+\+H\+I\+GH(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Sclk\+\_\+port},\textbf{ Spi1\+\_\+\+Sclk\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+S\+ET);}
+
+
+
+Definition at line 167 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gabf1d3341403533d0a4494acfc184eed3}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+\+L\+OW@{Spi1\+\_\+\+Sclk\+\_\+\+L\+OW}}
+\index{Spi1\+\_\+\+Sclk\+\_\+\+L\+OW@{Spi1\+\_\+\+Sclk\+\_\+\+L\+OW}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+\+L\+OW}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+\+L\+OW(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Write\+Pin(\textbf{ Spi1\+\_\+\+Sclk\+\_\+port},\textbf{ Spi1\+\_\+\+Sclk\+\_\+pin}, G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+R\+E\+S\+ET);}
+
+
+
+Definition at line 166 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga5fea11d2a1be8e1140eefe4548b1b726}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+pin@{Spi1\+\_\+\+Sclk\+\_\+pin}}
+\index{Spi1\+\_\+\+Sclk\+\_\+pin@{Spi1\+\_\+\+Sclk\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+pin}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8}
+
+
+
+Definition at line 162 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gad0f4a72b6a6adebf55ee68545cae2444}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+port@{Spi1\+\_\+\+Sclk\+\_\+port}}
+\index{Spi1\+\_\+\+Sclk\+\_\+port@{Spi1\+\_\+\+Sclk\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+port}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+port~G\+P\+I\+OA}
+
+
+
+Definition at line 163 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gab27c063cbf16f67015f72239452f2f93}} 
+\index{L\+ED@{L\+ED}!Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE@{Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE}}
+\index{Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE@{Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE}
+{\footnotesize\ttfamily \#define Spi1\+\_\+\+Sclk\+\_\+\+T\+O\+G\+G\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~H\+A\+L\+\_\+\+G\+P\+I\+O\+\_\+\+Toggle\+Pin(\textbf{ Spi1\+\_\+\+Sclk\+\_\+port},\textbf{ Spi1\+\_\+\+Sclk\+\_\+pin});}
+
+
+
+Definition at line 168 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga6a4cea9578ee71904816783bd2b499f6}} 
+\index{L\+ED@{L\+ED}!taste\+\_\+enter\+\_\+pin@{taste\+\_\+enter\+\_\+pin}}
+\index{taste\+\_\+enter\+\_\+pin@{taste\+\_\+enter\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{taste\+\_\+enter\+\_\+pin}
+{\footnotesize\ttfamily \#define taste\+\_\+enter\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+8}
+
+
+
+Definition at line 217 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga2dcc4ef0ff92fa4410df74552051c14a}} 
+\index{L\+ED@{L\+ED}!taste\+\_\+enter\+\_\+port@{taste\+\_\+enter\+\_\+port}}
+\index{taste\+\_\+enter\+\_\+port@{taste\+\_\+enter\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{taste\+\_\+enter\+\_\+port}
+{\footnotesize\ttfamily \#define taste\+\_\+enter\+\_\+port~G\+P\+I\+OE}
+
+
+
+Definition at line 218 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga1db5519cc9f68d4e3032fd1169bdce1a}} 
+\index{L\+ED@{L\+ED}!taste\+\_\+rauf\+\_\+pin@{taste\+\_\+rauf\+\_\+pin}}
+\index{taste\+\_\+rauf\+\_\+pin@{taste\+\_\+rauf\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{taste\+\_\+rauf\+\_\+pin}
+{\footnotesize\ttfamily \#define taste\+\_\+rauf\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+4}
+
+
+
+Definition at line 215 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gadc5942a2b9a02e52a249be6d1deeb104}} 
+\index{L\+ED@{L\+ED}!taste\+\_\+rauf\+\_\+port@{taste\+\_\+rauf\+\_\+port}}
+\index{taste\+\_\+rauf\+\_\+port@{taste\+\_\+rauf\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{taste\+\_\+rauf\+\_\+port}
+{\footnotesize\ttfamily \#define taste\+\_\+rauf\+\_\+port~G\+P\+I\+OA}
+
+
+
+Definition at line 216 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_gaa479b664aeef39d51fb6de68f2f2efb5}} 
+\index{L\+ED@{L\+ED}!taste\+\_\+runter\+\_\+pin@{taste\+\_\+runter\+\_\+pin}}
+\index{taste\+\_\+runter\+\_\+pin@{taste\+\_\+runter\+\_\+pin}!L\+ED@{L\+ED}}
+\subsubsection{taste\+\_\+runter\+\_\+pin}
+{\footnotesize\ttfamily \#define taste\+\_\+runter\+\_\+pin~G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+9}
+
+
+
+Definition at line 213 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga04881626cd8ac747d90f3b066af0a369}} 
+\index{L\+ED@{L\+ED}!taste\+\_\+runter\+\_\+port@{taste\+\_\+runter\+\_\+port}}
+\index{taste\+\_\+runter\+\_\+port@{taste\+\_\+runter\+\_\+port}!L\+ED@{L\+ED}}
+\subsubsection{taste\+\_\+runter\+\_\+port}
+{\footnotesize\ttfamily \#define taste\+\_\+runter\+\_\+port~G\+P\+I\+OE}
+
+
+
+Definition at line 214 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga2057c3faeace949b6590dac6f5ccf023}} 
+\index{L\+ED@{L\+ED}!Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Tasten\+Port2\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+A\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 220 of file stm32373c\+\_\+eval.\+h.
+
+\mbox{\label{group___l_e_d_ga122fcf2af279b4a7d362fa264f89ae90}} 
+\index{L\+ED@{L\+ED}!Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}}
+\index{Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE@{Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}!L\+ED@{L\+ED}}
+\subsubsection{Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE}
+{\footnotesize\ttfamily \#define Tasten\+Port\+\_\+\+G\+P\+I\+O\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\+\_\+\+\_\+\+H\+A\+L\+\_\+\+R\+C\+C\+\_\+\+G\+P\+I\+O\+E\+\_\+\+C\+L\+K\+\_\+\+E\+N\+A\+B\+LE()}
+
+
+
+Definition at line 219 of file stm32373c\+\_\+eval.\+h.
+

@@ -1,0 +1,156 @@
+\section{src/\+Anzeige.c File Reference}
+\label{_anzeige_8c}\index{src/\+Anzeige.\+c@{src/\+Anzeige.\+c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32373c\+\_\+eval.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f3xx\+\_\+hal\+\_\+i2c.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ anzeige\+\_\+init} (void)
+\item 
+void \textbf{ anzeige\+\_\+set\+\_\+valu} (int val)
+\item 
+unsigned char \textbf{ transform} (unsigned char val)
+\item 
+void \textbf{ test\+\_\+anzeige} (void)
+\item 
+void \textbf{ anzeige\+\_\+send\+\_\+int} (int val)
+\item 
+void \textbf{ anzeige\+\_\+send\+\_\+fehler} (int val)
+\item 
+void \textbf{ set\+\_\+blink} (void)
+\item 
+void \textbf{ reset\+\_\+blink} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned char \textbf{ zeichen} [$\,$]
+\item 
+const unsigned char \textbf{ zeichen2} [$\,$]
+\item 
+I2\+C\+\_\+\+Handle\+Type\+Def \textbf{ heval\+\_\+\+I2c1}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{_anzeige_8c_a3edabdf3950710d9364bc988d3002d36}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!anzeige\+\_\+init@{anzeige\+\_\+init}}
+\index{anzeige\+\_\+init@{anzeige\+\_\+init}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{anzeige\+\_\+init()}
+{\footnotesize\ttfamily void anzeige\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 18 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_ad5914a6aad33abad55477d32d2235947}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!anzeige\+\_\+send\+\_\+fehler@{anzeige\+\_\+send\+\_\+fehler}}
+\index{anzeige\+\_\+send\+\_\+fehler@{anzeige\+\_\+send\+\_\+fehler}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{anzeige\+\_\+send\+\_\+fehler()}
+{\footnotesize\ttfamily void anzeige\+\_\+send\+\_\+fehler (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 105 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_abd5892eb2cdbb10eb3cdb450a3753adc}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!anzeige\+\_\+send\+\_\+int@{anzeige\+\_\+send\+\_\+int}}
+\index{anzeige\+\_\+send\+\_\+int@{anzeige\+\_\+send\+\_\+int}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{anzeige\+\_\+send\+\_\+int()}
+{\footnotesize\ttfamily void anzeige\+\_\+send\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_abec522a298bfc36eb7781353f177c4c4}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!anzeige\+\_\+set\+\_\+valu@{anzeige\+\_\+set\+\_\+valu}}
+\index{anzeige\+\_\+set\+\_\+valu@{anzeige\+\_\+set\+\_\+valu}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{anzeige\+\_\+set\+\_\+valu()}
+{\footnotesize\ttfamily void anzeige\+\_\+set\+\_\+valu (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_a708d9da23b8063834127863164a0f33f}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!reset\+\_\+blink@{reset\+\_\+blink}}
+\index{reset\+\_\+blink@{reset\+\_\+blink}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{reset\+\_\+blink()}
+{\footnotesize\ttfamily void reset\+\_\+blink (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_ab9f6ef1481129e65b858d36f459165e3}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!set\+\_\+blink@{set\+\_\+blink}}
+\index{set\+\_\+blink@{set\+\_\+blink}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{set\+\_\+blink()}
+{\footnotesize\ttfamily void set\+\_\+blink (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 135 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_ab1867dec374e397f64ee229d3df859da}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!test\+\_\+anzeige@{test\+\_\+anzeige}}
+\index{test\+\_\+anzeige@{test\+\_\+anzeige}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{test\+\_\+anzeige()}
+{\footnotesize\ttfamily void test\+\_\+anzeige (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_a93ae59176926d27b726ee1cc5e53a2c9}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!transform@{transform}}
+\index{transform@{transform}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{transform()}
+{\footnotesize\ttfamily unsigned char transform (\begin{DoxyParamCaption}\item[{unsigned char}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 93 of file Anzeige.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{_anzeige_8c_a3c25ceb82d105bd77169a948931e9bce}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!heval\+\_\+\+I2c1@{heval\+\_\+\+I2c1}}
+\index{heval\+\_\+\+I2c1@{heval\+\_\+\+I2c1}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{heval\+\_\+\+I2c1}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Handle\+Type\+Def heval\+\_\+\+I2c1}
+
+\mbox{\label{_anzeige_8c_a50cc955c1515fdaea48f51f75d69c164}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!zeichen@{zeichen}}
+\index{zeichen@{zeichen}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{zeichen}
+{\footnotesize\ttfamily const unsigned char zeichen[$\,$]}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{ 0xf6, 0xc0, 0x6e, 0xea, 0xd8, 0xba, 0x9e, 0xe0, 0xfe, 0xf8, 0xfc, 0x9e,
+                                  0x36, 0xce, 0x3e, 0x3c \}
+\end{DoxyCode}
+
+
+Definition at line 6 of file Anzeige.\+c.
+
+\mbox{\label{_anzeige_8c_a560a03324b2c77970b9fa5cff34ec9c1}} 
+\index{Anzeige.\+c@{Anzeige.\+c}!zeichen2@{zeichen2}}
+\index{zeichen2@{zeichen2}!Anzeige.\+c@{Anzeige.\+c}}
+\subsubsection{zeichen2}
+{\footnotesize\ttfamily const unsigned char zeichen2[$\,$]}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{ 0x6f, 0x28, 0x76, 0x7c, 0x39, 0x5d, 0x1f, 0x68, 0x7f, 0x79, 0x7b, 0x1f,
+                                  0x47, 0x3e, 0x57, 0x53\}
+\end{DoxyCode}
+
+
+Definition at line 9 of file Anzeige.\+c.
+

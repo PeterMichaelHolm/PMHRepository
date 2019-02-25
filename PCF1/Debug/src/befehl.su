@@ -1,0 +1,6 @@
+befehl.c:1416:6:send_ACK	24	static
+befehl.c:1428:5:get_ser_int	64	static
+befehl.c:1454:7:get_ser_float	56	static
+befehl.c:1496:7:send_int_val	56	static
+befehl.c:1515:6:send_float_val	56	static
+befehl.c:193:6:befehl	96	static

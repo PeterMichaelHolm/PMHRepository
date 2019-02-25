@@ -1,0 +1,580 @@
+\section{C\+A\+N\+\_\+\+Networking}
+\label{group___c_a_n___networking}\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ H\+A\+L\+\_\+\+M\+S\+P\+\_\+\+Private\+\_\+\+Functions}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ uart\+\_\+rx\+\_\+tx\+\_\+irq} (void)
+\item 
+void \textbf{ T\+I\+M4\+\_\+\+Handler} (void)
+\item 
+void \textbf{ T\+I\+M5\+\_\+\+Handler} (void)
+\item 
+void \textbf{ timer3\+\_\+int} (void)
+\item 
+void \textbf{ H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback} (C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$\textbf{ Can\+Handle})
+\begin{DoxyCompactList}\small\item\em Transmission complete callback in non blocking mode. \end{DoxyCompactList}\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle} (\textbf{ Led\+\_\+\+Type\+Def} Led)
+\item 
+void \textbf{ N\+M\+I\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles N\+MI exception. \end{DoxyCompactList}\item 
+void \textbf{ Hard\+Fault\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Hard Fault exception. \end{DoxyCompactList}\item 
+void \textbf{ Mem\+Manage\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Memory Manage exception. \end{DoxyCompactList}\item 
+void \textbf{ Bus\+Fault\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Bus Fault exception. \end{DoxyCompactList}\item 
+void \textbf{ Usage\+Fault\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Usage Fault exception. \end{DoxyCompactList}\item 
+void \textbf{ S\+V\+C\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles S\+V\+Call exception. \end{DoxyCompactList}\item 
+void \textbf{ Debug\+Mon\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Debug Monitor exception. \end{DoxyCompactList}\item 
+void \textbf{ Pend\+S\+V\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Pend\+S\+VC exception. \end{DoxyCompactList}\item 
+void \textbf{ Sys\+Tick\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Sys\+Tick Handler. \end{DoxyCompactList}\item 
+void \textbf{ C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH} (void)
+\begin{DoxyCompactList}\small\item\em This function handles C\+A\+N1 R\+X0 interrupt request. \end{DoxyCompactList}\item 
+void \textbf{ T\+I\+M3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+IM interrupt request. \end{DoxyCompactList}\item 
+void \textbf{ T\+I\+M4\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ T\+I\+M5\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles D\+MA Tx interrupt request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+C\+A\+N\+\_\+\+Handle\+Type\+Def \textbf{ Can\+Handle}
+\item 
+U\+A\+R\+T\+\_\+\+Handle\+Type\+Def \textbf{ Uart\+Handle}
+\item 
+S\+P\+I\+\_\+\+Handle\+Type\+Def \textbf{ Spi\+Handle}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \textbf{ Tim\+Handle}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \textbf{ Tim4\+Handle}
+\item 
+int \textbf{ timer3}
+\item 
+int \textbf{ motor\+\_\+soll\+\_\+tackt}
+\item 
+int \textbf{ motor\+\_\+ist\+\_\+tackt}
+\item 
+int \textbf{ motor\+\_\+freigabe}
+\item 
+int \textbf{ motor\+\_\+position2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group___c_a_n___networking_ga1b9eabba7d498f41d6f16587ec0f9732}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}}
+\index{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle@{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+E\+D\+\_\+\+Toggle (\begin{DoxyParamCaption}\item[{\textbf{ Led\+\_\+\+Type\+Def}}]{Led }\end{DoxyParamCaption})}
+
+\mbox{\label{group___c_a_n___networking_ga850cefb17a977292ae5eb4cafa9976c3}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Bus\+Fault\+\_\+\+Handler@{Bus\+Fault\+\_\+\+Handler}}
+\index{Bus\+Fault\+\_\+\+Handler@{Bus\+Fault\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Bus\+Fault\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Bus\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Bus Fault exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 123 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_gaca9f8efdac455d4961a096b079e9009b}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH@{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH}}
+\index{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH@{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+H()}
+{\footnotesize\ttfamily void C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+QH (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles C\+A\+N1 R\+X0 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 194 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_gadbdfb05858cc36fc520974df37ec3cb0}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Debug\+Mon\+\_\+\+Handler@{Debug\+Mon\+\_\+\+Handler}}
+\index{Debug\+Mon\+\_\+\+Handler@{Debug\+Mon\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Debug\+Mon\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Debug\+Mon\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Debug Monitor exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 158 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga68d94b22db3d280c9915d5f49db08558}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback}}
+\index{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback@{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback()}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$}]{Can\+Handle }\end{DoxyParamCaption})}
+
+
+
+Transmission complete callback in non blocking mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Can\+Handle} & pointer to a C\+A\+N\+\_\+\+Handle\+Type\+Def structure that contains the configuration information for the specified C\+AN. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1569 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga2bffc10d5bd4106753b7c30e86903bea}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Hard\+Fault\+\_\+\+Handler@{Hard\+Fault\+\_\+\+Handler}}
+\index{Hard\+Fault\+\_\+\+Handler@{Hard\+Fault\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Hard\+Fault\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Hard\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Hard Fault exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 95 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga3150f74512510287a942624aa9b44cc5}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Mem\+Manage\+\_\+\+Handler@{Mem\+Manage\+\_\+\+Handler}}
+\index{Mem\+Manage\+\_\+\+Handler@{Mem\+Manage\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Mem\+Manage\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Mem\+Manage\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Memory Manage exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 110 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga6ad7a5e3ee69cb6db6a6b9111ba898bc}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!N\+M\+I\+\_\+\+Handler@{N\+M\+I\+\_\+\+Handler}}
+\index{N\+M\+I\+\_\+\+Handler@{N\+M\+I\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{N\+M\+I\+\_\+\+Handler()}
+{\footnotesize\ttfamily void N\+M\+I\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles N\+MI exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 86 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga6303e1f258cbdc1f970ce579cc015623}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Pend\+S\+V\+\_\+\+Handler@{Pend\+S\+V\+\_\+\+Handler}}
+\index{Pend\+S\+V\+\_\+\+Handler@{Pend\+S\+V\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Pend\+S\+V\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Pend\+S\+V\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Pend\+S\+VC exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 167 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga6d840250ad47f1d077757f68941f9a0e}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler@{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler@{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 248 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga9fd9e77dfbbc3e0f82964e6d96b2ee6b}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler@{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler}}
+\index{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler@{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void S\+P\+Ix\+\_\+\+D\+M\+A\+\_\+\+T\+X\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles D\+MA Tx interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 258 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga3e5ddb3df0d62f2dc357e64a3f04a6ce}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!S\+V\+C\+\_\+\+Handler@{S\+V\+C\+\_\+\+Handler}}
+\index{S\+V\+C\+\_\+\+Handler@{S\+V\+C\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{S\+V\+C\+\_\+\+Handler()}
+{\footnotesize\ttfamily void S\+V\+C\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles S\+V\+Call exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 149 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_gab5e09814056d617c521549e542639b7e}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Sys\+Tick\+\_\+\+Handler@{Sys\+Tick\+\_\+\+Handler}}
+\index{Sys\+Tick\+\_\+\+Handler@{Sys\+Tick\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Sys\+Tick\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Sys\+Tick Handler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 176 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_gac8e51d2183b5230cbd5481f8867adce9}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!T\+I\+M3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void T\+I\+M3\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles T\+IM interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 212 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga989904a5235fb9d65b630c90d44189a4}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!T\+I\+M4\+\_\+\+Handler@{T\+I\+M4\+\_\+\+Handler}}
+\index{T\+I\+M4\+\_\+\+Handler@{T\+I\+M4\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{T\+I\+M4\+\_\+\+Handler()}
+{\footnotesize\ttfamily void T\+I\+M4\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 73 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga7133f3f78767503641d307386e68bd28}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!T\+I\+M4\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void T\+I\+M4\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 223 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_gac0f52a4139d05abf6e260636e8fba953}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!T\+I\+M5\+\_\+\+Handler@{T\+I\+M5\+\_\+\+Handler}}
+\index{T\+I\+M5\+\_\+\+Handler@{T\+I\+M5\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{T\+I\+M5\+\_\+\+Handler()}
+{\footnotesize\ttfamily void T\+I\+M5\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{group___c_a_n___networking_ga5e66446caf21dd90191dc07a13ce2378}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!T\+I\+M5\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void T\+I\+M5\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 229 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_gac8b7887130674b2ae32a9806dba0f0c9}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!timer3\+\_\+int@{timer3\+\_\+int}}
+\index{timer3\+\_\+int@{timer3\+\_\+int}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{timer3\+\_\+int()}
+{\footnotesize\ttfamily void timer3\+\_\+int (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1264 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga8ef2537340ebd298d432f1bad2af424f}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!uart\+\_\+rx\+\_\+tx\+\_\+irq@{uart\+\_\+rx\+\_\+tx\+\_\+irq}}
+\index{uart\+\_\+rx\+\_\+tx\+\_\+irq@{uart\+\_\+rx\+\_\+tx\+\_\+irq}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{uart\+\_\+rx\+\_\+tx\+\_\+irq()}
+{\footnotesize\ttfamily void uart\+\_\+rx\+\_\+tx\+\_\+irq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 173 of file Uart2.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga1d98923de2ed6b7309b66f9ba2971647}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Usage\+Fault\+\_\+\+Handler@{Usage\+Fault\+\_\+\+Handler}}
+\index{Usage\+Fault\+\_\+\+Handler@{Usage\+Fault\+\_\+\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Usage\+Fault\+\_\+\+Handler()}
+{\footnotesize\ttfamily void Usage\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Usage Fault exception. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 136 of file stm32f3xx\+\_\+it.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga2bcc89e045c320ff135e7967dbb8d169}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler@{U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler@{U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void U\+S\+A\+R\+Tx\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 234 of file stm32f3xx\+\_\+it.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{group___c_a_n___networking_ga71836aa79f107e6d2c027d4161658c88}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Can\+Handle@{Can\+Handle}}
+\index{Can\+Handle@{Can\+Handle}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Can\+Handle}
+{\footnotesize\ttfamily C\+A\+N\+\_\+\+Handle\+Type\+Def Can\+Handle}
+
+
+
+Definition at line 138 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga150fa4ada51062c96df347829360bcf4}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!motor\+\_\+freigabe@{motor\+\_\+freigabe}}
+\index{motor\+\_\+freigabe@{motor\+\_\+freigabe}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{motor\+\_\+freigabe}
+{\footnotesize\ttfamily int motor\+\_\+freigabe}
+
+
+
+Definition at line 204 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga3bb9fd92a4a938a25286db17db4dfe9b}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!motor\+\_\+ist\+\_\+tackt@{motor\+\_\+ist\+\_\+tackt}}
+\index{motor\+\_\+ist\+\_\+tackt@{motor\+\_\+ist\+\_\+tackt}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{motor\+\_\+ist\+\_\+tackt}
+{\footnotesize\ttfamily int motor\+\_\+ist\+\_\+tackt}
+
+
+
+Definition at line 203 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga4c873acd7b0e83bc91f56c2cfe5c37f1}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!motor\+\_\+position2@{motor\+\_\+position2}}
+\index{motor\+\_\+position2@{motor\+\_\+position2}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{motor\+\_\+position2}
+{\footnotesize\ttfamily int motor\+\_\+position2}
+
+
+
+Definition at line 200 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_gaa5a6d3638ec29e110dbc9fcb2fcf1e7b}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!motor\+\_\+soll\+\_\+tackt@{motor\+\_\+soll\+\_\+tackt}}
+\index{motor\+\_\+soll\+\_\+tackt@{motor\+\_\+soll\+\_\+tackt}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{motor\+\_\+soll\+\_\+tackt}
+{\footnotesize\ttfamily int motor\+\_\+soll\+\_\+tackt}
+
+
+
+Definition at line 202 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga057fba06b45ec2076cb339b772c76ad7}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Spi\+Handle@{Spi\+Handle}}
+\index{Spi\+Handle@{Spi\+Handle}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Spi\+Handle}
+{\footnotesize\ttfamily S\+P\+I\+\_\+\+Handle\+Type\+Def Spi\+Handle}
+
+
+
+Definition at line 142 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga0e997c0c5163f5db2d642ae04e1b11d6}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Tim4\+Handle@{Tim4\+Handle}}
+\index{Tim4\+Handle@{Tim4\+Handle}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Tim4\+Handle}
+{\footnotesize\ttfamily T\+I\+M\+\_\+\+Handle\+Type\+Def Tim4\+Handle}
+
+
+
+Definition at line 11 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga0976503fef01ed7144670e9ffde047b4}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!timer3@{timer3}}
+\index{timer3@{timer3}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{timer3}
+{\footnotesize\ttfamily int timer3}
+
+
+
+Definition at line 36 of file globdata.\+c.
+
+\mbox{\label{group___c_a_n___networking_gaad0e79d89de05e8451c9b6ac5d88109d}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Tim\+Handle@{Tim\+Handle}}
+\index{Tim\+Handle@{Tim\+Handle}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Tim\+Handle}
+{\footnotesize\ttfamily T\+I\+M\+\_\+\+Handle\+Type\+Def Tim\+Handle}
+
+
+
+Definition at line 134 of file main.\+c.
+
+\mbox{\label{group___c_a_n___networking_ga2d3238638f25fd8e78b21dc8e5efd348}} 
+\index{C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}!Uart\+Handle@{Uart\+Handle}}
+\index{Uart\+Handle@{Uart\+Handle}!C\+A\+N\+\_\+\+Networking@{C\+A\+N\+\_\+\+Networking}}
+\subsubsection{Uart\+Handle}
+{\footnotesize\ttfamily U\+A\+R\+T\+\_\+\+Handle\+Type\+Def Uart\+Handle}
+
+
+
+Definition at line 139 of file main.\+c.
+

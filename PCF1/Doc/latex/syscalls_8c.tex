@@ -1,0 +1,322 @@
+\section{src/syscalls.c File Reference}
+\label{syscalls_8c}\index{src/syscalls.\+c@{src/syscalls.\+c}}
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/times.\+h$>$}\newline
+{\ttfamily \#include $<$stm32f3xx.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ Free\+R\+T\+OS}
+\item 
+\#define \textbf{ M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}~0x2000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ \+\_\+\+\_\+io\+\_\+putchar} (int ch) \textbf{ \+\_\+\+\_\+attribute\+\_\+\+\_\+}((weak))
+\item 
+int \textbf{ \+\_\+\+\_\+io\+\_\+getchar} (void)
+\item 
+void \textbf{ initialise\+\_\+monitor\+\_\+handles} ()
+\item 
+int \textbf{ \+\_\+getpid} (void)
+\item 
+int \textbf{ \+\_\+kill} (int pid, int sig)
+\item 
+void \textbf{ \+\_\+exit} (int status)
+\item 
+int \textbf{ \+\_\+read} (int file, char $\ast$ptr, int len)
+\item 
+caddr\+\_\+t \textbf{ \+\_\+sbrk} (int incr)
+\item 
+int \textbf{ \+\_\+close} (int file)
+\item 
+int \textbf{ \+\_\+fstat} (int file, struct stat $\ast$st)
+\item 
+int \textbf{ \+\_\+isatty} (int file)
+\item 
+int \textbf{ \+\_\+lseek} (int file, int ptr, int dir)
+\item 
+int \textbf{ \+\_\+open} (char $\ast$path, int flags,...)
+\item 
+int \textbf{ \+\_\+wait} (int $\ast$status)
+\item 
+int \textbf{ \+\_\+unlink} (char $\ast$name)
+\item 
+int \textbf{ \+\_\+times} (struct tms $\ast$buf)
+\item 
+int \textbf{ \+\_\+stat} (char $\ast$file, struct stat $\ast$st)
+\item 
+int \textbf{ \+\_\+link} (char $\ast$old, char $\ast$new)
+\item 
+int \textbf{ \+\_\+fork} (void)
+\item 
+int \textbf{ \+\_\+execve} (char $\ast$name, char $\ast$$\ast$argv, char $\ast$$\ast$env)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ errno}
+\item 
+char $\ast$$\ast$ \textbf{ environ} = \+\_\+\+\_\+env
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{syscalls_8c_a76ca4f306195ac7b657bdd2cebb1d8d3}} 
+\index{syscalls.\+c@{syscalls.\+c}!Free\+R\+T\+OS@{Free\+R\+T\+OS}}
+\index{Free\+R\+T\+OS@{Free\+R\+T\+OS}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{Free\+R\+T\+OS}
+{\footnotesize\ttfamily \#define Free\+R\+T\+OS}
+
+
+
+Definition at line 44 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_accbb358028675c83675d8b34c386268d}} 
+\index{syscalls.\+c@{syscalls.\+c}!M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}}
+\index{M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE~0x2000}
+
+
+
+Definition at line 45 of file syscalls.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{syscalls_8c_ad0122671640a3af49792ddaa59e8294e}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+\+\_\+io\+\_\+getchar@{\+\_\+\+\_\+io\+\_\+getchar}}
+\index{\+\_\+\+\_\+io\+\_\+getchar@{\+\_\+\+\_\+io\+\_\+getchar}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+\+\_\+io\+\_\+getchar()}
+{\footnotesize\ttfamily int \+\_\+\+\_\+io\+\_\+getchar (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_aa53ed4b191897a1bfc205aa1da005d24}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+\+\_\+io\+\_\+putchar@{\+\_\+\+\_\+io\+\_\+putchar}}
+\index{\+\_\+\+\_\+io\+\_\+putchar@{\+\_\+\+\_\+io\+\_\+putchar}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+\+\_\+io\+\_\+putchar()}
+{\footnotesize\ttfamily int \+\_\+\+\_\+io\+\_\+putchar (\begin{DoxyParamCaption}\item[{int}]{ch }\end{DoxyParamCaption})}
+
+\mbox{\label{syscalls_8c_a5aab5e2acfd600e3667dc915a2bbc7cb}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+close@{\+\_\+close}}
+\index{\+\_\+close@{\+\_\+close}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+close()}
+{\footnotesize\ttfamily int \+\_\+close (\begin{DoxyParamCaption}\item[{int}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line 139 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_ad2a07db8fdf26151eb98ba5711fad8c5}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+execve@{\+\_\+execve}}
+\index{\+\_\+execve@{\+\_\+execve}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+execve()}
+{\footnotesize\ttfamily int \+\_\+execve (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{char $\ast$$\ast$}]{argv,  }\item[{char $\ast$$\ast$}]{env }\end{DoxyParamCaption})}
+
+
+
+Definition at line 202 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_abc96bd69b58b2deaddb484478d911c1b}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+exit@{\+\_\+exit}}
+\index{\+\_\+exit@{\+\_\+exit}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+exit()}
+{\footnotesize\ttfamily void \+\_\+exit (\begin{DoxyParamCaption}\item[{int}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a6cb6331c9d166180903d5fb78b9c9dd7}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+fork@{\+\_\+fork}}
+\index{\+\_\+fork@{\+\_\+fork}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+fork()}
+{\footnotesize\ttfamily int \+\_\+fork (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 196 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a41eef54307912a82d20e71c3d47315aa}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+fstat@{\+\_\+fstat}}
+\index{\+\_\+fstat@{\+\_\+fstat}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+fstat()}
+{\footnotesize\ttfamily int \+\_\+fstat (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{struct stat $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Definition at line 145 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a945e539df8e0f66d3c73c533fe1968ee}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+getpid@{\+\_\+getpid}}
+\index{\+\_\+getpid@{\+\_\+getpid}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+getpid()}
+{\footnotesize\ttfamily int \+\_\+getpid (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 66 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_ad3134a3dc296622b8d1c5456e481505b}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+isatty@{\+\_\+isatty}}
+\index{\+\_\+isatty@{\+\_\+isatty}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+isatty()}
+{\footnotesize\ttfamily int \+\_\+isatty (\begin{DoxyParamCaption}\item[{int}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a062a5101199c3128edd5170f2575bb10}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+kill@{\+\_\+kill}}
+\index{\+\_\+kill@{\+\_\+kill}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+kill()}
+{\footnotesize\ttfamily int \+\_\+kill (\begin{DoxyParamCaption}\item[{int}]{pid,  }\item[{int}]{sig }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a31da4cd5328defa76a9e2246992aba12}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+link@{\+\_\+link}}
+\index{\+\_\+link@{\+\_\+link}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+link()}
+{\footnotesize\ttfamily int \+\_\+link (\begin{DoxyParamCaption}\item[{char $\ast$}]{old,  }\item[{char $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+Definition at line 190 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a7a61311bdf1cb025fc07dc2bdae22ce4}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+lseek@{\+\_\+lseek}}
+\index{\+\_\+lseek@{\+\_\+lseek}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+lseek()}
+{\footnotesize\ttfamily int \+\_\+lseek (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{int}]{ptr,  }\item[{int}]{dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line 156 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a270c9113047edd8d64186710ad76062b}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+open@{\+\_\+open}}
+\index{\+\_\+open@{\+\_\+open}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+open()}
+{\footnotesize\ttfamily int \+\_\+open (\begin{DoxyParamCaption}\item[{char $\ast$}]{path,  }\item[{int}]{flags,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line 161 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a4f9bf1e1602f2828e0a54e70c3b2dccb}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+read@{\+\_\+read}}
+\index{\+\_\+read@{\+\_\+read}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+read()}
+{\footnotesize\ttfamily int \+\_\+read (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{char $\ast$}]{ptr,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_aae54d7b9578ba1fc171ce6f30f4c68a3}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+sbrk@{\+\_\+sbrk}}
+\index{\+\_\+sbrk@{\+\_\+sbrk}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+sbrk()}
+{\footnotesize\ttfamily caddr\+\_\+t \+\_\+sbrk (\begin{DoxyParamCaption}\item[{int}]{incr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 116 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a4711e961db985ed2c850a8be6597af50}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+stat@{\+\_\+stat}}
+\index{\+\_\+stat@{\+\_\+stat}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+stat()}
+{\footnotesize\ttfamily int \+\_\+stat (\begin{DoxyParamCaption}\item[{char $\ast$}]{file,  }\item[{struct stat $\ast$}]{st }\end{DoxyParamCaption})}
+
+
+
+Definition at line 184 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_aaf727ebf57cd64d6c58b23e6ee4a4a69}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+times@{\+\_\+times}}
+\index{\+\_\+times@{\+\_\+times}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+times()}
+{\footnotesize\ttfamily int \+\_\+times (\begin{DoxyParamCaption}\item[{struct tms $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a70b2f211d665cded5637065aa2bb89dc}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+unlink@{\+\_\+unlink}}
+\index{\+\_\+unlink@{\+\_\+unlink}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+unlink()}
+{\footnotesize\ttfamily int \+\_\+unlink (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 173 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_aeef0c3372d04caa1bcc99fed2ab6ec72}} 
+\index{syscalls.\+c@{syscalls.\+c}!\+\_\+wait@{\+\_\+wait}}
+\index{\+\_\+wait@{\+\_\+wait}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{\+\_\+wait()}
+{\footnotesize\ttfamily int \+\_\+wait (\begin{DoxyParamCaption}\item[{int $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 167 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_a25c7f100d498300fff65568c2fcfe639}} 
+\index{syscalls.\+c@{syscalls.\+c}!initialise\+\_\+monitor\+\_\+handles@{initialise\+\_\+monitor\+\_\+handles}}
+\index{initialise\+\_\+monitor\+\_\+handles@{initialise\+\_\+monitor\+\_\+handles}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{initialise\+\_\+monitor\+\_\+handles()}
+{\footnotesize\ttfamily void initialise\+\_\+monitor\+\_\+handles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file syscalls.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{syscalls_8c_aa006daaf11f1e2e45a6ababaf463212b}} 
+\index{syscalls.\+c@{syscalls.\+c}!environ@{environ}}
+\index{environ@{environ}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{environ}
+{\footnotesize\ttfamily char$\ast$$\ast$ environ = \+\_\+\+\_\+env}
+
+
+
+Definition at line 58 of file syscalls.\+c.
+
+\mbox{\label{syscalls_8c_ad65a8842cc674e3ddf69355898c0ecbf}} 
+\index{syscalls.\+c@{syscalls.\+c}!errno@{errno}}
+\index{errno@{errno}!syscalls.\+c@{syscalls.\+c}}
+\subsubsection{errno}
+{\footnotesize\ttfamily int errno}
+
+File \+: syscalls.\+c
+
+Abstract \+: System Workbench Minimal System calls file \begin{DoxyVerb}          For more information about which c-functions
+          need which of these lowlevel functions
+          please consult the Newlib libc-manual
+\end{DoxyVerb}
+
+
+Environment \+: System Workbench for M\+CU
+
+Distribution\+: The file is distributed “as is,” without any warranty of any kind.
+
+(c)Copyright System Workbench for M\+CU. You may use this file as-\/is or modify it according to the needs of your project. Distribution of this file (unmodified or modified) is not permitted. System Workbench for M\+CU permit registered System Workbench(\+R) users the rights to distribute the assembled, compiled \& linked contents of this file as part of an application binary file, provided that it is built using the System Workbench for M\+CU toolchain. 

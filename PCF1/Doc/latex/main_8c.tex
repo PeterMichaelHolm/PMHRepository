@@ -1,0 +1,1517 @@
+\section{src/main.c File Reference}
+\label{main_8c}\index{src/main.\+c@{src/main.\+c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Can\+Bus\+S\+D\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32373c\+\_\+eval.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Anzeige.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}eep.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}eep\+\_\+adr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Motor1.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}at45db161.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bit.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ m\+\_\+start}~0
+\item 
+\#define \textbf{ m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on}~1
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf}~2
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stop}~3
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+entlage\+\_\+linkslauf}~4
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+startpos}~5
+\item 
+\#define \textbf{ m\+\_\+wait\+\_\+start}~6
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+regeln}~7
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+delay2}~12
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+delay}~10
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+fertig}~11
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stoppen\+\_\+v1}~20
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stoppen\+\_\+v2}~21
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stoppen\+\_\+v3}~22
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stoppen\+\_\+r1}~23
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stoppen\+\_\+r2}~24
+\item 
+\#define \textbf{ m\+\_\+motor\+\_\+stoppen\+\_\+r3}~25
+\item 
+\#define \textbf{ m\+\_\+wait\+\_\+conn}~40
+\item 
+\#define \textbf{ m\+\_\+error}~100
+\item 
+\#define \textbf{ m\+\_\+links\+\_\+lauf}~8
+\item 
+\#define \textbf{ m\+\_\+rechts\+\_\+lauf}~9
+\item 
+\#define \textbf{ e\+\_\+motor\+\_\+power\+\_\+faild}~1
+\item 
+\#define \textbf{ e\+\_\+motor\+\_\+entlage\+\_\+links}~2
+\item 
+\#define \textbf{ e\+\_\+motor\+\_\+entlage\+\_\+rechts}~3
+\item 
+\#define \textbf{ e\+\_\+motor\+\_\+startpos}~4
+\item 
+\#define \textbf{ e\+\_\+can\+\_\+time\+\_\+out}~5
+\item 
+\#define \textbf{ e\+\_\+abbruch}~6
+\item 
+\#define \textbf{ e\+\_\+motor\+\_\+steht}~7
+\item 
+\#define \textbf{ e\+\_\+fuellstand\+\_\+k}~8
+\item 
+\#define \textbf{ e\+\_\+fuellstand\+\_\+g}~9
+\item 
+\#define \textbf{ t\+\_\+warte\+\_\+rauf\+\_\+runter2}~30
+\item 
+\#define \textbf{ taste\+\_\+rauf}~0x01
+\item 
+\#define \textbf{ taste\+\_\+runter}~0x02
+\item 
+\#define \textbf{ taste\+\_\+enter}~0x04
+\item 
+\#define \textbf{ e\+\_\+can\+\_\+config\+\_\+error}~6
+\item 
+\#define \textbf{ debug\+\_\+info}~1
+\item 
+\#define \textbf{ K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED}~0x00
+\item 
+\#define \textbf{ K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED}~0x01
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init} (void)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear} (uint16\+\_\+t Color)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line} (uint16\+\_\+t Line)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line} (uint16\+\_\+t Line, uint8\+\_\+t $\ast$p\+Text)
+\item 
+void \textbf{ B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char} (uint16\+\_\+t Xpos, uint16\+\_\+t Ypos, uint8\+\_\+t Ascii)
+\item 
+void \textbf{ I2\+C1\+\_\+\+Init} (void)
+\item 
+uint16\+\_\+t \textbf{ E\+E\+\_\+\+Read\+Variable} (uint16\+\_\+t Virt\+Address, uint16\+\_\+t $\ast$Data)
+\item 
+uint16\+\_\+t \textbf{ E\+E\+\_\+\+Write\+Variable} (uint16\+\_\+t Virt\+Address, uint16\+\_\+t Data)
+\item 
+void \textbf{ C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler} (void)
+\item 
+void \textbf{ Adc\+Init} (void)
+\item 
+float \textbf{ get\+\_\+adc\+\_\+val} (void)
+\item 
+void \textbf{ print\+\_\+f\+\_\+lf0} (char $\ast$text)
+\item 
+void \textbf{ befehl} (void)
+\item 
+void \textbf{ reset\+\_\+in\+\_\+0\+\_\+buff} (void)
+\item 
+int \textbf{ find\+\_\+offset} (void)
+\item 
+uint32\+\_\+t \textbf{ S\+P\+I2\+\_\+\+Read} (char val)
+\item 
+uint32\+\_\+t \textbf{ S\+P\+Ix\+\_\+\+Read} (void)
+\item 
+void \textbf{ S\+P\+Ix\+\_\+\+Write} (uint8\+\_\+t Value)
+\item 
+void \textbf{ S\+P\+I2\+\_\+\+Write} (uint8\+\_\+t Value)
+\item 
+void \textbf{ S\+P\+Ix\+\_\+\+Init} (void)
+\item 
+int \textbf{ set\+\_\+not\+\_\+stop} (void)
+\item 
+void \textbf{ motor\+\_\+pin\+\_\+init} (void)
+\item 
+void \textbf{ spi\+\_\+pin\+\_\+init} (void)
+\item 
+void \textbf{ uart2\+Init} (void)
+\item 
+void \textbf{ pid\+\_\+\+Init} (float kp, float ki, float kd, float abtast)
+\item 
+void \textbf{ set\+\_\+pid\+\_\+start} (void)
+\item 
+void \textbf{ test\+\_\+anzeige} (void)
+\item 
+int \textbf{ store\+\_\+offset} (int val)
+\item 
+void \textbf{ set\+\_\+timer3} (void)
+\item 
+void \textbf{ init\+\_\+spi} (void)
+\item 
+int \textbf{ init\+\_\+can} (void)
+\item 
+void \textbf{ init\+\_\+motor2} (void)
+\item 
+void \textbf{ set\+\_\+up\+\_\+motor\+\_\+rampe} (int array\+\_\+nr)
+\item 
+void \textbf{ debug\+\_\+inf} (char $\ast$text)
+\item 
+void \textbf{ wait\+\_\+ms} (int msec)
+\item 
+void \textbf{ main\+\_\+init} (void)
+\item 
+void \textbf{ timer3\+\_\+int} (void)
+\item 
+float \textbf{ get\+\_\+float} (char art, char $\ast$text, int start\+\_\+wert, int end\+\_\+wert)
+\item 
+void \textbf{ setup\+\_\+m\+\_\+gesch} (void)
+\item 
+int \textbf{ get\+\_\+taste} (void)
+\item 
+void \textbf{ init\+\_\+adc} (void)
+\item 
+float \textbf{ get\+\_\+oel\+\_\+stand} (void)
+\item 
+int \textbf{ get\+\_\+timer\+\_\+val} (int art)
+\item 
+int \textbf{ main} (void)
+\item 
+void \textbf{ can\+\_\+test} (void)
+\item 
+void \textbf{ H\+A\+L\+\_\+\+C\+A\+N\+\_\+\+Rx\+Cplt\+Callback} (C\+A\+N\+\_\+\+Handle\+Type\+Def $\ast$\textbf{ Can\+Handle})
+\begin{DoxyCompactList}\small\item\em Transmission complete callback in non blocking mode. \end{DoxyCompactList}\item 
+int \textbf{ \+\_\+write} (int file, char $\ast$ptr, int len)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+T\+I\+M\+\_\+\+Handle\+Type\+Def \textbf{ Tim\+Handle}
+\item 
+uint32\+\_\+t \textbf{ uw\+Prescaler\+Value} = 0
+\item 
+int \textbf{ can\+\_\+rx\+\_\+first}
+\item 
+uint8\+\_\+t \textbf{ ub\+Key\+Number} = 0x0
+\item 
+C\+A\+N\+\_\+\+Handle\+Type\+Def \textbf{ Can\+Handle}
+\item 
+U\+A\+R\+T\+\_\+\+Handle\+Type\+Def \textbf{ Uart\+Handle}
+\item 
+S\+P\+I\+\_\+\+Handle\+Type\+Def \textbf{ Spi\+Handle1}
+\item 
+S\+P\+I\+\_\+\+Handle\+Type\+Def \textbf{ Spi\+Handle2}
+\item 
+S\+P\+I\+\_\+\+Handle\+Type\+Def \textbf{ Spi\+Handle}
+\item 
+A\+D\+C\+\_\+\+Handle\+Type\+Def \textbf{ Adc\+Handle}
+\item 
+uint8\+\_\+t \textbf{ a\+Tx\+Buffer} [3]
+\item 
+uint8\+\_\+t \textbf{ a\+Rx\+Buffer} [3]
+\item 
+uint8\+\_\+t \textbf{ a\+Callback\+Error} = 0
+\item 
+int \textbf{ can\+\_\+rx\+\_\+flag} =0
+\item 
+int \textbf{ soll\+\_\+zeit}
+\item 
+int \textbf{ motor\+\_\+timer}
+\item 
+char \textbf{ ser\+\_\+in\+\_\+flag0}
+\item 
+int \textbf{ position\+\_\+alt}
+\begin{DoxyCompactList}\small\item\em Main program. \end{DoxyCompactList}\item 
+int \textbf{ main\+\_\+error} =0
+\item 
+int \textbf{ motor\+\_\+power\+\_\+status}
+\item 
+int \textbf{ motor\+\_\+status}
+\item 
+int \textbf{ motor\+\_\+node\+\_\+id} = 0x01
+\item 
+int \textbf{ motor\+\_\+position}
+\item 
+int \textbf{ motor\+\_\+position2}
+\item 
+int \textbf{ motor\+\_\+geschw}
+\item 
+int \textbf{ motor\+\_\+soll\+\_\+tackt}
+\item 
+int \textbf{ motor\+\_\+ist\+\_\+tackt}
+\item 
+int \textbf{ motor\+\_\+freigabe} =0
+\item 
+int \textbf{ can\+\_\+status}
+\item 
+int \textbf{ i}
+\item 
+int \textbf{ last\+\_\+\+Node\+Id}
+\item 
+int \textbf{ taste}
+\item 
+int \textbf{ tasten}
+\item 
+int \textbf{ taste\+\_\+alt}
+\item 
+int \textbf{ tasten\+\_\+timer1}
+\item 
+int \textbf{ tasten\+\_\+timer2}
+\item 
+double \textbf{ Abtast\+\_\+rate} =1000.\+0
+\item 
+int \textbf{ prg\+\_\+nr}
+\item 
+float \textbf{ max\+\_\+druck}
+\item 
+float \textbf{ f}
+\item 
+float \textbf{ max} =0.\+0
+\item 
+float \textbf{ min} = 300.\+0
+\item 
+float \textbf{ oel\+\_\+stand}
+\item 
+double \textbf{ x1}
+\item 
+double \textbf{ x2}
+\item 
+double \textbf{ y1}
+\item 
+double \textbf{ y2}
+\item 
+double \textbf{ m}
+\item 
+double \textbf{ b}
+\item 
+double \textbf{ dd}
+\item 
+int \textbf{ anzeige\+\_\+timer}
+\item 
+char \textbf{ c}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{main_8c_a84665051b0af694acfe71d9eb21b75e0}} 
+\index{main.\+c@{main.\+c}!debug\+\_\+info@{debug\+\_\+info}}
+\index{debug\+\_\+info@{debug\+\_\+info}!main.\+c@{main.\+c}}
+\subsubsection{debug\+\_\+info}
+{\footnotesize\ttfamily \#define debug\+\_\+info~1}
+
+
+
+Definition at line 126 of file main.\+c.
+
+\mbox{\label{main_8c_a827c1113370e880ebc0db96f14b44c08}} 
+\index{main.\+c@{main.\+c}!e\+\_\+abbruch@{e\+\_\+abbruch}}
+\index{e\+\_\+abbruch@{e\+\_\+abbruch}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+abbruch}
+{\footnotesize\ttfamily \#define e\+\_\+abbruch~6}
+
+
+
+Definition at line 111 of file main.\+c.
+
+\mbox{\label{main_8c_a8312bf824e019aacc256a09caddd0d1b}} 
+\index{main.\+c@{main.\+c}!e\+\_\+can\+\_\+config\+\_\+error@{e\+\_\+can\+\_\+config\+\_\+error}}
+\index{e\+\_\+can\+\_\+config\+\_\+error@{e\+\_\+can\+\_\+config\+\_\+error}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+can\+\_\+config\+\_\+error}
+{\footnotesize\ttfamily \#define e\+\_\+can\+\_\+config\+\_\+error~6}
+
+
+
+Definition at line 124 of file main.\+c.
+
+\mbox{\label{main_8c_a1c7e2ae12eebe5e1efc4265ca91c7971}} 
+\index{main.\+c@{main.\+c}!e\+\_\+can\+\_\+time\+\_\+out@{e\+\_\+can\+\_\+time\+\_\+out}}
+\index{e\+\_\+can\+\_\+time\+\_\+out@{e\+\_\+can\+\_\+time\+\_\+out}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+can\+\_\+time\+\_\+out}
+{\footnotesize\ttfamily \#define e\+\_\+can\+\_\+time\+\_\+out~5}
+
+
+
+Definition at line 110 of file main.\+c.
+
+\mbox{\label{main_8c_a3da7a50e30a478ff64fc41991aa67a2c}} 
+\index{main.\+c@{main.\+c}!e\+\_\+fuellstand\+\_\+g@{e\+\_\+fuellstand\+\_\+g}}
+\index{e\+\_\+fuellstand\+\_\+g@{e\+\_\+fuellstand\+\_\+g}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+fuellstand\+\_\+g}
+{\footnotesize\ttfamily \#define e\+\_\+fuellstand\+\_\+g~9}
+
+
+
+Definition at line 114 of file main.\+c.
+
+\mbox{\label{main_8c_a1d61eb628ba737683f5729527e88fd8d}} 
+\index{main.\+c@{main.\+c}!e\+\_\+fuellstand\+\_\+k@{e\+\_\+fuellstand\+\_\+k}}
+\index{e\+\_\+fuellstand\+\_\+k@{e\+\_\+fuellstand\+\_\+k}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+fuellstand\+\_\+k}
+{\footnotesize\ttfamily \#define e\+\_\+fuellstand\+\_\+k~8}
+
+
+
+Definition at line 113 of file main.\+c.
+
+\mbox{\label{main_8c_aadf1746d3207831926835b1c17e73884}} 
+\index{main.\+c@{main.\+c}!e\+\_\+motor\+\_\+entlage\+\_\+links@{e\+\_\+motor\+\_\+entlage\+\_\+links}}
+\index{e\+\_\+motor\+\_\+entlage\+\_\+links@{e\+\_\+motor\+\_\+entlage\+\_\+links}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+motor\+\_\+entlage\+\_\+links}
+{\footnotesize\ttfamily \#define e\+\_\+motor\+\_\+entlage\+\_\+links~2}
+
+
+
+Definition at line 107 of file main.\+c.
+
+\mbox{\label{main_8c_a5bf006270f1c374faaac67567562c425}} 
+\index{main.\+c@{main.\+c}!e\+\_\+motor\+\_\+entlage\+\_\+rechts@{e\+\_\+motor\+\_\+entlage\+\_\+rechts}}
+\index{e\+\_\+motor\+\_\+entlage\+\_\+rechts@{e\+\_\+motor\+\_\+entlage\+\_\+rechts}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+motor\+\_\+entlage\+\_\+rechts}
+{\footnotesize\ttfamily \#define e\+\_\+motor\+\_\+entlage\+\_\+rechts~3}
+
+
+
+Definition at line 108 of file main.\+c.
+
+\mbox{\label{main_8c_a7ff1f1e2f2bf2aaaa3cda4dec90e8729}} 
+\index{main.\+c@{main.\+c}!e\+\_\+motor\+\_\+power\+\_\+faild@{e\+\_\+motor\+\_\+power\+\_\+faild}}
+\index{e\+\_\+motor\+\_\+power\+\_\+faild@{e\+\_\+motor\+\_\+power\+\_\+faild}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+motor\+\_\+power\+\_\+faild}
+{\footnotesize\ttfamily \#define e\+\_\+motor\+\_\+power\+\_\+faild~1}
+
+
+
+Definition at line 106 of file main.\+c.
+
+\mbox{\label{main_8c_a178676f209df332ceb2d5d9f4647c1f1}} 
+\index{main.\+c@{main.\+c}!e\+\_\+motor\+\_\+startpos@{e\+\_\+motor\+\_\+startpos}}
+\index{e\+\_\+motor\+\_\+startpos@{e\+\_\+motor\+\_\+startpos}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+motor\+\_\+startpos}
+{\footnotesize\ttfamily \#define e\+\_\+motor\+\_\+startpos~4}
+
+
+
+Definition at line 109 of file main.\+c.
+
+\mbox{\label{main_8c_a84aace3271252acf885c1ec15567a6a9}} 
+\index{main.\+c@{main.\+c}!e\+\_\+motor\+\_\+steht@{e\+\_\+motor\+\_\+steht}}
+\index{e\+\_\+motor\+\_\+steht@{e\+\_\+motor\+\_\+steht}!main.\+c@{main.\+c}}
+\subsubsection{e\+\_\+motor\+\_\+steht}
+{\footnotesize\ttfamily \#define e\+\_\+motor\+\_\+steht~7}
+
+
+
+Definition at line 112 of file main.\+c.
+
+\mbox{\label{main_8c_a42819d478612ef90666b18dfacd44ea6}} 
+\index{main.\+c@{main.\+c}!K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED@{K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED}}
+\index{K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED@{K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED}!main.\+c@{main.\+c}}
+\subsubsection{K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED}
+{\footnotesize\ttfamily \#define K\+E\+Y\+\_\+\+N\+O\+T\+\_\+\+P\+R\+E\+S\+S\+ED~0x01}
+
+
+
+Definition at line 130 of file main.\+c.
+
+\mbox{\label{main_8c_a8386b89daf8ec3a1805554fd95b80a9e}} 
+\index{main.\+c@{main.\+c}!K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED@{K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED}}
+\index{K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED@{K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED}!main.\+c@{main.\+c}}
+\subsubsection{K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED}
+{\footnotesize\ttfamily \#define K\+E\+Y\+\_\+\+P\+R\+E\+S\+S\+ED~0x00}
+
+
+
+Definition at line 129 of file main.\+c.
+
+\mbox{\label{main_8c_a7fd0a84666c494a9a7fdeb1a078b3bc3}} 
+\index{main.\+c@{main.\+c}!m\+\_\+error@{m\+\_\+error}}
+\index{m\+\_\+error@{m\+\_\+error}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+error}
+{\footnotesize\ttfamily \#define m\+\_\+error~100}
+
+
+
+Definition at line 101 of file main.\+c.
+
+\mbox{\label{main_8c_afeb664643f2fd19bb6cf60d5fe8313ea}} 
+\index{main.\+c@{main.\+c}!m\+\_\+links\+\_\+lauf@{m\+\_\+links\+\_\+lauf}}
+\index{m\+\_\+links\+\_\+lauf@{m\+\_\+links\+\_\+lauf}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+links\+\_\+lauf}
+{\footnotesize\ttfamily \#define m\+\_\+links\+\_\+lauf~8}
+
+
+
+Definition at line 103 of file main.\+c.
+
+\mbox{\label{main_8c_a34aca814f8990bae055e4c61a393db23}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+delay@{m\+\_\+motor\+\_\+delay}}
+\index{m\+\_\+motor\+\_\+delay@{m\+\_\+motor\+\_\+delay}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+delay}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+delay~10}
+
+
+
+Definition at line 92 of file main.\+c.
+
+\mbox{\label{main_8c_a7a71d2234d5379caff097a130895897c}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+delay2@{m\+\_\+motor\+\_\+delay2}}
+\index{m\+\_\+motor\+\_\+delay2@{m\+\_\+motor\+\_\+delay2}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+delay2}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+delay2~12}
+
+
+
+Definition at line 91 of file main.\+c.
+
+\mbox{\label{main_8c_a8d33e56bf4980adb537abfb23ba56f75}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+entlage\+\_\+linkslauf@{m\+\_\+motor\+\_\+entlage\+\_\+linkslauf}}
+\index{m\+\_\+motor\+\_\+entlage\+\_\+linkslauf@{m\+\_\+motor\+\_\+entlage\+\_\+linkslauf}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+entlage\+\_\+linkslauf}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+entlage\+\_\+linkslauf~4}
+
+
+
+Definition at line 87 of file main.\+c.
+
+\mbox{\label{main_8c_ac2c77c9beca00ad0c49b02ccc5901b32}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf@{m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf}}
+\index{m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf@{m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+entlage\+\_\+rechtslauf~2}
+
+
+
+Definition at line 85 of file main.\+c.
+
+\mbox{\label{main_8c_a4ba6951533e2e28c2fe70601fba76014}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+fertig@{m\+\_\+motor\+\_\+fertig}}
+\index{m\+\_\+motor\+\_\+fertig@{m\+\_\+motor\+\_\+fertig}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+fertig}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+fertig~11}
+
+
+
+Definition at line 93 of file main.\+c.
+
+\mbox{\label{main_8c_a2e0ce3798542b98217a8e6311cd449ed}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+regeln@{m\+\_\+motor\+\_\+regeln}}
+\index{m\+\_\+motor\+\_\+regeln@{m\+\_\+motor\+\_\+regeln}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+regeln}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+regeln~7}
+
+
+
+Definition at line 90 of file main.\+c.
+
+\mbox{\label{main_8c_a11af8ae6331e63f01466b50dd8c5a33a}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+startpos@{m\+\_\+motor\+\_\+startpos}}
+\index{m\+\_\+motor\+\_\+startpos@{m\+\_\+motor\+\_\+startpos}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+startpos}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+startpos~5}
+
+
+
+Definition at line 88 of file main.\+c.
+
+\mbox{\label{main_8c_a814cfe4a74ee6ddcd06fe9260233ebdc}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stop@{m\+\_\+motor\+\_\+stop}}
+\index{m\+\_\+motor\+\_\+stop@{m\+\_\+motor\+\_\+stop}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stop}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stop~3}
+
+
+
+Definition at line 86 of file main.\+c.
+
+\mbox{\label{main_8c_a9c1009322a7297bff473d906e8332377}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stoppen\+\_\+r1@{m\+\_\+motor\+\_\+stoppen\+\_\+r1}}
+\index{m\+\_\+motor\+\_\+stoppen\+\_\+r1@{m\+\_\+motor\+\_\+stoppen\+\_\+r1}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stoppen\+\_\+r1}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stoppen\+\_\+r1~23}
+
+
+
+Definition at line 97 of file main.\+c.
+
+\mbox{\label{main_8c_ae06453eedc6245607f7334ffca5d3948}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stoppen\+\_\+r2@{m\+\_\+motor\+\_\+stoppen\+\_\+r2}}
+\index{m\+\_\+motor\+\_\+stoppen\+\_\+r2@{m\+\_\+motor\+\_\+stoppen\+\_\+r2}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stoppen\+\_\+r2}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stoppen\+\_\+r2~24}
+
+
+
+Definition at line 98 of file main.\+c.
+
+\mbox{\label{main_8c_abd802dde8535de5f63016b89910c9baf}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stoppen\+\_\+r3@{m\+\_\+motor\+\_\+stoppen\+\_\+r3}}
+\index{m\+\_\+motor\+\_\+stoppen\+\_\+r3@{m\+\_\+motor\+\_\+stoppen\+\_\+r3}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stoppen\+\_\+r3}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stoppen\+\_\+r3~25}
+
+
+
+Definition at line 99 of file main.\+c.
+
+\mbox{\label{main_8c_a7a1b77f12cb33b98e258bdeeb02a1c41}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stoppen\+\_\+v1@{m\+\_\+motor\+\_\+stoppen\+\_\+v1}}
+\index{m\+\_\+motor\+\_\+stoppen\+\_\+v1@{m\+\_\+motor\+\_\+stoppen\+\_\+v1}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stoppen\+\_\+v1}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stoppen\+\_\+v1~20}
+
+
+
+Definition at line 94 of file main.\+c.
+
+\mbox{\label{main_8c_aa91da1b8a2ffc51cf392ff69493905bf}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stoppen\+\_\+v2@{m\+\_\+motor\+\_\+stoppen\+\_\+v2}}
+\index{m\+\_\+motor\+\_\+stoppen\+\_\+v2@{m\+\_\+motor\+\_\+stoppen\+\_\+v2}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stoppen\+\_\+v2}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stoppen\+\_\+v2~21}
+
+
+
+Definition at line 95 of file main.\+c.
+
+\mbox{\label{main_8c_a31c9f5c2c751a3c4cd0d9bf84292b4cc}} 
+\index{main.\+c@{main.\+c}!m\+\_\+motor\+\_\+stoppen\+\_\+v3@{m\+\_\+motor\+\_\+stoppen\+\_\+v3}}
+\index{m\+\_\+motor\+\_\+stoppen\+\_\+v3@{m\+\_\+motor\+\_\+stoppen\+\_\+v3}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+motor\+\_\+stoppen\+\_\+v3}
+{\footnotesize\ttfamily \#define m\+\_\+motor\+\_\+stoppen\+\_\+v3~22}
+
+
+
+Definition at line 96 of file main.\+c.
+
+\mbox{\label{main_8c_ae19ecf7cbeba4d62dd0c23c606f30e3d}} 
+\index{main.\+c@{main.\+c}!m\+\_\+rechts\+\_\+lauf@{m\+\_\+rechts\+\_\+lauf}}
+\index{m\+\_\+rechts\+\_\+lauf@{m\+\_\+rechts\+\_\+lauf}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+rechts\+\_\+lauf}
+{\footnotesize\ttfamily \#define m\+\_\+rechts\+\_\+lauf~9}
+
+
+
+Definition at line 104 of file main.\+c.
+
+\mbox{\label{main_8c_a0ef4b78cb1f3483c203c8532177b5e3a}} 
+\index{main.\+c@{main.\+c}!m\+\_\+start@{m\+\_\+start}}
+\index{m\+\_\+start@{m\+\_\+start}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+start}
+{\footnotesize\ttfamily \#define m\+\_\+start~0}
+
+
+
+Definition at line 83 of file main.\+c.
+
+\mbox{\label{main_8c_a0e435758792de024e3d8ef966850df3e}} 
+\index{main.\+c@{main.\+c}!m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on@{m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on}}
+\index{m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on@{m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on}
+{\footnotesize\ttfamily \#define m\+\_\+start\+\_\+motor\+\_\+power\+\_\+on~1}
+
+
+
+Definition at line 84 of file main.\+c.
+
+\mbox{\label{main_8c_a39f2dfd053c4956ce52fd9c428a0ae62}} 
+\index{main.\+c@{main.\+c}!m\+\_\+wait\+\_\+conn@{m\+\_\+wait\+\_\+conn}}
+\index{m\+\_\+wait\+\_\+conn@{m\+\_\+wait\+\_\+conn}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+wait\+\_\+conn}
+{\footnotesize\ttfamily \#define m\+\_\+wait\+\_\+conn~40}
+
+
+
+Definition at line 100 of file main.\+c.
+
+\mbox{\label{main_8c_af48a58e8013f64d5377dd7b00504f1b5}} 
+\index{main.\+c@{main.\+c}!m\+\_\+wait\+\_\+start@{m\+\_\+wait\+\_\+start}}
+\index{m\+\_\+wait\+\_\+start@{m\+\_\+wait\+\_\+start}!main.\+c@{main.\+c}}
+\subsubsection{m\+\_\+wait\+\_\+start}
+{\footnotesize\ttfamily \#define m\+\_\+wait\+\_\+start~6}
+
+
+
+Definition at line 89 of file main.\+c.
+
+\mbox{\label{main_8c_a31cb589e462e21c22e3958748e5fd0a1}} 
+\index{main.\+c@{main.\+c}!t\+\_\+warte\+\_\+rauf\+\_\+runter2@{t\+\_\+warte\+\_\+rauf\+\_\+runter2}}
+\index{t\+\_\+warte\+\_\+rauf\+\_\+runter2@{t\+\_\+warte\+\_\+rauf\+\_\+runter2}!main.\+c@{main.\+c}}
+\subsubsection{t\+\_\+warte\+\_\+rauf\+\_\+runter2}
+{\footnotesize\ttfamily \#define t\+\_\+warte\+\_\+rauf\+\_\+runter2~30}
+
+
+
+Definition at line 118 of file main.\+c.
+
+\mbox{\label{main_8c_afd6a7420e0901304cacd760fba2cbb6f}} 
+\index{main.\+c@{main.\+c}!taste\+\_\+enter@{taste\+\_\+enter}}
+\index{taste\+\_\+enter@{taste\+\_\+enter}!main.\+c@{main.\+c}}
+\subsubsection{taste\+\_\+enter}
+{\footnotesize\ttfamily \#define taste\+\_\+enter~0x04}
+
+
+
+Definition at line 123 of file main.\+c.
+
+\mbox{\label{main_8c_ab6b09ab9aafe03943dab718335dc474b}} 
+\index{main.\+c@{main.\+c}!taste\+\_\+rauf@{taste\+\_\+rauf}}
+\index{taste\+\_\+rauf@{taste\+\_\+rauf}!main.\+c@{main.\+c}}
+\subsubsection{taste\+\_\+rauf}
+{\footnotesize\ttfamily \#define taste\+\_\+rauf~0x01}
+
+
+
+Definition at line 121 of file main.\+c.
+
+\mbox{\label{main_8c_a66be6aba0c6b60508bc8beaff40c067c}} 
+\index{main.\+c@{main.\+c}!taste\+\_\+runter@{taste\+\_\+runter}}
+\index{taste\+\_\+runter@{taste\+\_\+runter}!main.\+c@{main.\+c}}
+\subsubsection{taste\+\_\+runter}
+{\footnotesize\ttfamily \#define taste\+\_\+runter~0x02}
+
+
+
+Definition at line 122 of file main.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{main_8c_aa025a12d45f60c7d0eae249e61f0c7f9}} 
+\index{main.\+c@{main.\+c}!\+\_\+write@{\+\_\+write}}
+\index{\+\_\+write@{\+\_\+write}!main.\+c@{main.\+c}}
+\subsubsection{\+\_\+write()}
+{\footnotesize\ttfamily int \+\_\+write (\begin{DoxyParamCaption}\item[{int}]{file,  }\item[{char $\ast$}]{ptr,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1657 of file main.\+c.
+
+\mbox{\label{main_8c_a5ac508fc2087ee41c1458b98f0f4e475}} 
+\index{main.\+c@{main.\+c}!Adc\+Init@{Adc\+Init}}
+\index{Adc\+Init@{Adc\+Init}!main.\+c@{main.\+c}}
+\subsubsection{Adc\+Init()}
+{\footnotesize\ttfamily void Adc\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Adc.\+c.
+
+\mbox{\label{main_8c_abea6cead6dcc33be4b61c0a03864d0de}} 
+\index{main.\+c@{main.\+c}!befehl@{befehl}}
+\index{befehl@{befehl}!main.\+c@{main.\+c}}
+\subsubsection{befehl()}
+{\footnotesize\ttfamily void befehl (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+!!!!!!!!!! 
+
+Definition at line 168 of file befehl.\+c.
+
+\mbox{\label{main_8c_a1580373cc3bde1410bd031397e6713ec}} 
+\index{main.\+c@{main.\+c}!B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear}}
+\index{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear}!main.\+c@{main.\+c}}
+\subsubsection{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Color }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_ab018b4febd80f465c5f975cb4da75321}} 
+\index{main.\+c@{main.\+c}!B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line}}
+\index{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line}!main.\+c@{main.\+c}}
+\subsubsection{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Clear\+String\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Line }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a8388f1a9dd9f46d0ed98942e5af68c84}} 
+\index{main.\+c@{main.\+c}!B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char}}
+\index{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char}!main.\+c@{main.\+c}}
+\subsubsection{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+Char (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Xpos,  }\item[{uint16\+\_\+t}]{Ypos,  }\item[{uint8\+\_\+t}]{Ascii }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a971f53a15ca745ecaa71c94c3c16bf24}} 
+\index{main.\+c@{main.\+c}!B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line}}
+\index{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line}!main.\+c@{main.\+c}}
+\subsubsection{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line()}
+{\footnotesize\ttfamily void B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Display\+String\+At\+Line (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Line,  }\item[{uint8\+\_\+t $\ast$}]{p\+Text }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a5955111784d5c5a7b9a7492b30afd7cf}} 
+\index{main.\+c@{main.\+c}!B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init}}
+\index{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init@{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init}!main.\+c@{main.\+c}}
+\subsubsection{B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init()}
+{\footnotesize\ttfamily uint8\+\_\+t B\+S\+P\+\_\+\+L\+C\+D\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a34823d3e597ae62cb6a000b402cd787f}} 
+\index{main.\+c@{main.\+c}!can\+\_\+test@{can\+\_\+test}}
+\index{can\+\_\+test@{can\+\_\+test}!main.\+c@{main.\+c}}
+\subsubsection{can\+\_\+test()}
+{\footnotesize\ttfamily void can\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1383 of file main.\+c.
+
+\mbox{\label{main_8c_a4372ecff238934476bb477119103ec52}} 
+\index{main.\+c@{main.\+c}!C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler@{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler}}
+\index{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler@{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler}!main.\+c@{main.\+c}}
+\subsubsection{C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler()}
+{\footnotesize\ttfamily void C\+A\+Nx\+\_\+\+R\+X\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_afb3a2ffa2014ea9d37ba91c6072d18aa}} 
+\index{main.\+c@{main.\+c}!debug\+\_\+inf@{debug\+\_\+inf}}
+\index{debug\+\_\+inf@{debug\+\_\+inf}!main.\+c@{main.\+c}}
+\subsubsection{debug\+\_\+inf()}
+{\footnotesize\ttfamily void debug\+\_\+inf (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1239 of file main.\+c.
+
+\mbox{\label{main_8c_a0776e2e16f54d3a675e4f2f401703a85}} 
+\index{main.\+c@{main.\+c}!E\+E\+\_\+\+Read\+Variable@{E\+E\+\_\+\+Read\+Variable}}
+\index{E\+E\+\_\+\+Read\+Variable@{E\+E\+\_\+\+Read\+Variable}!main.\+c@{main.\+c}}
+\subsubsection{E\+E\+\_\+\+Read\+Variable()}
+{\footnotesize\ttfamily uint16\+\_\+t E\+E\+\_\+\+Read\+Variable (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Virt\+Address,  }\item[{uint16\+\_\+t $\ast$}]{Data }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a516e9ced7438b9452c72884aa1df5915}} 
+\index{main.\+c@{main.\+c}!E\+E\+\_\+\+Write\+Variable@{E\+E\+\_\+\+Write\+Variable}}
+\index{E\+E\+\_\+\+Write\+Variable@{E\+E\+\_\+\+Write\+Variable}!main.\+c@{main.\+c}}
+\subsubsection{E\+E\+\_\+\+Write\+Variable()}
+{\footnotesize\ttfamily uint16\+\_\+t E\+E\+\_\+\+Write\+Variable (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Virt\+Address,  }\item[{uint16\+\_\+t}]{Data }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_ae31a6837673e8e8ee1012f92c4c77a58}} 
+\index{main.\+c@{main.\+c}!find\+\_\+offset@{find\+\_\+offset}}
+\index{find\+\_\+offset@{find\+\_\+offset}!main.\+c@{main.\+c}}
+\subsubsection{find\+\_\+offset()}
+{\footnotesize\ttfamily int find\+\_\+offset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 504 of file at45db161.\+c.
+
+\mbox{\label{main_8c_ad7adec982039e6bbf58fd9ac980cbce1}} 
+\index{main.\+c@{main.\+c}!get\+\_\+adc\+\_\+val@{get\+\_\+adc\+\_\+val}}
+\index{get\+\_\+adc\+\_\+val@{get\+\_\+adc\+\_\+val}!main.\+c@{main.\+c}}
+\subsubsection{get\+\_\+adc\+\_\+val()}
+{\footnotesize\ttfamily float get\+\_\+adc\+\_\+val (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file Adc.\+c.
+
+\mbox{\label{main_8c_a83845db80bfe3eb87a51dfc526925079}} 
+\index{main.\+c@{main.\+c}!get\+\_\+float@{get\+\_\+float}}
+\index{get\+\_\+float@{get\+\_\+float}!main.\+c@{main.\+c}}
+\subsubsection{get\+\_\+float()}
+{\footnotesize\ttfamily float get\+\_\+float (\begin{DoxyParamCaption}\item[{char}]{art,  }\item[{char $\ast$}]{text,  }\item[{int}]{start\+\_\+wert,  }\item[{int}]{end\+\_\+wert }\end{DoxyParamCaption})}
+
+
+
+Definition at line 912 of file main.\+c.
+
+\mbox{\label{main_8c_a0ed37e617173ebc136c88d1301a9ecbd}} 
+\index{main.\+c@{main.\+c}!get\+\_\+oel\+\_\+stand@{get\+\_\+oel\+\_\+stand}}
+\index{get\+\_\+oel\+\_\+stand@{get\+\_\+oel\+\_\+stand}!main.\+c@{main.\+c}}
+\subsubsection{get\+\_\+oel\+\_\+stand()}
+{\footnotesize\ttfamily float get\+\_\+oel\+\_\+stand (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 851 of file main.\+c.
+
+\mbox{\label{main_8c_abd525fce1f89febcc81248f627264698}} 
+\index{main.\+c@{main.\+c}!get\+\_\+taste@{get\+\_\+taste}}
+\index{get\+\_\+taste@{get\+\_\+taste}!main.\+c@{main.\+c}}
+\subsubsection{get\+\_\+taste()}
+{\footnotesize\ttfamily int get\+\_\+taste (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1249 of file main.\+c.
+
+\mbox{\label{main_8c_a82cc6dfdd74fb12e4a4c04399fb0144e}} 
+\index{main.\+c@{main.\+c}!get\+\_\+timer\+\_\+val@{get\+\_\+timer\+\_\+val}}
+\index{get\+\_\+timer\+\_\+val@{get\+\_\+timer\+\_\+val}!main.\+c@{main.\+c}}
+\subsubsection{get\+\_\+timer\+\_\+val()}
+{\footnotesize\ttfamily int get\+\_\+timer\+\_\+val (\begin{DoxyParamCaption}\item[{int}]{art }\end{DoxyParamCaption})}
+
+
+
+Definition at line 791 of file main.\+c.
+
+\mbox{\label{main_8c_a430209a4fbf1bf97ef338b1c82ec83d4}} 
+\index{main.\+c@{main.\+c}!I2\+C1\+\_\+\+Init@{I2\+C1\+\_\+\+Init}}
+\index{I2\+C1\+\_\+\+Init@{I2\+C1\+\_\+\+Init}!main.\+c@{main.\+c}}
+\subsubsection{I2\+C1\+\_\+\+Init()}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_ab15cf82f0329bc4d7262c03559eaaa8e}} 
+\index{main.\+c@{main.\+c}!init\+\_\+adc@{init\+\_\+adc}}
+\index{init\+\_\+adc@{init\+\_\+adc}!main.\+c@{main.\+c}}
+\subsubsection{init\+\_\+adc()}
+{\footnotesize\ttfamily void init\+\_\+adc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 885 of file main.\+c.
+
+\mbox{\label{main_8c_aad4f63be2337fceef9105b9779301757}} 
+\index{main.\+c@{main.\+c}!init\+\_\+can@{init\+\_\+can}}
+\index{init\+\_\+can@{init\+\_\+can}!main.\+c@{main.\+c}}
+\subsubsection{init\+\_\+can()}
+{\footnotesize\ttfamily int init\+\_\+can (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a170d70d06f2df59edff00ae0c23d6877}} 
+\index{main.\+c@{main.\+c}!init\+\_\+motor2@{init\+\_\+motor2}}
+\index{init\+\_\+motor2@{init\+\_\+motor2}!main.\+c@{main.\+c}}
+\subsubsection{init\+\_\+motor2()}
+{\footnotesize\ttfamily void init\+\_\+motor2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1133 of file main.\+c.
+
+\mbox{\label{main_8c_a4454f968b2402a0e61deb15ab2571dab}} 
+\index{main.\+c@{main.\+c}!init\+\_\+spi@{init\+\_\+spi}}
+\index{init\+\_\+spi@{init\+\_\+spi}!main.\+c@{main.\+c}}
+\subsubsection{init\+\_\+spi()}
+{\footnotesize\ttfamily void init\+\_\+spi (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 980 of file main.\+c.
+
+\mbox{\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 223 of file main.\+c.
+
+\mbox{\label{main_8c_a3719465edd56d2b587a6b340f29e4f90}} 
+\index{main.\+c@{main.\+c}!main\+\_\+init@{main\+\_\+init}}
+\index{main\+\_\+init@{main\+\_\+init}!main.\+c@{main.\+c}}
+\subsubsection{main\+\_\+init()}
+{\footnotesize\ttfamily void main\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1023 of file main.\+c.
+
+\mbox{\label{main_8c_a2a00fa9585fe5ae6ac014698aa65cc57}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+pin\+\_\+init@{motor\+\_\+pin\+\_\+init}}
+\index{motor\+\_\+pin\+\_\+init@{motor\+\_\+pin\+\_\+init}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+pin\+\_\+init()}
+{\footnotesize\ttfamily void motor\+\_\+pin\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a6eb065a52b581d2104b4c7cefb169469}} 
+\index{main.\+c@{main.\+c}!pid\+\_\+\+Init@{pid\+\_\+\+Init}}
+\index{pid\+\_\+\+Init@{pid\+\_\+\+Init}!main.\+c@{main.\+c}}
+\subsubsection{pid\+\_\+\+Init()}
+{\footnotesize\ttfamily void pid\+\_\+\+Init (\begin{DoxyParamCaption}\item[{float}]{kp,  }\item[{float}]{ki,  }\item[{float}]{kd,  }\item[{float}]{abtast }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{main_8c_a4f2540c2811f6e4c4c136f964b5b8545}} 
+\index{main.\+c@{main.\+c}!print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}}
+\index{print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}!main.\+c@{main.\+c}}
+\subsubsection{print\+\_\+f\+\_\+lf0()}
+{\footnotesize\ttfamily void print\+\_\+f\+\_\+lf0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file Uart2.\+c.
+
+\mbox{\label{main_8c_a1a9be6058ee2ceaa226196bb0a73ba34}} 
+\index{main.\+c@{main.\+c}!reset\+\_\+in\+\_\+0\+\_\+buff@{reset\+\_\+in\+\_\+0\+\_\+buff}}
+\index{reset\+\_\+in\+\_\+0\+\_\+buff@{reset\+\_\+in\+\_\+0\+\_\+buff}!main.\+c@{main.\+c}}
+\subsubsection{reset\+\_\+in\+\_\+0\+\_\+buff()}
+{\footnotesize\ttfamily void reset\+\_\+in\+\_\+0\+\_\+buff (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Uart2.\+c.
+
+\mbox{\label{main_8c_a1f1537adeeb42279cc3045e28ee51b21}} 
+\index{main.\+c@{main.\+c}!set\+\_\+not\+\_\+stop@{set\+\_\+not\+\_\+stop}}
+\index{set\+\_\+not\+\_\+stop@{set\+\_\+not\+\_\+stop}!main.\+c@{main.\+c}}
+\subsubsection{set\+\_\+not\+\_\+stop()}
+{\footnotesize\ttfamily int set\+\_\+not\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 412 of file motor1.\+c.
+
+\mbox{\label{main_8c_a295254d87ad35bad08a608988bdb4fd3}} 
+\index{main.\+c@{main.\+c}!set\+\_\+pid\+\_\+start@{set\+\_\+pid\+\_\+start}}
+\index{set\+\_\+pid\+\_\+start@{set\+\_\+pid\+\_\+start}!main.\+c@{main.\+c}}
+\subsubsection{set\+\_\+pid\+\_\+start()}
+{\footnotesize\ttfamily void set\+\_\+pid\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file P\+I\+D\+Regler.\+c.
+
+\mbox{\label{main_8c_a87bff32642cb74c9350cc4676fda2b6e}} 
+\index{main.\+c@{main.\+c}!set\+\_\+timer3@{set\+\_\+timer3}}
+\index{set\+\_\+timer3@{set\+\_\+timer3}!main.\+c@{main.\+c}}
+\subsubsection{set\+\_\+timer3()}
+{\footnotesize\ttfamily void set\+\_\+timer3 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1322 of file main.\+c.
+
+\mbox{\label{main_8c_a9e44ea949ee3e5408d38f79758c8ea48}} 
+\index{main.\+c@{main.\+c}!set\+\_\+up\+\_\+motor\+\_\+rampe@{set\+\_\+up\+\_\+motor\+\_\+rampe}}
+\index{set\+\_\+up\+\_\+motor\+\_\+rampe@{set\+\_\+up\+\_\+motor\+\_\+rampe}!main.\+c@{main.\+c}}
+\subsubsection{set\+\_\+up\+\_\+motor\+\_\+rampe()}
+{\footnotesize\ttfamily void set\+\_\+up\+\_\+motor\+\_\+rampe (\begin{DoxyParamCaption}\item[{int}]{array\+\_\+nr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1224 of file main.\+c.
+
+\mbox{\label{main_8c_ac7688574b7282d8b949150e2aedf40cc}} 
+\index{main.\+c@{main.\+c}!setup\+\_\+m\+\_\+gesch@{setup\+\_\+m\+\_\+gesch}}
+\index{setup\+\_\+m\+\_\+gesch@{setup\+\_\+m\+\_\+gesch}!main.\+c@{main.\+c}}
+\subsubsection{setup\+\_\+m\+\_\+gesch()}
+{\footnotesize\ttfamily void setup\+\_\+m\+\_\+gesch (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1196 of file main.\+c.
+
+\mbox{\label{main_8c_ac1a30b52ec4b2b781123c4ee519e526f}} 
+\index{main.\+c@{main.\+c}!S\+P\+I2\+\_\+\+Read@{S\+P\+I2\+\_\+\+Read}}
+\index{S\+P\+I2\+\_\+\+Read@{S\+P\+I2\+\_\+\+Read}!main.\+c@{main.\+c}}
+\subsubsection{S\+P\+I2\+\_\+\+Read()}
+{\footnotesize\ttfamily uint32\+\_\+t S\+P\+I2\+\_\+\+Read (\begin{DoxyParamCaption}\item[{char}]{val }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a5db33ee89cceac02fd73ec5c03f3885a}} 
+\index{main.\+c@{main.\+c}!S\+P\+I2\+\_\+\+Write@{S\+P\+I2\+\_\+\+Write}}
+\index{S\+P\+I2\+\_\+\+Write@{S\+P\+I2\+\_\+\+Write}!main.\+c@{main.\+c}}
+\subsubsection{S\+P\+I2\+\_\+\+Write()}
+{\footnotesize\ttfamily void S\+P\+I2\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_af5bc1dbe25d33312b856902021750917}} 
+\index{main.\+c@{main.\+c}!S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}}
+\index{S\+P\+Ix\+\_\+\+Init@{S\+P\+Ix\+\_\+\+Init}!main.\+c@{main.\+c}}
+\subsubsection{S\+P\+Ix\+\_\+\+Init()}
+{\footnotesize\ttfamily void S\+P\+Ix\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a9bd67ee9fc156393f37b7f4e5c511993}} 
+\index{main.\+c@{main.\+c}!S\+P\+Ix\+\_\+\+Read@{S\+P\+Ix\+\_\+\+Read}}
+\index{S\+P\+Ix\+\_\+\+Read@{S\+P\+Ix\+\_\+\+Read}!main.\+c@{main.\+c}}
+\subsubsection{S\+P\+Ix\+\_\+\+Read()}
+{\footnotesize\ttfamily uint32\+\_\+t S\+P\+Ix\+\_\+\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a4203ff654ee25edcc0a27ac298260850}} 
+\index{main.\+c@{main.\+c}!S\+P\+Ix\+\_\+\+Write@{S\+P\+Ix\+\_\+\+Write}}
+\index{S\+P\+Ix\+\_\+\+Write@{S\+P\+Ix\+\_\+\+Write}!main.\+c@{main.\+c}}
+\subsubsection{S\+P\+Ix\+\_\+\+Write()}
+{\footnotesize\ttfamily void S\+P\+Ix\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\label{main_8c_a0d1acbab3520ceb76b879ed1b0186230}} 
+\index{main.\+c@{main.\+c}!store\+\_\+offset@{store\+\_\+offset}}
+\index{store\+\_\+offset@{store\+\_\+offset}!main.\+c@{main.\+c}}
+\subsubsection{store\+\_\+offset()}
+{\footnotesize\ttfamily int store\+\_\+offset (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line 527 of file at45db161.\+c.
+
+\mbox{\label{main_8c_ab1867dec374e397f64ee229d3df859da}} 
+\index{main.\+c@{main.\+c}!test\+\_\+anzeige@{test\+\_\+anzeige}}
+\index{test\+\_\+anzeige@{test\+\_\+anzeige}!main.\+c@{main.\+c}}
+\subsubsection{test\+\_\+anzeige()}
+{\footnotesize\ttfamily void test\+\_\+anzeige (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file Anzeige.\+c.
+
+\mbox{\label{main_8c_a084e270b15f2aa6e0beebda5d92976fd}} 
+\index{main.\+c@{main.\+c}!uart2\+Init@{uart2\+Init}}
+\index{uart2\+Init@{uart2\+Init}!main.\+c@{main.\+c}}
+\subsubsection{uart2\+Init()}
+{\footnotesize\ttfamily void uart2\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file Uart2.\+c.
+
+\mbox{\label{main_8c_afad8aa90d3f050d853049cb8cd30a2db}} 
+\index{main.\+c@{main.\+c}!wait\+\_\+ms@{wait\+\_\+ms}}
+\index{wait\+\_\+ms@{wait\+\_\+ms}!main.\+c@{main.\+c}}
+\subsubsection{wait\+\_\+ms()}
+{\footnotesize\ttfamily void wait\+\_\+ms (\begin{DoxyParamCaption}\item[{int}]{msec }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1315 of file main.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{main_8c_a219ec9ce258727719706ed9aba2e06e2}} 
+\index{main.\+c@{main.\+c}!Abtast\+\_\+rate@{Abtast\+\_\+rate}}
+\index{Abtast\+\_\+rate@{Abtast\+\_\+rate}!main.\+c@{main.\+c}}
+\subsubsection{Abtast\+\_\+rate}
+{\footnotesize\ttfamily double Abtast\+\_\+rate =1000.\+0}
+
+
+
+Definition at line 211 of file main.\+c.
+
+\mbox{\label{main_8c_af691f61635878f78b5003f07958fc994}} 
+\index{main.\+c@{main.\+c}!a\+Callback\+Error@{a\+Callback\+Error}}
+\index{a\+Callback\+Error@{a\+Callback\+Error}!main.\+c@{main.\+c}}
+\subsubsection{a\+Callback\+Error}
+{\footnotesize\ttfamily uint8\+\_\+t a\+Callback\+Error = 0}
+
+
+
+Definition at line 148 of file main.\+c.
+
+\mbox{\label{main_8c_a35c38ca7a8210322754a21a7009e1021}} 
+\index{main.\+c@{main.\+c}!Adc\+Handle@{Adc\+Handle}}
+\index{Adc\+Handle@{Adc\+Handle}!main.\+c@{main.\+c}}
+\subsubsection{Adc\+Handle}
+{\footnotesize\ttfamily A\+D\+C\+\_\+\+Handle\+Type\+Def Adc\+Handle}
+
+
+
+Definition at line 143 of file main.\+c.
+
+\mbox{\label{main_8c_a7a3b481511c41893f36210bca8c5020c}} 
+\index{main.\+c@{main.\+c}!anzeige\+\_\+timer@{anzeige\+\_\+timer}}
+\index{anzeige\+\_\+timer@{anzeige\+\_\+timer}!main.\+c@{main.\+c}}
+\subsubsection{anzeige\+\_\+timer}
+{\footnotesize\ttfamily int anzeige\+\_\+timer}
+
+
+
+Definition at line 219 of file main.\+c.
+
+\mbox{\label{main_8c_a2e21b8127e32a4233ee7daf77d42077a}} 
+\index{main.\+c@{main.\+c}!a\+Rx\+Buffer@{a\+Rx\+Buffer}}
+\index{a\+Rx\+Buffer@{a\+Rx\+Buffer}!main.\+c@{main.\+c}}
+\subsubsection{a\+Rx\+Buffer}
+{\footnotesize\ttfamily uint8\+\_\+t a\+Rx\+Buffer[3]}
+
+
+
+Definition at line 146 of file main.\+c.
+
+\mbox{\label{main_8c_aedcb29c32f7323e887731561839563d0}} 
+\index{main.\+c@{main.\+c}!a\+Tx\+Buffer@{a\+Tx\+Buffer}}
+\index{a\+Tx\+Buffer@{a\+Tx\+Buffer}!main.\+c@{main.\+c}}
+\subsubsection{a\+Tx\+Buffer}
+{\footnotesize\ttfamily uint8\+\_\+t a\+Tx\+Buffer[3]}
+
+
+
+Definition at line 145 of file main.\+c.
+
+\mbox{\label{main_8c_a1510a66dacf9cf3586de5fc89ae2a073}} 
+\index{main.\+c@{main.\+c}!b@{b}}
+\index{b@{b}!main.\+c@{main.\+c}}
+\subsubsection{b}
+{\footnotesize\ttfamily double b}
+
+
+
+Definition at line 218 of file main.\+c.
+
+\mbox{\label{main_8c_adc08ed1554f35803d229aeaf11216b3f}} 
+\index{main.\+c@{main.\+c}!c@{c}}
+\index{c@{c}!main.\+c@{main.\+c}}
+\subsubsection{c}
+{\footnotesize\ttfamily char c}
+
+
+
+Definition at line 220 of file main.\+c.
+
+\mbox{\label{main_8c_a27a15a08a688ab41902b678f00976773}} 
+\index{main.\+c@{main.\+c}!can\+\_\+rx\+\_\+first@{can\+\_\+rx\+\_\+first}}
+\index{can\+\_\+rx\+\_\+first@{can\+\_\+rx\+\_\+first}!main.\+c@{main.\+c}}
+\subsubsection{can\+\_\+rx\+\_\+first}
+{\footnotesize\ttfamily int can\+\_\+rx\+\_\+first}
+
+
+
+Definition at line 136 of file main.\+c.
+
+\mbox{\label{main_8c_a82989d280251163bcee5ffcfbf050969}} 
+\index{main.\+c@{main.\+c}!can\+\_\+rx\+\_\+flag@{can\+\_\+rx\+\_\+flag}}
+\index{can\+\_\+rx\+\_\+flag@{can\+\_\+rx\+\_\+flag}!main.\+c@{main.\+c}}
+\subsubsection{can\+\_\+rx\+\_\+flag}
+{\footnotesize\ttfamily int can\+\_\+rx\+\_\+flag =0}
+
+
+
+Definition at line 150 of file main.\+c.
+
+\mbox{\label{main_8c_a6bffbfe209feb02d13b8eb72cdb3cf4b}} 
+\index{main.\+c@{main.\+c}!can\+\_\+status@{can\+\_\+status}}
+\index{can\+\_\+status@{can\+\_\+status}!main.\+c@{main.\+c}}
+\subsubsection{can\+\_\+status}
+{\footnotesize\ttfamily int can\+\_\+status}
+
+
+
+Definition at line 205 of file main.\+c.
+
+\mbox{\label{main_8c_ac47fb7efa6b9610bdc78116f1f94ec42}} 
+\index{main.\+c@{main.\+c}!dd@{dd}}
+\index{dd@{dd}!main.\+c@{main.\+c}}
+\subsubsection{dd}
+{\footnotesize\ttfamily double dd}
+
+
+
+Definition at line 218 of file main.\+c.
+
+\mbox{\label{main_8c_af900396d7b72ff2a7002e8befe8cf8f1}} 
+\index{main.\+c@{main.\+c}!f@{f}}
+\index{f@{f}!main.\+c@{main.\+c}}
+\subsubsection{f}
+{\footnotesize\ttfamily float f}
+
+
+
+Definition at line 214 of file main.\+c.
+
+\mbox{\label{main_8c_acb559820d9ca11295b4500f179ef6392}} 
+\index{main.\+c@{main.\+c}!i@{i}}
+\index{i@{i}!main.\+c@{main.\+c}}
+\subsubsection{i}
+{\footnotesize\ttfamily int i}
+
+
+
+Definition at line 206 of file main.\+c.
+
+\mbox{\label{main_8c_a04cde7a88361cdfdea0c2569a0ca899e}} 
+\index{main.\+c@{main.\+c}!last\+\_\+\+Node\+Id@{last\+\_\+\+Node\+Id}}
+\index{last\+\_\+\+Node\+Id@{last\+\_\+\+Node\+Id}!main.\+c@{main.\+c}}
+\subsubsection{last\+\_\+\+Node\+Id}
+{\footnotesize\ttfamily int last\+\_\+\+Node\+Id}
+
+
+
+Definition at line 207 of file main.\+c.
+
+\mbox{\label{main_8c_a5175b356eac1d83a42608b42a25d00b9}} 
+\index{main.\+c@{main.\+c}!m@{m}}
+\index{m@{m}!main.\+c@{main.\+c}}
+\subsubsection{m}
+{\footnotesize\ttfamily double m}
+
+
+
+Definition at line 218 of file main.\+c.
+
+\mbox{\label{main_8c_a7ffc28e9156b38574a5031086c1cbf0f}} 
+\index{main.\+c@{main.\+c}!main\+\_\+error@{main\+\_\+error}}
+\index{main\+\_\+error@{main\+\_\+error}!main.\+c@{main.\+c}}
+\subsubsection{main\+\_\+error}
+{\footnotesize\ttfamily int main\+\_\+error =0}
+
+
+
+Definition at line 195 of file main.\+c.
+
+\mbox{\label{main_8c_a306b5ca364bf842a8ff5bbfc0b4d4a4b}} 
+\index{main.\+c@{main.\+c}!max@{max}}
+\index{max@{max}!main.\+c@{main.\+c}}
+\subsubsection{max}
+{\footnotesize\ttfamily float max =0.\+0}
+
+
+
+Definition at line 215 of file main.\+c.
+
+\mbox{\label{main_8c_a4403857d84098dcee3088f476a2a2b34}} 
+\index{main.\+c@{main.\+c}!max\+\_\+druck@{max\+\_\+druck}}
+\index{max\+\_\+druck@{max\+\_\+druck}!main.\+c@{main.\+c}}
+\subsubsection{max\+\_\+druck}
+{\footnotesize\ttfamily float max\+\_\+druck}
+
+
+
+Definition at line 213 of file main.\+c.
+
+\mbox{\label{main_8c_ad2e88d75f808e6d4e78d48bceb10c336}} 
+\index{main.\+c@{main.\+c}!min@{min}}
+\index{min@{min}!main.\+c@{main.\+c}}
+\subsubsection{min}
+{\footnotesize\ttfamily float min = 300.\+0}
+
+
+
+Definition at line 216 of file main.\+c.
+
+\mbox{\label{main_8c_aac4d60376dc2c81df7018aa664eddc7e}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+geschw@{motor\+\_\+geschw}}
+\index{motor\+\_\+geschw@{motor\+\_\+geschw}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+geschw}
+{\footnotesize\ttfamily int motor\+\_\+geschw}
+
+
+
+Definition at line 201 of file main.\+c.
+
+\mbox{\label{main_8c_a56f8652edaf340deb706226d69252c1a}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+node\+\_\+id@{motor\+\_\+node\+\_\+id}}
+\index{motor\+\_\+node\+\_\+id@{motor\+\_\+node\+\_\+id}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+node\+\_\+id}
+{\footnotesize\ttfamily int motor\+\_\+node\+\_\+id = 0x01}
+
+
+
+Definition at line 198 of file main.\+c.
+
+\mbox{\label{main_8c_aefd93152b86f130afb4f6e1eef7fd452}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+position@{motor\+\_\+position}}
+\index{motor\+\_\+position@{motor\+\_\+position}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+position}
+{\footnotesize\ttfamily int motor\+\_\+position}
+
+
+
+Definition at line 199 of file main.\+c.
+
+\mbox{\label{main_8c_af0534d2439970a744b5fb040e8e06ae6}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+power\+\_\+status@{motor\+\_\+power\+\_\+status}}
+\index{motor\+\_\+power\+\_\+status@{motor\+\_\+power\+\_\+status}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+power\+\_\+status}
+{\footnotesize\ttfamily int motor\+\_\+power\+\_\+status}
+
+
+
+Definition at line 196 of file main.\+c.
+
+\mbox{\label{main_8c_ab91b2f7221f13b214149f3513c286a1c}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+status@{motor\+\_\+status}}
+\index{motor\+\_\+status@{motor\+\_\+status}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+status}
+{\footnotesize\ttfamily int motor\+\_\+status}
+
+
+
+Definition at line 197 of file main.\+c.
+
+\mbox{\label{main_8c_ae835483f889f5b6b2f9fd7b4550b366c}} 
+\index{main.\+c@{main.\+c}!motor\+\_\+timer@{motor\+\_\+timer}}
+\index{motor\+\_\+timer@{motor\+\_\+timer}!main.\+c@{main.\+c}}
+\subsubsection{motor\+\_\+timer}
+{\footnotesize\ttfamily int motor\+\_\+timer}
+
+
+
+Definition at line 152 of file main.\+c.
+
+\mbox{\label{main_8c_a5c5872dd96f0fa71559e07608865fa8a}} 
+\index{main.\+c@{main.\+c}!oel\+\_\+stand@{oel\+\_\+stand}}
+\index{oel\+\_\+stand@{oel\+\_\+stand}!main.\+c@{main.\+c}}
+\subsubsection{oel\+\_\+stand}
+{\footnotesize\ttfamily float oel\+\_\+stand}
+
+
+
+Definition at line 217 of file main.\+c.
+
+\mbox{\label{main_8c_a294274b80da26f3d9bcc144f37790906}} 
+\index{main.\+c@{main.\+c}!position\+\_\+alt@{position\+\_\+alt}}
+\index{position\+\_\+alt@{position\+\_\+alt}!main.\+c@{main.\+c}}
+\subsubsection{position\+\_\+alt}
+{\footnotesize\ttfamily int position\+\_\+alt}
+
+
+
+Main program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 194 of file main.\+c.
+
+\mbox{\label{main_8c_adf905b8e9cc819d71b7d7d59c70544b1}} 
+\index{main.\+c@{main.\+c}!prg\+\_\+nr@{prg\+\_\+nr}}
+\index{prg\+\_\+nr@{prg\+\_\+nr}!main.\+c@{main.\+c}}
+\subsubsection{prg\+\_\+nr}
+{\footnotesize\ttfamily int prg\+\_\+nr}
+
+
+
+Definition at line 212 of file main.\+c.
+
+\mbox{\label{main_8c_ae833a459aae87f49988d4eaf9e4b77fb}} 
+\index{main.\+c@{main.\+c}!ser\+\_\+in\+\_\+flag0@{ser\+\_\+in\+\_\+flag0}}
+\index{ser\+\_\+in\+\_\+flag0@{ser\+\_\+in\+\_\+flag0}!main.\+c@{main.\+c}}
+\subsubsection{ser\+\_\+in\+\_\+flag0}
+{\footnotesize\ttfamily char ser\+\_\+in\+\_\+flag0}
+
+
+
+Definition at line 39 of file globdata.\+c.
+
+\mbox{\label{main_8c_a55e38ae00c77b3a41087dfbf0eddacd6}} 
+\index{main.\+c@{main.\+c}!soll\+\_\+zeit@{soll\+\_\+zeit}}
+\index{soll\+\_\+zeit@{soll\+\_\+zeit}!main.\+c@{main.\+c}}
+\subsubsection{soll\+\_\+zeit}
+{\footnotesize\ttfamily int soll\+\_\+zeit}
+
+
+
+Definition at line 151 of file main.\+c.
+
+\mbox{\label{main_8c_a00c9bb7caf400d7e17a56521e9d75c85}} 
+\index{main.\+c@{main.\+c}!Spi\+Handle1@{Spi\+Handle1}}
+\index{Spi\+Handle1@{Spi\+Handle1}!main.\+c@{main.\+c}}
+\subsubsection{Spi\+Handle1}
+{\footnotesize\ttfamily S\+P\+I\+\_\+\+Handle\+Type\+Def Spi\+Handle1}
+
+
+
+Definition at line 140 of file main.\+c.
+
+\mbox{\label{main_8c_a463271663b0c48dbfd9aa99e871a726a}} 
+\index{main.\+c@{main.\+c}!Spi\+Handle2@{Spi\+Handle2}}
+\index{Spi\+Handle2@{Spi\+Handle2}!main.\+c@{main.\+c}}
+\subsubsection{Spi\+Handle2}
+{\footnotesize\ttfamily S\+P\+I\+\_\+\+Handle\+Type\+Def Spi\+Handle2}
+
+
+
+Definition at line 141 of file main.\+c.
+
+\mbox{\label{main_8c_ac65f474d6e726cc95997b61b7943fe59}} 
+\index{main.\+c@{main.\+c}!taste@{taste}}
+\index{taste@{taste}!main.\+c@{main.\+c}}
+\subsubsection{taste}
+{\footnotesize\ttfamily int taste}
+
+
+
+Definition at line 208 of file main.\+c.
+
+\mbox{\label{main_8c_aa7caea948aeb61f46f72c8062e4f8623}} 
+\index{main.\+c@{main.\+c}!taste\+\_\+alt@{taste\+\_\+alt}}
+\index{taste\+\_\+alt@{taste\+\_\+alt}!main.\+c@{main.\+c}}
+\subsubsection{taste\+\_\+alt}
+{\footnotesize\ttfamily int taste\+\_\+alt}
+
+
+
+Definition at line 209 of file main.\+c.
+
+\mbox{\label{main_8c_a00bbc97133a4f3f4b6a66694962828e4}} 
+\index{main.\+c@{main.\+c}!tasten@{tasten}}
+\index{tasten@{tasten}!main.\+c@{main.\+c}}
+\subsubsection{tasten}
+{\footnotesize\ttfamily int tasten}
+
+
+
+Definition at line 208 of file main.\+c.
+
+\mbox{\label{main_8c_a521eebae31b5caa60670004372a6800f}} 
+\index{main.\+c@{main.\+c}!tasten\+\_\+timer1@{tasten\+\_\+timer1}}
+\index{tasten\+\_\+timer1@{tasten\+\_\+timer1}!main.\+c@{main.\+c}}
+\subsubsection{tasten\+\_\+timer1}
+{\footnotesize\ttfamily int tasten\+\_\+timer1}
+
+
+
+Definition at line 210 of file main.\+c.
+
+\mbox{\label{main_8c_a88188054401cd50a2c0b9554c796c9e7}} 
+\index{main.\+c@{main.\+c}!tasten\+\_\+timer2@{tasten\+\_\+timer2}}
+\index{tasten\+\_\+timer2@{tasten\+\_\+timer2}!main.\+c@{main.\+c}}
+\subsubsection{tasten\+\_\+timer2}
+{\footnotesize\ttfamily int tasten\+\_\+timer2}
+
+
+
+Definition at line 210 of file main.\+c.
+
+\mbox{\label{main_8c_a71fa247395666f7311985d94c14a09cb}} 
+\index{main.\+c@{main.\+c}!ub\+Key\+Number@{ub\+Key\+Number}}
+\index{ub\+Key\+Number@{ub\+Key\+Number}!main.\+c@{main.\+c}}
+\subsubsection{ub\+Key\+Number}
+{\footnotesize\ttfamily uint8\+\_\+t ub\+Key\+Number = 0x0}
+
+
+
+Definition at line 137 of file main.\+c.
+
+\mbox{\label{main_8c_aa75159f0bc608fa3238e2c413de653ff}} 
+\index{main.\+c@{main.\+c}!uw\+Prescaler\+Value@{uw\+Prescaler\+Value}}
+\index{uw\+Prescaler\+Value@{uw\+Prescaler\+Value}!main.\+c@{main.\+c}}
+\subsubsection{uw\+Prescaler\+Value}
+{\footnotesize\ttfamily uint32\+\_\+t uw\+Prescaler\+Value = 0}
+
+
+
+Definition at line 135 of file main.\+c.
+
+\mbox{\label{main_8c_ac75b803b570527306e1e744bfb7a604f}} 
+\index{main.\+c@{main.\+c}!x1@{x1}}
+\index{x1@{x1}!main.\+c@{main.\+c}}
+\subsubsection{x1}
+{\footnotesize\ttfamily double x1}
+
+
+
+Definition at line 218 of file main.\+c.
+
+\mbox{\label{main_8c_adcf04f5f1964d18b332643939561da0d}} 
+\index{main.\+c@{main.\+c}!x2@{x2}}
+\index{x2@{x2}!main.\+c@{main.\+c}}
+\subsubsection{x2}
+{\footnotesize\ttfamily double x2}
+
+
+
+Definition at line 218 of file main.\+c.
+
+\mbox{\label{main_8c_ac3b72e5b77595ca2340ecf8ccfe5fd99}} 
+\index{main.\+c@{main.\+c}!y1@{y1}}
+\index{y1@{y1}!main.\+c@{main.\+c}}
+\subsubsection{y1}
+{\footnotesize\ttfamily double y1}
+
+
+
+Definition at line 218 of file main.\+c.
+
+\mbox{\label{main_8c_a5347e514ebe985fb371754ffd2b5ff83}} 
+\index{main.\+c@{main.\+c}!y2@{y2}}
+\index{y2@{y2}!main.\+c@{main.\+c}}
+\subsubsection{y2}
+{\footnotesize\ttfamily double y2}
+
+
+
+Definition at line 218 of file main.\+c.
+

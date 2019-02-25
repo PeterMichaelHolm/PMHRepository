@@ -1,0 +1,139 @@
+//#include <__cross_studio_io.h>
+#include "eep.h"
+#include "globdata.h" 
+
+
+int eep_init(void) {
+int erg =-1;
+uint16_t ee_status;
+  HAL_FLASH_Unlock();
+  ee_status = EE_Init();
+  if ( ee_status == EE_OK) { erg =1; }
+
+  return erg;
+}
+
+int eep_test(short adr, short val) {
+uint16_t  z,x;
+int erg =0;
+
+  z = EE_WriteVariable(adr, val);
+  x = EE_ReadVariable(adr, &x);
+  if ( x == val) { erg =1; }
+  return erg;
+ }
+
+int set_eep_char(short adr, char val) {
+int erg = -1;
+uint16_t  z,x,y;
+  
+  z = EE_WriteVariable(adr, val& 0x00ff);
+  y = EE_ReadVariable(adr, &x);
+  x &= 0x00ff;
+  if ( x == val) { erg =1; }
+  return erg;
+ }
+
+int set_eep_short(short adr, unsigned short val) {
+int erg = -1;
+uint16_t  z,x,y;
+  
+  z = EE_WriteVariable(adr, val);
+  y = EE_ReadVariable(adr, &x);
+  if ( x == val) { erg =1; }
+  return erg;
+ }
+
+int set_eep_int3(short adr, int val) {
+int erg = -1;
+uint16_t  z,x,y;
+int k;
+short e_val;
+ 
+  e_val = val >>16;
+  z = EE_WriteVariable(adr, e_val);
+  e_val = val & 0x0000ffff;
+  z = EE_WriteVariable(adr+1, e_val);
+  y = EE_ReadVariable(adr, &e_val);
+  k = e_val;
+  k<<=16;
+  y = EE_ReadVariable(adr+1, &e_val);
+  k |= e_val;
+  if ( x == val) { erg =1; }
+  return erg;
+ }
+unsigned char get_eep_char(short adr) {
+unsigned char erg;
+short i;
+uint16_t  x;
+  
+  x = EE_ReadVariable(adr, &i);
+  i &= 0x00ff;
+  erg = i;
+ return erg;
+}
+
+short get_eep_short(short adr) {
+short erg;
+short i;
+uint16_t  z,x;
+ 
+  x = EE_ReadVariable(adr, &erg);
+ return erg;
+}
+
+int get_int (short adr) {
+int erg;
+short t;
+uint16_t x;
+x = EE_ReadVariable(adr, &t);
+  erg =t;
+  erg <<=16;
+  x = EE_ReadVariable(adr, &t);
+  erg |= t;
+ return erg;
+}
+
+int set_eep_block(short adr, short * val, short len ){
+int erg = -1;
+int len1;
+short * val1;
+unsigned short v; 
+int i;
+int ende=0;
+int e;
+  val1 = val;
+  len1 = len;
+  len >>=1;
+  i=0;
+  ende =0;
+  while (ende == 0 ) {
+     i++;
+     v = (unsigned short ) (* val );    val ++;
+     e= set_eep_short(adr++, v);
+    
+     if ( e != 1 )    { ende =1; }
+     if ( i == len )  { ende =1; erg == 1; }  
+   }
+ return erg; 
+
+}
+
+int get_eep_block(short adr, short * val, short len ){
+int erg = -1;
+int len1;
+short * val1;
+int i;
+int ende=0;
+int e;
+  val1 = val;
+  len1 = len;
+  len >>=1;
+  i=0;
+  while (ende == 0 ) {
+     (* val) = get_eep_short(adr++);
+     val ++;
+     i++;
+     if ( i == len )  { ende =1; erg == 1; }  
+   }
+ }     

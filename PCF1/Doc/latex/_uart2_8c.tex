@@ -1,0 +1,268 @@
+\section{src/\+Uart2.c File Reference}
+\label{_uart2_8c}\index{src/\+Uart2.\+c@{src/\+Uart2.\+c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f3xx\+\_\+hal\+\_\+usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}globdata.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ buf\+\_\+st}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ T\+B\+U\+F\+\_\+\+S\+I\+ZE}~512
+\item 
+\#define \textbf{ R\+B\+U\+F\+\_\+\+S\+I\+ZE}~1024
+\item 
+\#define \textbf{ E\+SC}~\textquotesingle{}A\textquotesingle{}
+\item 
+\#define \textbf{ E\+ND}~\textquotesingle{}Z\textquotesingle{}
+\item 
+\#define \textbf{ T\+R\+UE}~1
+\item 
+\#define \textbf{ F\+A\+L\+SE}~0
+\item 
+\#define \textbf{ S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN}~((unsigned short)(rbuf0.\+in -\/ rbuf0.\+out))
+\item 
+\#define \textbf{ S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN}~((unsigned short)(tbuf0.\+in -\/ tbuf0.\+out))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ uart2\+Init} (void)
+\item 
+void \textbf{ rest\+\_\+buffer} (void)
+\item 
+void \textbf{ reset\+\_\+in\+\_\+0\+\_\+buff} (void)
+\item 
+int \textbf{ com\+\_\+putchar0} (int \textbf{ c})
+\item 
+void \textbf{ print\+\_\+f0} (char $\ast$text)
+\item 
+void \textbf{ print\+\_\+f\+\_\+lf0} (char $\ast$text)
+\item 
+void \textbf{ send\+\_\+slip0} (char $\ast$text, int len)
+\item 
+int \textbf{ get\+\_\+in\+\_\+buff\+\_\+len} (void)
+\item 
+unsigned char \textbf{ get\+\_\+char} (void)
+\item 
+void \textbf{ uart\+\_\+rx\+\_\+tx\+\_\+irq} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+U\+A\+R\+T\+\_\+\+Handle\+Type\+Def \textbf{ Uart\+Handle}
+\item 
+int \textbf{ eof}
+\item 
+struct \textbf{ buf\+\_\+st} \textbf{ rbuf0}
+\item 
+struct \textbf{ buf\+\_\+st} \textbf{ tbuf0}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{_uart2_8c_a29fd18bed01c4d836c7ebfe73a125c3f}} 
+\index{Uart2.\+c@{Uart2.\+c}!E\+ND@{E\+ND}}
+\index{E\+ND@{E\+ND}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{E\+ND}
+{\footnotesize\ttfamily \#define E\+ND~\textquotesingle{}Z\textquotesingle{}}
+
+
+
+Definition at line 9 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a4af1b6159e447ba72652bb7fcdfa726e}} 
+\index{Uart2.\+c@{Uart2.\+c}!E\+SC@{E\+SC}}
+\index{E\+SC@{E\+SC}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{E\+SC}
+{\footnotesize\ttfamily \#define E\+SC~\textquotesingle{}A\textquotesingle{}}
+
+
+
+Definition at line 8 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_aa93f0eb578d23995850d61f7d61c55c1}} 
+\index{Uart2.\+c@{Uart2.\+c}!F\+A\+L\+SE@{F\+A\+L\+SE}}
+\index{F\+A\+L\+SE@{F\+A\+L\+SE}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{F\+A\+L\+SE}
+{\footnotesize\ttfamily \#define F\+A\+L\+SE~0}
+
+
+
+Definition at line 11 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a3979138d69702d83185bef951f48dcd5}} 
+\index{Uart2.\+c@{Uart2.\+c}!R\+B\+U\+F\+\_\+\+S\+I\+ZE@{R\+B\+U\+F\+\_\+\+S\+I\+ZE}}
+\index{R\+B\+U\+F\+\_\+\+S\+I\+ZE@{R\+B\+U\+F\+\_\+\+S\+I\+ZE}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{R\+B\+U\+F\+\_\+\+S\+I\+ZE}
+{\footnotesize\ttfamily \#define R\+B\+U\+F\+\_\+\+S\+I\+ZE~1024}
+
+
+
+Definition at line 7 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a7922c9850fa59f9eda1fbf93bbb86a6f}} 
+\index{Uart2.\+c@{Uart2.\+c}!S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN@{S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN}}
+\index{S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN@{S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN}
+{\footnotesize\ttfamily \#define S\+I\+O\+\_\+\+R\+B\+U\+F\+L\+EN~((unsigned short)(rbuf0.\+in -\/ rbuf0.\+out))}
+
+
+
+Definition at line 26 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a7db38b364db60a522523264cf855b80f}} 
+\index{Uart2.\+c@{Uart2.\+c}!S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN@{S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN}}
+\index{S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN@{S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN}
+{\footnotesize\ttfamily \#define S\+I\+O\+\_\+\+T\+B\+U\+F\+L\+EN~((unsigned short)(tbuf0.\+in -\/ tbuf0.\+out))}
+
+
+
+Definition at line 28 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a892610d54eb362bcd3ac6c92812a860e}} 
+\index{Uart2.\+c@{Uart2.\+c}!T\+B\+U\+F\+\_\+\+S\+I\+ZE@{T\+B\+U\+F\+\_\+\+S\+I\+ZE}}
+\index{T\+B\+U\+F\+\_\+\+S\+I\+ZE@{T\+B\+U\+F\+\_\+\+S\+I\+ZE}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{T\+B\+U\+F\+\_\+\+S\+I\+ZE}
+{\footnotesize\ttfamily \#define T\+B\+U\+F\+\_\+\+S\+I\+ZE~512}
+
+
+
+Definition at line 6 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\index{Uart2.\+c@{Uart2.\+c}!T\+R\+UE@{T\+R\+UE}}
+\index{T\+R\+UE@{T\+R\+UE}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{T\+R\+UE}
+{\footnotesize\ttfamily \#define T\+R\+UE~1}
+
+
+
+Definition at line 10 of file Uart2.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{_uart2_8c_a15e3dee4d22b4cff2dd1b5d0d6254404}} 
+\index{Uart2.\+c@{Uart2.\+c}!com\+\_\+putchar0@{com\+\_\+putchar0}}
+\index{com\+\_\+putchar0@{com\+\_\+putchar0}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{com\+\_\+putchar0()}
+{\footnotesize\ttfamily int com\+\_\+putchar0 (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a70497f17f225906dcf46bd79898a615d}} 
+\index{Uart2.\+c@{Uart2.\+c}!get\+\_\+char@{get\+\_\+char}}
+\index{get\+\_\+char@{get\+\_\+char}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{get\+\_\+char()}
+{\footnotesize\ttfamily unsigned char get\+\_\+char (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 163 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a4c3e6263e6d1bb276097e6d204ca10d6}} 
+\index{Uart2.\+c@{Uart2.\+c}!get\+\_\+in\+\_\+buff\+\_\+len@{get\+\_\+in\+\_\+buff\+\_\+len}}
+\index{get\+\_\+in\+\_\+buff\+\_\+len@{get\+\_\+in\+\_\+buff\+\_\+len}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{get\+\_\+in\+\_\+buff\+\_\+len()}
+{\footnotesize\ttfamily int get\+\_\+in\+\_\+buff\+\_\+len (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_ab90488b2ab1ff8ae876e5da008de523b}} 
+\index{Uart2.\+c@{Uart2.\+c}!print\+\_\+f0@{print\+\_\+f0}}
+\index{print\+\_\+f0@{print\+\_\+f0}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{print\+\_\+f0()}
+{\footnotesize\ttfamily void print\+\_\+f0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 101 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a4f2540c2811f6e4c4c136f964b5b8545}} 
+\index{Uart2.\+c@{Uart2.\+c}!print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}}
+\index{print\+\_\+f\+\_\+lf0@{print\+\_\+f\+\_\+lf0}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{print\+\_\+f\+\_\+lf0()}
+{\footnotesize\ttfamily void print\+\_\+f\+\_\+lf0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a1a9be6058ee2ceaa226196bb0a73ba34}} 
+\index{Uart2.\+c@{Uart2.\+c}!reset\+\_\+in\+\_\+0\+\_\+buff@{reset\+\_\+in\+\_\+0\+\_\+buff}}
+\index{reset\+\_\+in\+\_\+0\+\_\+buff@{reset\+\_\+in\+\_\+0\+\_\+buff}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{reset\+\_\+in\+\_\+0\+\_\+buff()}
+{\footnotesize\ttfamily void reset\+\_\+in\+\_\+0\+\_\+buff (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a0b08a2684628706e0433f996b36841ff}} 
+\index{Uart2.\+c@{Uart2.\+c}!rest\+\_\+buffer@{rest\+\_\+buffer}}
+\index{rest\+\_\+buffer@{rest\+\_\+buffer}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{rest\+\_\+buffer()}
+{\footnotesize\ttfamily void rest\+\_\+buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a369624c8eb4925edacf7bd8773dceaa0}} 
+\index{Uart2.\+c@{Uart2.\+c}!send\+\_\+slip0@{send\+\_\+slip0}}
+\index{send\+\_\+slip0@{send\+\_\+slip0}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{send\+\_\+slip0()}
+{\footnotesize\ttfamily void send\+\_\+slip0 (\begin{DoxyParamCaption}\item[{char $\ast$}]{text,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a084e270b15f2aa6e0beebda5d92976fd}} 
+\index{Uart2.\+c@{Uart2.\+c}!uart2\+Init@{uart2\+Init}}
+\index{uart2\+Init@{uart2\+Init}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{uart2\+Init()}
+{\footnotesize\ttfamily void uart2\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file Uart2.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{_uart2_8c_a15057793e4b0eb3b08c0b1797be8abc4}} 
+\index{Uart2.\+c@{Uart2.\+c}!eof@{eof}}
+\index{eof@{eof}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{eof}
+{\footnotesize\ttfamily int eof}
+
+\mbox{\label{_uart2_8c_ab50246253eddcb64b89f884049fcf82c}} 
+\index{Uart2.\+c@{Uart2.\+c}!rbuf0@{rbuf0}}
+\index{rbuf0@{rbuf0}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{rbuf0}
+{\footnotesize\ttfamily struct \textbf{ buf\+\_\+st} rbuf0}
+
+
+
+Definition at line 25 of file Uart2.\+c.
+
+\mbox{\label{_uart2_8c_a2f02ca9d14404a2e9b3f8652a94bfff7}} 
+\index{Uart2.\+c@{Uart2.\+c}!tbuf0@{tbuf0}}
+\index{tbuf0@{tbuf0}!Uart2.\+c@{Uart2.\+c}}
+\subsubsection{tbuf0}
+{\footnotesize\ttfamily struct \textbf{ buf\+\_\+st} tbuf0}
+
+
+
+Definition at line 27 of file Uart2.\+c.
+

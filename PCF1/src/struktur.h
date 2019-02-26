@@ -56,6 +56,10 @@ typedef struct {
   int SR3;
   int SSLimit;
   //########################
+  char Application[40];
+  char Memo1[250];
+  char Memo2[250];
+  int LoadIndicator;
 
 
  } ramp1;

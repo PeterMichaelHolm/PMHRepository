@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    PCF1/src/main.c
-  * @author  Elektronik
+  * @author
   * @version v0
   * @date    2019-02-24
   * @brief
@@ -238,11 +238,12 @@ int main(void)
   SystemClock_Config();
   connect=0;
   main_init();
-for (i=0; i < 99; ++i){Druckwerte[i]=0;}
-printf("\n %d %d %d %d \n",rampe1.Oszi, rampe1.Oszi_UT_Toleranz, rampe1.Oszi_OT_Toleranz, rampe1.Oszi_Schrittweite);
-wait_ms(50);
-printf("\n %d %d %d %d \n",rampe1.rampe_start[0], rampe1.rampe_stop[0], rampe1.rampe_start_r[0], rampe1.rampe_stop_r[0]);
-wait_ms(50);
+  anzeige_send_int(1);
+  for (i=0; i < 99; ++i){Druckwerte[i]=0;}
+  printf("\n %d %d %d %d \n",rampe1.Oszi, rampe1.Oszi_UT_Toleranz, rampe1.Oszi_OT_Toleranz, rampe1.Oszi_Schrittweite);
+  wait_ms(5);
+  printf("\n %d %d %d %d \n",rampe1.rampe_start[0], rampe1.rampe_stop[0], rampe1.rampe_start_r[0], rampe1.rampe_stop_r[0]);
+  wait_ms(5);
   main_state =t_warte_rauf_runter2; //30
   tasten_ende =0;
   taste=0;
@@ -252,8 +253,13 @@ wait_ms(50);
 
   pid_freigabe =0;
   pid_Init( 0.0,0.0 , 0.0,100.0);
+  anzeige_send_int(2);
   set_pid_start();
+
+
 // APo: Dieser Befehl überschreibt die rampe1-Werte
+
+
   i= find_offset(); //EEprom
 
   AdcInit();
@@ -290,14 +296,15 @@ wait_ms(50);
  rampe1.Drehrichtung = 1;
 
   main_state =t_warte_rauf_runter2;
+  anzeige_send_int(3);
   for (i=1; i<=30;++i){printf("a");}printf("\n");
 
-  anzeige_send_int(8);
-  wait_ms1(200);
+  anzeige_send_int(4);
+  wait_ms1(150);
   // Initialisierung gegen Endanschlag
   i= set_motor_entlage_rechts();
-  anzeige_send_int(9);
-  wait_ms1(200);
+  anzeige_send_int(5);
+  wait_ms1(150);
   //
   for (i=1; i<=30;++i){printf("b");}printf("\n");
 
@@ -318,7 +325,7 @@ if (rampe1.Drehrichtung == 0) {my_position -= rampe1.offset_step;}
 for (i=1; i<=30;++i){printf("x");}printf("\n");
 
 printf("\n Nullpunkt (OT) mit Offset bei %d \n",my_position);
-
+anzeige_send_int(6);
 position_alt = my_position;
 
 anzeige_send_int((int)max_druck);
@@ -341,8 +348,8 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
 
 
 //i= set_motor_entlage_rechts();
-
-
+anzeige_send_int(7);
+Motortemperatur = 0;
   while (1)
   {
 	  // China4 Notreparatur
@@ -359,13 +366,10 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
     switch (main_state) {
 //----------------------------------------------------------------------------------------------------------
       case t_warte_rauf_runter2:  //  30
-    	  //printf("t_warte_rauf_runter2 30\n");
     	  rs232_druck = 0.0;
-    	  printf("Max Druck 1 %f \n", max_druck);
            max_druck= get_float(1,"Max Druck = ",(int)rampe1.maximal_druck, rampe1.maximal_druck); 
            if ( rs232_druck > 0.0) {  max_druck= rs232_druck; }
            if ( rs232_druck > rampe1.maximal_druck) { max_druck = rampe1.maximal_druck;} 
-           printf("Max Druck 2 %f \n", max_druck);
            l=0;
             while( l < rampe1.max_array){
                  if ( ist_druck <  rampe1.end_druck_rauf[l]) {
@@ -373,50 +377,35 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
                     l = rampe1.max_array;
                     }
                   l ++;
-                  }
-
+              }
             main_state = m_start;		// Main State gesetzt
-
-// APo: Befehl überschreibt Rampen-Werte
             i= find_offset();
-
-
-          //printf("\n +++t_warte_rauf_runter2 beendet +++\n");
       break;
 //----------------------------------------------------------------------------------------------------------
       case m_links_lauf:  //  8  DRUCKAUFBAU
     	  //rampe1.m = 67.6211243;
     	  //rampe1.b = -7.02230072;
+    	  if ( ser_in_flag0 >0) {befehl();}
 
-    	  printf("\n xxxxxxxxxxxxxxx m_links_lauf 8 max Druck %f", max_druck);
     	  rampe1.max_array = 8;
     	  int l = 0;
     	  while( l < rampe1.max_array){
               if ( ist_druck <  rampe1.end_druck_rauf[l]) {
                   rampe1.array_nr =l;
-                  printf("%d", l);
                   l = rampe1.max_array;
                 }
               l ++;
           }
+    	  // Temperaturabfrage
+    	  Motortemperatur = sdo_receive(1,0x4014,3)/10;
 
 
-          l = sdo_reseive(1,0x6064,0);    // aktuelle Position
+          l = sdo_receive(1,0x6064,0);    // aktuelle Position
            wait_ms(2);
-           //printf("Position: %d Zielwert %d my_position %d \n",l,V1, my_position);
-           // Abbruchbedingung: Ziel erreicht
-
            int tempV=0;
            tempV = (int) (SpeedMultiplier * rampe1.geschwind[rampe1.array_nr]);
-
-
-           //printf("\n xxx %f, %f, %f xxx \n",SpeedMultiplier,  rampe1.geschwind[rampe1.array_nr], rampe1.StallTol);
-           //printf("\nx %f %d %i x\n",rampe1.StallTol,rampe1.StallTol,rampe1.StallTol);
-           //printf("drehrichtung %d", rampe1.Drehrichtung);
-
            if (rampe1.Drehrichtung == 1) {
-			  if (l >= (V1-5)){
-				  printf("\n Ziel erreicht %d \n", SpeedMesser);
+			  if (l >= (V1-20)){
  				  SpeedMesser = 0;
 				  pid_freigabe=0;
 				  //################################################################
@@ -436,8 +425,7 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
 			  }
           }
           if (rampe1.Drehrichtung == 0) {
-				  if (l <= (V1+5)){
-					  //printf("\n Ziel erreicht \n");
+				  if (l <= (V1+20)){
 					  pid_freigabe=0;
 					  //################################################################
 					  main_state = m_rechts_lauf;
@@ -447,8 +435,8 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
 			                    anzeige_timer=0;
 			               }
 			              else {
-			                main_error = e_motor_power_faild;
-			                main_state = m_error;
+			                //main_error = e_motor_power_faild;
+			                //main_state = m_error;
 			            }
 			          //#################################################################
 
@@ -458,7 +446,7 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
 				  }
           }
 
- 	  timer3 =0;
+          	 timer3 =0;
              ist_druck =get_adc_val();
              mess_druck = ist_druck;
              ist_druck *=  rampe1.m;
@@ -467,11 +455,6 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
              Druckwerte[Druckzaehler] = ist_druck;
  	  	  	 ++ Druckzaehler;
  	  	  	 if (Druckzaehler > 9) Druckzaehler = 0;
-
-             //printf(" Ist Druck %f Mittelwert %f \n ", ist_druck, Mittelwert_(Druckwerte));
-             printf("Druckwerte: Ist-Druck: %f m: %f b: %f mess_druck: %f \n", ist_druck, rampe1.m, rampe1.b, mess_druck);
-             //ist_druck = Mittelwert_(Druckwerte);
-
 
              if( ist_druck <0) { ist_druck =0;}
 
@@ -500,7 +483,8 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
 
                   }
               }
-             printf(" Ist Druck %f max_Druck %f \n ", ist_druck, max_druck);
+             if ( ser_in_flag0 >0) {befehl();}
+             printf(" Ist Druck %f Temp %i \n ", ist_druck, Motortemperatur);
              if (ist_druck >= max_druck) {
                  setup_motorrueckfahrt(1);
 
@@ -520,71 +504,36 @@ SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
                       anzeige_send_int((int)ist_druck );
                   }
               }
-              /*i =  sdo_reseive(1,0x2039,1);
+              i =  sdo_receive(1,0x6041,0);
+              if ( ser_in_flag0 >0) {befehl();}
               wait_ms(2);
-              i +=  sdo_reseive(1,0x2039,2);
-              wait_ms(2);
-              i +=  sdo_reseive(1,0x2039,3);
-              wait_ms(2);
-              i +=  sdo_reseive(1,0x2039,4);*/
-              //printf("Strom: %d V1: %d, Oszi_UT_Multi %d  my_position %d \n", i,V1, Oszi_UT_Multi,my_position);
-
-
-
-
-              // Prüfe auf Schleppfehler
-              // Abbruchbedingung: Schleppfehler
-              i =  sdo_reseive(1,0x6041,0);
-
-              wait_ms(2);
-              int j =  sdo_reseive(1,0x1003,0);
-              //printf("\nFehler: %d %d %d %d\n",i,j,l,V1);
+              int j =  sdo_receive(1,0x1003,0);
 
               Schleppfehler = 0;
               if((i & 8192) == 8192) {
                   printf("Schleppfehler!\n");
             	  Schleppfehler = 1;
-                  //set_motor_power_off();
-                  //main_error=e_motor_steht;
-                  //main_state = m_motor_stoppen_v1;
-
               }
-              //printf("\ny %f : %f \n", rampe1.array_nr, rampe1.geschwind[rampe1.array_nr]);
               if ( main_error == 0 ) {
-                  //if ((motor_timer > soll_zeit) || (Schleppfehler == 1)){
             	  if (Schleppfehler == 1){
 					  Schleppfehler = 0;
                       pid_freigabe=0;
-                      // Geschwindigkeit runternehmen
                       SpeedMultiplier -= 10;
                       	 if (SpeedMultiplier <= 50) SpeedMultiplier = 50;
                       	 printf("Speed %d",SpeedMultiplier);
                       	set_motor_power_off();
                       	 i=setup_motorhinfahrt(SpeedMultiplier);
-
-   		             	//
-                      //main_state=m_motor_delay;
-                      //set_motor_power_off();
-
-
                   }
 
                }
-
-
-               //printf("++ Linkslauf Ende %d, %d, %d, %d, %d \n", motor_timer, soll_zeit, main_state, l, main_error);
 break;
 //----------------------------------------------------------------------------------------------------------
 case m_rechts_lauf:  //  9 Ruecklauf
-    	  //printf("xxxxxxxxxxxxxxx m_rechts_lauf 9");
-
-          l = sdo_reseive(1,0x6064,0);    // aktuelle Position
+	if ( ser_in_flag0 >0) {befehl();}
+			l = sdo_receive(1,0x6064,0);    // aktuelle Position
             wait_ms(2);
-            //printf("Position: %d Zielwert %d my_position %d \n",l,V1, my_position);
-
-
             if (rampe1.Drehrichtung == 1){
-            	if (l <= (V1+5)){
+            	if (l <= (V1+15)){
             //printf("\n Ziel OT erreicht \n");
 
             		//##########################################################################
@@ -597,8 +546,8 @@ case m_rechts_lauf:  //  9 Ruecklauf
   		                    anzeige_timer=0;
   		               }
   		              else {
-  		                main_error = e_motor_power_faild;
-  		                main_state = m_error;
+  		                //main_error = e_motor_power_faild;
+  		                //main_state = m_error;
   		            }
   		              //##########################################################################
             		//main_state = m_motor_delay2;
@@ -606,7 +555,7 @@ case m_rechts_lauf:  //  9 Ruecklauf
            	   }
            }
            if (rampe1.Drehrichtung == 0) {
-           	if (l >= (V1-5)){
+           	if (l >= (V1-15)){
            	 //##########################################################################
            	            		main_state = m_links_lauf;
            	            		SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
@@ -616,8 +565,8 @@ case m_rechts_lauf:  //  9 Ruecklauf
            	  		                    anzeige_timer=0;
            	  		               }
            	  		              else {
-           	  		                main_error = e_motor_power_faild;
-           	  		                main_state = m_error;
+           	  		                //main_error = e_motor_power_faild;
+           	  		                //main_state = m_error;
            	  		            }
            	//##########################################################################
            	            		//main_state = m_motor_delay2;
@@ -665,12 +614,11 @@ case m_rechts_lauf:  //  9 Ruecklauf
                       anzeige_send_int((int)ist_druck );
                   }
                 }
-              while(timer3 < 10) {
-                 
+              while(timer3 < 10) {}
               
-              }
+               if ( ser_in_flag0 >0) {befehl();}
               
-              l = sdo_reseive(1,0x6064,0);    // akuelle Position
+               l = sdo_receive(1,0x6064,0);    // akuelle Position
               //printf(" POS: %d, %d, Ziel: %d \n", l, my_position,V1);
 //              if ( l != position_alt) { position_alt = l;}
 //              else {main_state=m_motor_delay;
@@ -685,7 +633,6 @@ case m_rechts_lauf:  //  9 Ruecklauf
 						  /*main_state = m_motor_delay2;
 						  //main_state =m_start_motor_power_on;
 						  set_motor_power_off();*/
-
                     }
                   }
                   if (rampe1.Drehrichtung ==0){
@@ -694,19 +641,17 @@ case m_rechts_lauf:  //  9 Ruecklauf
 						  /*main_state = m_motor_delay2;
 						  //main_state =m_start_motor_power_on;
 						  set_motor_power_off();*/
-
                     }
                   }
-
                 }
-              //printf("xxxxxxxxxxxxxxx Ende POS %d, %d \n", l, my_position);
+              if ( ser_in_flag0 >0) {befehl();}
       break;
       //----------------------------------------------------------------------------------------------------------
 case m_motor_stoppen_v2:  //  21
-    	  printf("xxxxxxxxxxxxxxx m_motor_stoppen_v2\n");
+    	  printf("\n m_motor_stoppen_v2\n");
 
     	  /*
-    	  l =  sdo_reseive(1,0x1001,0); // fehler auslesen
+    	  l =  sdo_receive(1,0x1001,0); // fehler auslesen
             if( l > 3000) {
             	//printf("zzzzzzzzz 444\n");
             	set_motor_power_off();
@@ -717,7 +662,7 @@ case m_motor_stoppen_v2:  //  21
              }
              */
               wait_ms(2);
-                 l = sdo_reseive(1,0x6064,0);    // aktuelle Position
+                 l = sdo_receive(1,0x6064,0);    // aktuelle Position
                   wait_ms(2);
                 if ( l <=  my_position +5) {
                       main_state =t_warte_rauf_runter2;
@@ -728,47 +673,34 @@ case m_motor_stoppen_v2:  //  21
       break;
  //----------------------------------------------------------------------------------------------------------
       case m_error: //  100
-    	  printf("xxxxxxxxx m_error 100\n");
+    	  printf("\n m_error 100\n");
     	  anzeige_send_fehler(main_error);
           //set_motor_power_off();
           while(1) {
-            if ( ser_in_flag0 >0) {
-
-                befehl();
-                }
+            if ( ser_in_flag0 >0) {befehl();}
           }
       break;
 //----------------------------------------------------------------------------------------------------------
       case m_start:  // 0
-     	  //printf("xxxxxxxxxxxxxxx 0\n");
-     	  main_error=0;
-                 // START Motor
-     	  //printf("\n m_start 0 setup_motorhinfahrt \n");
+     	 main_error=0;
      	 SpeedMultiplier= rampe1.geschwind[rampe1.array_nr];
-     	  i = setup_motorhinfahrt(SpeedMultiplier);
+     	 i = setup_motorhinfahrt(SpeedMultiplier);
      	  	  	// **************************************************
                  soll_zeit = get_timer_val(0);
                  if( i !=1) {
-                     main_error = e_motor_power_faild;
-                     main_state = m_error;
+                     //main_error = e_motor_power_faild;
+                     //main_state = m_error;
                    }
                  else {
-
-
                        set_pid_start();
                        pid_freigabe=1;
-
                        main_state = m_links_lauf;
                        anzeige_timer=0;
-
                    }
-
-
-            // main_state =  m_start_motor_power_on;
        break;
  //----------------------------------------------------------------------------------------------------------
       case m_motor_stoppen_v1:  //  20
-    	  printf("xxxxxxxxx m_motor_stoppen_v1\n");
+    	  printf("\n m_motor_stoppen_v1\n");
     	  anzeige_send_fehler(main_error);
             wait_ms(200);
             i=setup_motorrueckfahrt(2);
@@ -777,8 +709,8 @@ case m_motor_stoppen_v2:  //  21
             	  main_state =m_motor_stoppen_v2;
                }
               else {
-            	main_error = e_motor_power_faild;
-                main_state = m_error;
+            	//main_error = e_motor_power_faild;
+                //main_state = m_error;
             }
       break;
       //----------------------------------------------------------------------------------------------------------

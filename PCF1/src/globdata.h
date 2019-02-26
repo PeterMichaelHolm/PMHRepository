@@ -16,6 +16,7 @@ extern void wait_ms( int val);
 extern int adc_val_array[16];
 extern int adc_state;
 extern float ist_druck;
+extern int Motortemperatur;
 extern int connect;
 //typedef struct  {
 extern float lastProcessValue;

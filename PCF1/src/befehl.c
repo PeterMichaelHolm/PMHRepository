@@ -4,7 +4,7 @@
 *
 *    @date     2018-11-
 *    @version  0.1.0
-*    überarbeitet APo 24.02.2019xx 11
+*    überarbeitet APo 24.02.2019xx 1122
 */
 
 /**
@@ -140,10 +140,10 @@
 #define set_Drehrichtung		'T'
 #define set_StallTol			'R'
 
-//#define AllgParameter			'J'
+#define AllgParameter			'J'
 
 
-#define set_SS1					'J'
+//#define set_SS1					'J'
 #define set_SR1					'L'
 #define set_SS2					'N'
 #define set_SR2					'O'
@@ -161,7 +161,7 @@ extern int set_motor_entlage_rechts(void); // motor1.c
 extern float get_oel_stand(void); // main.c
 extern int set_motor_power_off(void) ;  //motor1.c
 extern int sdo_send (int node, int object, char sub_object,int data,int len); // CanBusSDO.c
-extern int sdo_reseive(int node, int object, char sub_object); // CanBusSDO.c
+extern int sdo_receive(int node, int object, char sub_object); // CanBusSDO.c
 extern int find_offset(void); //at45db161.c
 extern void anzeige_send_int(int val); // anzeige.c
 extern int get_in_buff_len(void); // std?
@@ -171,7 +171,7 @@ extern int auto_setup(void); //keine
 extern int get_eep_int16(int block,int adr); // keine
 extern void wait_ms(int msec); // main.c
 
-
+int toString(char []);
 void send_ACK(char c, char art) ;
 int get_ser_int( char * buff, int* address) ;
 float get_ser_float( char * buff, int * adress);
@@ -205,6 +205,7 @@ int i,k,j;
 int l;
 float f,f2,f1;
 
+
 if (ser_in_flag0 !=0 ) {                                                 // Befehlsdaten empfangen
     ser_in_flag0 --;                                                     // erstes Zeichen = Befehlscode
     b = get_char();
@@ -212,10 +213,74 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
 
         switch (b) { // Hauptschleife *************************************************************************
 
+      	case AllgParameter: // 'J'
+
+        		printf("\n allg Parameter!\n");
+        		int il;
+
+        		i = get_in_buff_len(); // i = Länge des empfangenen Strings
+                il = i;
+        		k =0; j =0; l =0;
+
+                 while(( i> 0 ) && ( k<255)) { // String einlesen get_char() UART2.c, i wird runtergezählt, max. Länge 255
+                	 str[k++] = get_char();
+                     i--;
+                     }
+
+                 str[k++] = ';';
+                 str[k] =0;  // ??? Das ergibt keinen Sinn
+                 char Parametersatz[10];
+                 char Application_[251];
+            	 int ii = 0;int j = 0;
+
+                 Parametersatz[0] = str[2];
+                 Parametersatz[1] = str[3];
+                 Parametersatz[2] = str[4];
+                 int Param;
+                 Param = toString(Parametersatz);
+                 printf ("\n Param: %i \n", Param);
+                 switch(Param)
+                 {
+
+                 case 101: // Befehl 1
+                	 f = get_ser_float(&str[i],&l);
+
+                 case 201: // Application
+                	 for (ii=5; ii <= il; ++ii)
+                	 {
+                		 Application_[j] = str[ii];
+                		 ++j;
+                	 }
+                	 strcpy(rampe1.Application,Application_);
+                	 store_struct((char *) &rampe1, 8, sizeof(rampe1));
+                 case 202: // Memo1
+                	 for (ii=5; ii <= il; ++ii)
+                	 {
+                		 Application_[j] = str[ii];
+                		 ++j;
+                	 }
+                	 strcpy(rampe1.Memo1,Application_);
+                	 store_struct((char *) &rampe1, 8, sizeof(rampe1));
+                 case 203: // Memo2
+                	 for (ii=5; ii <= il; ++ii)
+                	 {
+                		 Application_[j] = str[ii];
+                		 ++j;
+                	 }
+                	 strcpy(rampe1.Memo2,Application_);
+                	 store_struct((char *) &rampe1, 8, sizeof(rampe1));
+
+                 break;
+                 }
 
 
-        	case max_druck_eingabe: // "l"
-                 i = get_in_buff_len(); // i = Länge des empfangenen Strings
+
+            break;
+        	case max_druck_eingabe: // "ll1"
+
+        		printf("\n max Druck!");
+
+        		i = get_in_buff_len(); // i = Länge des empfangenen Strings
                  k =0; j =0; l =0;
 
                  while(( i> 0 ) && ( k<255)) { // String einlesen get_char() UART2.c, i wird runtergezählt, max. Länge 255
@@ -225,7 +290,7 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
 
                  str[k++] = ';';
                  str[k] =0;  // ??? Das ergibt keinen Sinn
-
+                 printf("Das ist der String: %s", str);
                  i =0; k=0;
                  c = str[i++]; // c = str[1]
 
@@ -672,12 +737,12 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
 
           case stop:  //  S
                     if (( main_state== 8)||(main_state ==0) || (main_state==1)) {
-                        l = sdo_reseive(1,0x6040,0); 
+                        l = sdo_receive(1,0x6040,0);
                         wait_ms(2);
                         l |=0x0100;
                         i= sdo_send (1,0x6040, 0,l,2); 
                         wait_ms(2);
-                        l = sdo_reseive(1,0x6040,0); 
+                        l = sdo_receive(1,0x6040,0);
                         wait_ms(2);
                         set_motor_power_off();
                 
@@ -763,10 +828,12 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
 
           case get_druck:  //  f
             //    send_float_val(get_druck, float val) 
-                    strcpy(dummy,"Alaufzeitwerte= ;");
+                    strcpy(dummy,"Ablaufzeitwerte= ;");
                     sprintf(dummy2,"%04.1f;",ist_druck);
+
                     strcat(dummy,dummy2);
-                    sprintf(dummy2,"%04.1f;",max_druck);
+                    sprintf(dummy2,"%04.1f;",Motortemperatur);
+                    /*
                     strcat(dummy,dummy2);
                     sprintf(dummy2,"%02d;",main_state);
                     strcat(dummy,dummy2);
@@ -776,6 +843,7 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
                     strcat(dummy,dummy2);
                     sprintf(dummy2,"%d;",motor_timer);
                     strcat(dummy,dummy2);
+                    */
                     strcat(dummy,"Z");
                     print_f_lf0(dummy); 
           break;
@@ -1281,6 +1349,7 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
 #define set_SR3					'R'
 #define set_SSLimit				'q'
 */
+          /*
           case set_SS1:  //  "J"
               i = get_in_buff_len();k =0; j =0; l =0;
               while(( i> 0 ) && ( k<40)) {str[k++] = get_char();i--; }
@@ -1299,6 +1368,7 @@ if (ser_in_flag0 !=0 ) {                                                 // Befe
                }
             else {  send_ACK(set_SS1, 0); }
           break;
+          */
           case set_SR1:  //  "J"
               i = get_in_buff_len();k =0; j =0; l =0;
               while(( i> 0 ) && ( k<40)) {str[k++] = get_char();i--; }
@@ -1534,3 +1604,33 @@ char str1[20];
   print_f_lf0(str); 
   
 }
+
+
+int toString(char a[]) {
+  int c, sign, offset, n;
+
+  if (a[0] == '-') {  // Handle negative integers
+    sign = -1;
+  }
+
+  if (sign == -1) {  // Set starting position to convert
+    offset = 1;
+  }
+  else {
+    offset = 0;
+  }
+  offset = 0;
+  n = 0;
+
+  for (c = offset; a[c] != '\0'; c++) {
+    n = n * 10 + a[c] - '0';
+  }
+
+  if (sign == -1) {
+    n = -n;
+  }
+
+  return n;
+}
+
+
